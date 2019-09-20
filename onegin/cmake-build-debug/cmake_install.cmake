@@ -1,4 +1,4 @@
-# Install script for directory: /home/vladimir/CLionProjects/onegin
+# Install script for directory: /home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/onegin
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/vladimir/CLionProjects/onegin/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/onegin/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
