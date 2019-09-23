@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/onegin/main.cpp
+algorithm
+-
+cassert
+-
+cctype
+-
+cstdio
+-
+functional
+-
+string_view
+-
+vector
+-
+

@@ -15,8 +15,8 @@
 #include <vector>
 
 // Internal constants
-const char* INPUT_FILENAME = "poem.txt";
-const char* OUTPUT_FILENAME = "boosted_poem.txt";
+const char* INPUT_FILENAME = "../poem.txt";
+const char* OUTPUT_FILENAME = "../boosted_poem.txt";
 const char SEPARATOR = '\n';
 const char STRINGVIEW_SEPARATOR = '\0';
 
@@ -43,37 +43,44 @@ struct EndingLettersCmp {  // Cmp for 2nd point of problem description
 
 int main() {
     // Data structures
-    std::FILE* in_file = std::fopen(INPUT_FILENAME, "r");
+    std::FILE* in_file = std::fopen(INPUT_FILENAME, "r+");  // Does not open
+    assert(in_file != nullptr);
     std::FILE* out_file = std::fopen(OUTPUT_FILENAME, "w");
+    assert(out_file != nullptr);
     TxtManager text_manager;
     text_manager.ReadFormat(in_file);
 
-    text_manager.SortStrings<StartingLettersCmp>();
-    text_manager.WriteSorted(out_file);  // Point 1
+    text_manager.SortStrings<StartingLettersCmp>();  // Point 1
+    text_manager.WriteSorted(out_file);
 
-    text_manager.SortStrings<EndingLettersCmp>();
-    text_manager.WriteSorted(out_file);  // Point 2
+    text_manager.SortStrings<EndingLettersCmp>();  // Point 2
+    text_manager.WriteSorted(out_file);
 
     text_manager.WriteOriginal(out_file);  // Point 3
 
     std::fclose(in_file);
     std::fclose(out_file);
+
     return 0;
 }
 
 TxtManager::TxtManager(): buf(), strings() {}
 
-void TxtManager::ReadFormat(std::FILE* in_file) {
+void TxtManager::ReadFormat(std::FILE* in_file) {  // Зачистка пустых строк при сортировке
     size_t lines_count = 0;
-    size_t idx = 0;
-    while (std::fscanf(in_file,"%c", &buf[idx]) == 1) {
-        if (buf[idx] == SEPARATOR){
-            buf[idx] =  STRINGVIEW_SEPARATOR;
+    std::fseek(in_file, 0, SEEK_END);
+    buf.reserve(std::ftell(in_file));  // Figuring out buf size
+    assert(!buf.empty());
+    std::fseek(in_file, 0, SEEK_SET);
+    std::fread(&buf[0], sizeof(char), buf.size(), in_file);
+    for (size_t idx = 0; idx < buf.size(); ++idx) {
+        if (buf[idx] == SEPARATOR) {
+            buf[idx] = STRINGVIEW_SEPARATOR;
             ++lines_count;
         }
-        ++idx;
     }
-    buf.push_back('\0');
+    assert(!buf.empty());
+    buf.push_back('\0');  // If last SEPARATOR was not provided
 
     strings.reserve(lines_count);
     strings.emplace_back(std::string_view(&buf[0]));
@@ -82,6 +89,7 @@ void TxtManager::ReadFormat(std::FILE* in_file) {
             strings.emplace_back(std::string_view(&buf[i]));
         }
     }
+    assert(!strings.empty());
 }
 
 void TxtManager::WriteSorted(std::FILE* out_file) {
@@ -94,7 +102,7 @@ void TxtManager::WriteSorted(std::FILE* out_file) {
 }
 
 void TxtManager::WriteOriginal(std::FILE* out_file) {
-    for (const char& ch : buf) {
+    for (const char& ch : buf) {  // Running through original buffer
         if (ch == '\0') {
             fputc('\n', out_file);
         } else {
@@ -109,10 +117,11 @@ void TxtManager::SortStrings() {
 }
 
 void TxtManager::SortStrings() {
-    std::sort(strings.begin(), strings.end(), std::greater());
+    std::sort(strings.begin(), strings.end(), std::greater<>());
 }
 
-bool StartingLettersCmp::operator()(const std::string_view& first, const std::string_view& second) const {
+bool StartingLettersCmp::operator()(const std::string_view& first,
+        const std::string_view& second) const {
     size_t i = 0;
     size_t j = 0;
     while (i < first.length() && j < second.length()) {
@@ -133,7 +142,8 @@ bool StartingLettersCmp::operator()(const std::string_view& first, const std::st
     return false;
 }
 
-bool EndingLettersCmp::operator()(const std::string_view& first, const std::string_view& second) const {
+bool EndingLettersCmp::operator()(const std::string_view& first,
+        const std::string_view& second) const {
     size_t i = first.length();
     size_t j = second.length();
     while (i >= 0 && j >= 0) {
