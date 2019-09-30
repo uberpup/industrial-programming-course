@@ -1,4 +1,9 @@
-/*  Problem description:
+/*!
+ * \author Vladimir Tochilin
+ * \date 09.2019
+ */
+
+/*!  Problem description:
     Input file has a poetic text filled with separate lines.
     Output file has to have three versions of the input text:
         1. Sorted lexicographically by letters

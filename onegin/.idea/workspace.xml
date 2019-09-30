@@ -13,6 +13,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3cde214d-edc2-43f2-a14c-e03b304adfdb" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doxyconfig" beforeDir="false" afterPath="$PROJECT_DIR$/doxyconfig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -103,7 +104,7 @@
       <workItem from="1569583646892" duration="830000" />
       <workItem from="1569611228150" duration="682000" />
       <workItem from="1569756952198" duration="599000" />
-      <workItem from="1569761865816" duration="8327000" />
+      <workItem from="1569761865816" duration="9284000" />
     </task>
     <servers />
   </component>
