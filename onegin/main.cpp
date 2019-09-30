@@ -115,15 +115,15 @@ void TxtManager::WriteSorted(std::FILE* out_file) {
     for (const auto& str_view : strings) {
         if (str_view.length() > 0) {
             fputs(&str_view[0], out_file);
-            fputc('\n', out_file);
+            fputc(SEPARATOR, out_file);
         }
     }
 }
 
 void TxtManager::WriteOriginal(std::FILE* out_file) {
     for (const char& ch : buf) {  // Running through original buffer
-        if (ch == '\0') {
-            fputc('\n', out_file);
+        if (ch == STRINGVIEW_SEPARATOR) {
+            fputc(SEPARATOR, out_file);
         } else {
             fputc(ch, out_file);
         }
