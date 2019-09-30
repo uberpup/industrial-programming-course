@@ -30,6 +30,7 @@ struct TxtManager{
     void WriteOriginal(std::FILE* out_file);
 private:
     void ReserveFileSize(std::FILE* in_file);
+    size_t Tokenize(char amputated, char attached);
     std::vector<char> buf;
     std::vector<std::string_view> strings;
 };
@@ -74,15 +75,9 @@ TxtManager::TxtManager():
 
 void TxtManager::ReadFormat(std::FILE* in_file) {  // Зачистка пустых строк при сортировке
     ReserveFileSize(in_file);
-    buf.resize(std::fread(&buf[0], sizeof(char), buf.size(), in_file)); // Resize под размер fread'a
+    buf.resize(std::fread(&buf[0], sizeof(char), buf.size(), in_file)); // in case fread() is smaller
 
-    size_t lines_count = 0;
-    for (size_t idx = 0; idx < buf.size(); ++idx) {  // strtok();
-        if (buf[idx] == SEPARATOR) {
-            buf[idx] = STRINGVIEW_SEPARATOR;
-            ++lines_count;
-        }
-    }
+    auto lines_count = Tokenize(SEPARATOR, STRINGVIEW_SEPARATOR);
     assert(!buf.empty());
     buf.push_back(STRINGVIEW_SEPARATOR);  // If last SEPARATOR was not provided
 
@@ -103,6 +98,17 @@ void TxtManager::ReserveFileSize(std::FILE *in_file) {
     assert(!buf.empty());
 
     std::fseek(in_file, 0, SEEK_SET);
+}
+
+size_t TxtManager::Tokenize(char amputated, char attached) {
+    size_t lines_count = 0;
+    for (size_t idx = 0; idx < buf.size(); ++idx) {
+        if (buf[idx] == amputated) {
+            buf[idx] = attached;
+            ++lines_count;
+        }
+    }
+    return lines_count;
 }
 
 void TxtManager::WriteSorted(std::FILE* out_file) {
