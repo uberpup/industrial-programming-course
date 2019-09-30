@@ -20,25 +20,46 @@ const char* OUTPUT_FILENAME = "../boosted_poem.txt";
 const char SEPARATOR = '\n';
 const char STRINGVIEW_SEPARATOR = '\0';
 
-struct TxtManager{
+//! Struct uniting buffer, strings and operations among them
+struct TxtManager {
+    //! Trivial constructor
     TxtManager();
+
+    //! Reading text from in_file and initialize both buf and strings
     void ReadFormat(std::FILE* in_file);
+
+    //! Sorting strings using template comparator Cmp
     template <typename Cmp>
         void SortStrings();
+
+    //! Sorting strings using std::greater
     void SortStrings();  // Non-template specialization
+
+    //! fputs() of strings after sorting
     void WriteSorted(std::FILE* out_file);
+
+    //! fputs() of strings in the default order
     void WriteOriginal(std::FILE* out_file);
+
+    //! Default destructor
+    ~TxtManager() = default;
 private:
+    //! Allocating memory for buf using fseek() and ftell()
     void ReserveFileSize(std::FILE* in_file);
+
+    //! Swapping amputated with attached in buf
     size_t Tokenize(char amputated, char attached);
+
     std::vector<char> buf;
     std::vector<std::string_view> strings;
 };
 
+//! Cmp for lexicographical order
 struct StartingLettersCmp {  // Cmp for 1st point of problem description
     bool operator()(const std::string_view& first, const std::string_view& second) const;
 };
 
+//! Cmp for lexicographical order in inverted strings
 struct EndingLettersCmp {  // Cmp for 2nd point of problem description
     bool operator()(const std::string_view& first, const std::string_view& second) const;
 };
