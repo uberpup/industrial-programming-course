@@ -29,6 +29,7 @@ struct TxtManager{
     void WriteSorted(std::FILE* out_file);
     void WriteOriginal(std::FILE* out_file);
 private:
+    void ReserveFileSize(std::FILE* in_file);
     std::vector<char> buf;
     std::vector<std::string_view> strings;
 };
@@ -43,12 +44,15 @@ struct EndingLettersCmp {  // Cmp for 2nd point of problem description
 
 int main() {
     // Data structures
-    std::FILE* in_file = std::fopen(INPUT_FILENAME, "r+");  // Does not open
+    std::FILE* in_file = std::fopen(INPUT_FILENAME, "r");
     assert(in_file != nullptr);
+
     std::FILE* out_file = std::fopen(OUTPUT_FILENAME, "w");
     assert(out_file != nullptr);
+
     TxtManager text_manager;
     text_manager.ReadFormat(in_file);
+    std::fclose(in_file);
 
     text_manager.SortStrings<StartingLettersCmp>();  // Point 1
     text_manager.WriteSorted(out_file);
@@ -58,31 +62,31 @@ int main() {
 
     text_manager.WriteOriginal(out_file);  // Point 3
 
-    std::fclose(in_file);
     std::fclose(out_file);
 
     return 0;
 }
 
-TxtManager::TxtManager(): buf(), strings() {}
+TxtManager::TxtManager():
+    buf(),
+    strings()
+    {}
 
 void TxtManager::ReadFormat(std::FILE* in_file) {  // Зачистка пустых строк при сортировке
+    ReserveFileSize(in_file);
+    buf.resize(std::fread(&buf[0], sizeof(char), buf.size(), in_file)); // Resize под размер fread'a
+
     size_t lines_count = 0;
-    std::fseek(in_file, 0, SEEK_END);
-    buf.reserve(std::ftell(in_file));  // Figuring out buf size
-    assert(!buf.empty());
-    std::fseek(in_file, 0, SEEK_SET);
-    std::fread(&buf[0], sizeof(char), buf.size(), in_file);
-    for (size_t idx = 0; idx < buf.size(); ++idx) {
+    for (size_t idx = 0; idx < buf.size(); ++idx) {  // strtok();
         if (buf[idx] == SEPARATOR) {
             buf[idx] = STRINGVIEW_SEPARATOR;
             ++lines_count;
         }
     }
     assert(!buf.empty());
-    buf.push_back('\0');  // If last SEPARATOR was not provided
+    buf.push_back(STRINGVIEW_SEPARATOR);  // If last SEPARATOR was not provided
 
-    strings.reserve(lines_count);
+    strings.reserve(lines_count);  // memchr/strchr/c-шные строки
     strings.emplace_back(std::string_view(&buf[0]));
     for (size_t i = 1; i < buf.size(); ++i) {
         if (buf[i - 1] == STRINGVIEW_SEPARATOR) {
@@ -90,6 +94,15 @@ void TxtManager::ReadFormat(std::FILE* in_file) {  // Зачистка пуст�
         }
     }
     assert(!strings.empty());
+}
+
+void TxtManager::ReserveFileSize(std::FILE *in_file) {
+    std::fseek(in_file, 0, SEEK_END);
+
+    buf.reserve(std::ftell(in_file));
+    assert(!buf.empty());
+
+    std::fseek(in_file, 0, SEEK_SET);
 }
 
 void TxtManager::WriteSorted(std::FILE* out_file) {
@@ -121,7 +134,7 @@ void TxtManager::SortStrings() {
 }
 
 bool StartingLettersCmp::operator()(const std::string_view& first,
-        const std::string_view& second) const {
+        const std::string_view& second) const {  // Объединить компараторы
     size_t i = 0;
     size_t j = 0;
     while (i < first.length() && j < second.length()) {
