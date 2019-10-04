@@ -15,6 +15,7 @@
 #include <cassert>
 #include <cctype>
 #include <cstdio>
+#include <cstring>
 #include <functional>
 #include <string_view>
 #include <vector>
@@ -24,6 +25,7 @@ const char* INPUT_FILENAME = "../poem.txt";
 const char* OUTPUT_FILENAME = "../boosted_poem.txt";
 const char SEPARATOR = '\n';
 const char STRINGVIEW_SEPARATOR = '\0';
+
 
 //! Struct uniting buffer, strings and operations among them
 struct TxtManager {
@@ -41,10 +43,10 @@ struct TxtManager {
     void SortStrings();  // Non-template specialization
 
     //! fputs() of strings after sorting
-    void WriteSorted(std::FILE* out_file);
+    void WriteText(std::FILE* out_file);
 
     //! fputs() of strings in the default order
-    void WriteOriginal(std::FILE* out_file);
+    void WriteBuf(std::FILE* out_file);
 
     //! Default destructor
     ~TxtManager() = default;
@@ -82,12 +84,12 @@ int main() {
     std::fclose(in_file);
 
     text_manager.SortStrings<StartingLettersCmp>();  // Point 1
-    text_manager.WriteSorted(out_file);
+    text_manager.WriteText(out_file);
 
     text_manager.SortStrings<EndingLettersCmp>();  // Point 2
-    text_manager.WriteSorted(out_file);
+    text_manager.WriteText(out_file);
 
-    text_manager.WriteOriginal(out_file);  // Point 3
+    text_manager.WriteBuf(out_file);  // Point 3
 
     std::fclose(out_file);
 
@@ -99,7 +101,7 @@ TxtManager::TxtManager():
     strings()
     {}
 
-void TxtManager::ReadFormat(std::FILE* in_file) {  // Зачистка пустых строк при сортировке
+void TxtManager::ReadFormat(std::FILE* in_file) {
     ReserveFileSize(in_file);
     buf.resize(std::fread(&buf[0], sizeof(char), buf.size(), in_file)); // in case fread() is smaller
 
@@ -107,7 +109,7 @@ void TxtManager::ReadFormat(std::FILE* in_file) {  // Зачистка пуст�
     assert(!buf.empty());
     buf.push_back(STRINGVIEW_SEPARATOR);  // If last SEPARATOR was not provided
 
-    strings.reserve(lines_count);  // memchr/strchr/c-шные строки
+    strings.reserve(lines_count);
     strings.emplace_back(std::string_view(&buf[0]));
     for (size_t i = 1; i < buf.size(); ++i) {
         if (buf[i - 1] == STRINGVIEW_SEPARATOR) {
@@ -137,7 +139,7 @@ size_t TxtManager::Tokenize(char amputated, char attached) {
     return lines_count;
 }
 
-void TxtManager::WriteSorted(std::FILE* out_file) {
+void TxtManager::WriteText(std::FILE* out_file) {
     for (const auto& str_view : strings) {
         if (str_view.length() > 0) {
             fputs(&str_view[0], out_file);
@@ -146,7 +148,7 @@ void TxtManager::WriteSorted(std::FILE* out_file) {
     }
 }
 
-void TxtManager::WriteOriginal(std::FILE* out_file) {
+void TxtManager::WriteBuf(std::FILE* out_file) {
     for (const char& ch : buf) {  // Running through original buffer
         if (ch == STRINGVIEW_SEPARATOR) {
             fputc(SEPARATOR, out_file);
@@ -166,7 +168,7 @@ void TxtManager::SortStrings() {
 }
 
 bool StartingLettersCmp::operator()(const std::string_view& first,
-        const std::string_view& second) const {  // Объединить компараторы
+        const std::string_view& second) const {  // Объединить компараторы - улучшу с 8 до 10
     size_t i = 0;
     size_t j = 0;
     while (i < first.length() && j < second.length()) {
