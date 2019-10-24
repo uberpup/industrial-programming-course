@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/ImmortalStack/dump.cpp" "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/ImmortalStack/cmake-build-debug/CMakeFiles/ImmortalStack.dir/dump.cpp.o"
   "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/ImmortalStack/im_stack.cpp" "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/ImmortalStack/cmake-build-debug/CMakeFiles/ImmortalStack.dir/im_stack.cpp.o"
   "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/ImmortalStack/main.cpp" "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/ImmortalStack/cmake-build-debug/CMakeFiles/ImmortalStack.dir/main.cpp.o"
   )

@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/ImmortalStack.dir/main.cpp.o"
   "CMakeFiles/ImmortalStack.dir/im_stack.cpp.o"
+  "CMakeFiles/ImmortalStack.dir/dump.cpp.o"
   "ImmortalStack.pdb"
   "ImmortalStack"
 )

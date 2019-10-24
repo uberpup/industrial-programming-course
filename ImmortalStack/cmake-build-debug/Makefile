@@ -123,6 +123,33 @@ ImmortalStack/fast:
 	$(MAKE) -f CMakeFiles/ImmortalStack.dir/build.make CMakeFiles/ImmortalStack.dir/build
 .PHONY : ImmortalStack/fast
 
+dump.o: dump.cpp.o
+
+.PHONY : dump.o
+
+# target to build an object file
+dump.cpp.o:
+	$(MAKE) -f CMakeFiles/ImmortalStack.dir/build.make CMakeFiles/ImmortalStack.dir/dump.cpp.o
+.PHONY : dump.cpp.o
+
+dump.i: dump.cpp.i
+
+.PHONY : dump.i
+
+# target to preprocess a source file
+dump.cpp.i:
+	$(MAKE) -f CMakeFiles/ImmortalStack.dir/build.make CMakeFiles/ImmortalStack.dir/dump.cpp.i
+.PHONY : dump.cpp.i
+
+dump.s: dump.cpp.s
+
+.PHONY : dump.s
+
+# target to generate assembly for a file
+dump.cpp.s:
+	$(MAKE) -f CMakeFiles/ImmortalStack.dir/build.make CMakeFiles/ImmortalStack.dir/dump.cpp.s
+.PHONY : dump.cpp.s
+
 im_stack.o: im_stack.cpp.o
 
 .PHONY : im_stack.o
@@ -186,6 +213,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... ImmortalStack"
 	@echo "... edit_cache"
+	@echo "... dump.o"
+	@echo "... dump.i"
+	@echo "... dump.s"
 	@echo "... im_stack.o"
 	@echo "... im_stack.i"
 	@echo "... im_stack.s"

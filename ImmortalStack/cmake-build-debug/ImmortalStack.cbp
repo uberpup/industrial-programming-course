@@ -84,6 +84,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/ImmortalStack/dump.cpp">
+			<Option target="ImmortalStack"/>
+		</Unit>
+		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/ImmortalStack/dump.h">
+			<Option target="ImmortalStack"/>
+		</Unit>
 		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/ImmortalStack/im_stack.cpp">
 			<Option target="ImmortalStack"/>
 		</Unit>
