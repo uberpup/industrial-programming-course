@@ -9,13 +9,16 @@
 
 const char* DUMPFILENAME = "./dump_file";
 
+//! Template Dump class
 template <typename T>
 class Dump {
 
     Dump();
     Dump(const T& structure);
 
+    //! Prints dump_message in dump_file
     void PrintFailMessage();
+    //! Generates dump_message in dump_file
     void GenerateFailMessage();
 
     std::FILE* dump_file = std::fopen(DUMPFILENAME, "w");

@@ -127,7 +127,7 @@ void ImStack<T>::InitHash() {
 template <typename T>
 void ImStack<T>::InitPoison() {
     for (size_t i = sz + 1; i < capacity - 1; ++i) {
-        buf[i] = std::hash<T>(POISON);
+        buf[i] = reinterpret_cast<T>(POISON);
     }
 }
 
@@ -154,27 +154,34 @@ bool ImStack<T>::OK() {
     if (this == nullptr) {
         return false;
     }
+
     if (sz > capacity) {
         return false;
     }
+
     if (capacity > MAXSIZE) {
         return false;
     }
+
     if (buf[0] != reinterpret_cast<T>(CANARYVALUE_S)) {
         return false;
     }
+
     if (buf[capacity - 1] != reinterpret_cast<T>(CANARYVALUE_E)) {
         return false;
     }
+
     for (size_t i = 0; i < sz; ++i) {
         if (hash_buf[i] != std::hash<T>(buf[i])) {
             return false;
         }
     }
+
     for (size_t i = sz; i < capacity; ++i) {
         if (hash_buf[i] != std::hash<T>(POISON)) {
             return false;
         }
     }
+
     return true;
 }

@@ -2,6 +2,7 @@
 #include "im_stack.h"
 
 
+//! Dump class implementation for ImStack
 template <class T>
 class Dump<ImStack<T>> {
 
