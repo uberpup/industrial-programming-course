@@ -22,11 +22,12 @@ class Dump<ImStack<T>> {
     }
 
     void GenerateFailMessage() {
-        dump_message = "Failure on" + address;
+        dump_message = "Failure on";
     }
 
     void PrintFailMessage() {
-        fprintf(dump_file, "%s\n", dump_message);
+        fprintf(dump_file, "%s ", dump_message);
+        fprintf(dump_file, "%s\n", address);
         fprintf(dump_file, "%s\n", "data: ");
         for (size_t i = 0; i < structure_capacity; ++i) {
             fprintf(dump_file, "%s\n", data[i]);
@@ -43,6 +44,7 @@ class Dump<ImStack<T>> {
 
     ~Dump() {
         std::fclose(dump_file);
+        free(data);
     }
 
 };

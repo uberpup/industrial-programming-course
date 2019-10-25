@@ -42,6 +42,10 @@ ImStack<T>::ImStack(std::initializer_list<T> init_list) : sz(init_list.size()),
     buf = (T*) calloc(sizeof(T), capacity);
     hash_buf = (size_t*) calloc(sizeof(size_t), capacity);
 
+    for (size_t i = 1; i < sz + 1; ++i) {
+        buf[i] = init_list[i - 1];
+    }
+
     InitCanaries();
     InitPoison();
     InitHash();
@@ -86,7 +90,8 @@ void ImStack<T>::pop() verified ({
     if (!sz) {
         Dump<ImStack<T>>();
     } else {
-        buf[sz] = std::hash<T>(POISON);
+        buf[sz] = reinterpret_cast<T>(POISON);
+        hash_buf[sz] = std::hash<T>(buf[sz]);
         --sz;
     }
 })
@@ -177,10 +182,14 @@ bool ImStack<T>::OK() {
         }
     }
 
-    for (size_t i = sz; i < capacity; ++i) {
-        if (hash_buf[i] != std::hash<T>(POISON)) {
+    for (size_t i = sz; i < capacity - 1; ++i) {
+        if (hash_buf[i] != std::hash<T>(reinterpret_cast<T>(POISON))) {
             return false;
         }
+    }
+
+    if (hash_buf[capacity - 1] != std::hash<T>(buf[capacity - 1])) {
+        return false;
     }
 
     return true;

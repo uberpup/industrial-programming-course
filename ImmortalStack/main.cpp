@@ -10,8 +10,9 @@
 
 #include <iostream>
 #include "im_stack.h"
+//#include "dump.h"
 
 int main() {
-    ImStack<size_t> stack;
+    auto stack = ImStack<size_t>();
     return 0;
 }

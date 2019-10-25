@@ -6,12 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/ImmortalStack/dump.cpp
-dump.h
-/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/ImmortalStack/dump.h
-im_stack.h
-/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/ImmortalStack/im_stack.h
-
 /home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/ImmortalStack/dump.h
 cstdint
 -
@@ -33,4 +27,10 @@ stack
 -
 dump.h
 /home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/ImmortalStack/dump.h
+
+/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/ImmortalStack/main.cpp
+iostream
+-
+im_stack.h
+/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/ImmortalStack/im_stack.h
 

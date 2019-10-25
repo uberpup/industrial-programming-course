@@ -7,7 +7,7 @@
 #include <type_traits>
 #include <vector>
 
-const char* DUMPFILENAME = "./dump_file";
+const char* DUMPFILENAME = "./dump_file.txt";
 
 //! Template Dump class
 template <typename T>
