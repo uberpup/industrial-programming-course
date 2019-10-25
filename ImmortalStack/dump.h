@@ -7,23 +7,22 @@
 #include <type_traits>
 #include <vector>
 
+const char* DUMPFILENAME = "./dump_file";
+
 template <typename T>
 class Dump {
+
     Dump();
-    Dump(const char* const expr, const char* const file_name,
-         size_t line_number, const char* const msg, const T& structure);
+    Dump(const T& structure);
+
     void PrintFailMessage();
     void GenerateFailMessage();
 
-    const char* expression;
-    const char* file_name;
-    std::string message;
-    std::vector<std::string> dump_message;
-    size_t line_number;
-
+    std::FILE* dump_file = std::fopen(DUMPFILENAME, "w");
+    const char* dump_message;
     const char* type_name;
     const void* address;
-    const size_t structure_size;
+    const size_t structure_capacity;
     const T* data;
 
 

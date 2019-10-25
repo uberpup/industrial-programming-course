@@ -10,10 +10,10 @@
     if(OK()) {\
         code\
         if(!OK()) {\
-            Dump<ImStack<T>>()();\
+            Dump<ImStack<T>>(*this);\
         }\
     } else {\
-        Dump<ImStack<T>>()();\
+        Dump<ImStack<T>>(*this);\
     }    \
 }
 
@@ -45,9 +45,9 @@ private:
     const size_t MAXSIZE = 1024 * 1024 * 1024 / sizeof(T);  // Gb
     size_t sz;
     size_t capacity;
-
     // starting canary - buf[0], ending canary - buf[capacity - 1]
     T* buf;
+    size_t* hash_buf;
 
     const size_t POISON = 0xAAAAAAAAAAAAA;
     const size_t CANARYVALUE_S = 0xA3A3A3A3A3A3A;
@@ -58,6 +58,7 @@ private:
     void Reallocate();
     void InitCanaries();
     void InitPoison();
+    void InitHash();
 
     friend Dump<ImStack<T>>;
 };

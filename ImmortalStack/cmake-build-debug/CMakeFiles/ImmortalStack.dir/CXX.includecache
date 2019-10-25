@@ -24,10 +24,6 @@ type_traits
 vector
 -
 
-/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/ImmortalStack/im_stack.cpp
-im_stack.h
-/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/ImmortalStack/im_stack.h
-
 /home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/ImmortalStack/im_stack.h
 cassert
 -
@@ -37,10 +33,4 @@ stack
 -
 dump.h
 /home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/ImmortalStack/dump.h
-
-/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/ImmortalStack/main.cpp
-iostream
--
-im_stack.h
-/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/ImmortalStack/im_stack.h
 

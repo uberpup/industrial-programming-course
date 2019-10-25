@@ -4,46 +4,44 @@
 
 template <class T>
 class Dump<ImStack<T>> {
-    const char* expression;
-    const char* file_name;
-    std::string message;
-    std::vector<const char *> dump_message;
-    size_t line_number;
 
-    const char* type_name;
-    const void* address;
-    const size_t structure_size;
-    const T* data;
+    Dump(): structure_capacity(0), data(), type_name(), dump_message(),
+            address() {}
 
-    Dump(): structure_size(0), data(), type_name(), line_number(0),
-                     expression(), file_name(), message(), dump_message() {}
-
-    Dump(const char* const expr, const char* const file_name,
-                  size_t line_number, const char* const msg, const T& structure)
-                  : expression(expr),
-                    file_name(file_name), line_number(line_number),
-                    message(msg), dump_message() {
+    explicit Dump(const T& structure)
+                  : dump_message() {
 
         address = &structure;
         type_name = typeid(T).name();
-        structure_size = structure.sz;
+        structure_capacity = structure.capacity;
         data = std::move(structure.data);
+
+        GenerateFailMessage();
+        PrintFailMessage();
     }
 
     void GenerateFailMessage() {
-        dump_message.push_back("Failed! from" + file_name);
-        dump_message.push_back(type_name + "on" + address);
-        dump_message.push_back("Error code = ");
-        dump_message.push_back("size = " + structure_size);
-        for (size_t i = 0; i < structure_size; ++i) {
-            dump_message.push_back("data[" + std::to_string(i) + "] = " + data[i]);
-        }
+        dump_message = "Failure on" + address;
     }
 
     void PrintFailMessage() {
-        for (const auto& str : dump_message) {
-            printf("%s\n", str);
+        fprintf(dump_file, "%s\n", dump_message);
+        fprintf(dump_file, "%s\n", "data: ");
+        for (size_t i = 0; i < structure_capacity; ++i) {
+            fprintf(dump_file, "%s\n", data[i]);
         }
+    }
+
+
+    std::FILE* dump_file = std::fopen(DUMPFILENAME, "w");
+    const char* dump_message;
+    const char* type_name;
+    const void* address;
+    const size_t structure_capacity;
+    const T* data;
+
+    ~Dump() {
+        std::fclose(dump_file);
     }
 
 };
@@ -61,3 +59,11 @@ class Dump<ImStack<T>> {
  *      }
  * }
  */
+
+/*dump_message.push_back("Failed! from" + file_name);
+    dump_message.push_back(type_name + "on" + address);
+    dump_message.push_back("Error code = ");
+    dump_message.push_back("size = " + structure_capacity);
+    for (size_t i = 0; i < structure_capacity; ++i) {
+        dump_message.push_back("data[" + std::to_string(i) + "] = " + data[i]);
+*/
