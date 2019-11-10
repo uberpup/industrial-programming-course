@@ -1,10 +1,6 @@
 #include "Akinator.h"
-#include <iostream>
-#include <memory>
-#include <string>
-
-/* Fixes: smart pointers/ string_view
- * Features: graphviz, festival */
+/* Fixes: string_view
+ * Features: graphviz, festival. Managed to install */
 
 int main() {
     Akinator akinator;

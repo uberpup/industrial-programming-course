@@ -1,6 +1,8 @@
 #ifndef AKINATOR_MIPT_AKINATOR_H
 #define AKINATOR_MIPT_AKINATOR_H
 
+#include <algorithm>
+#include <iostream>
 #include <string>
 #include "tree.h"
 
@@ -13,7 +15,7 @@ public:
     void Operate();
     void PrintFeatures();
     ~Akinator();
-    void Add(std::string ans);
+    void Add(std::string name, std::string feature);
 
 private:
     struct QuestionNode : Tree<std::string>::PureNode {
@@ -28,7 +30,11 @@ private:
         AnswerNode() = default;
         ~AnswerNode() = default;
     };
-
+    static void PrintRules();
+    void FirstStep();
+    void ChooseMode();
+    void SaveTree();
+    void BreakMessage();
     std::weak_ptr<QuestionNode> Traverse();
     std::weak_ptr<QuestionNode> current_node;
     std::weak_ptr<QuestionNode> root;
