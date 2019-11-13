@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/Akinator.cpp
+Akinator.h
+/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/Akinator.h
+
+/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/Akinator.h
+algorithm
+-
+iostream
+-
+string
+-
+tree.h
+/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/tree.h
+
+/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/tree.h
+memory
+-
+

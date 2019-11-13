@@ -177,6 +177,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/Akinator_mipt.dir/build.make CMakeFiles/Akinator_mipt.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+string_operations.o: string_operations.cpp.o
+
+.PHONY : string_operations.o
+
+# target to build an object file
+string_operations.cpp.o:
+	$(MAKE) -f CMakeFiles/Akinator_mipt.dir/build.make CMakeFiles/Akinator_mipt.dir/string_operations.cpp.o
+.PHONY : string_operations.cpp.o
+
+string_operations.i: string_operations.cpp.i
+
+.PHONY : string_operations.i
+
+# target to preprocess a source file
+string_operations.cpp.i:
+	$(MAKE) -f CMakeFiles/Akinator_mipt.dir/build.make CMakeFiles/Akinator_mipt.dir/string_operations.cpp.i
+.PHONY : string_operations.cpp.i
+
+string_operations.s: string_operations.cpp.s
+
+.PHONY : string_operations.s
+
+# target to generate assembly for a file
+string_operations.cpp.s:
+	$(MAKE) -f CMakeFiles/Akinator_mipt.dir/build.make CMakeFiles/Akinator_mipt.dir/string_operations.cpp.s
+.PHONY : string_operations.cpp.s
+
 tree.o: tree.cpp.o
 
 .PHONY : tree.o
@@ -219,6 +246,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... string_operations.o"
+	@echo "... string_operations.i"
+	@echo "... string_operations.s"
 	@echo "... tree.o"
 	@echo "... tree.i"
 	@echo "... tree.s"

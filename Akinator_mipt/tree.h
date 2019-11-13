@@ -6,8 +6,7 @@ template <typename T>
 class Tree {
 public:
     Tree();
-    ~Tree();
-    void Add();             // arg
+    ~Tree() = default;
 
 protected:
     struct PureNode {
@@ -23,8 +22,8 @@ protected:
         Node() = default;
         ~Node() = default;
     };
-    std::weak_ptr<PureNode> Traverse();
-
+    void Add();             // arg
+    void Traverse();
     std::weak_ptr<Node> root;
 };
 #endif //AKINATOR_MIPT_TREE_H

@@ -2,6 +2,7 @@
   <dictionary name="vladimir">
     <words>
       <w>akinator</w>
+      <w>tolower</w>
     </words>
   </dictionary>
 </component>

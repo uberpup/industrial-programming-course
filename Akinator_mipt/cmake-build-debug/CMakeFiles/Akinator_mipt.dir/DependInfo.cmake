@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/Akinator.cpp" "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/cmake-build-debug/CMakeFiles/Akinator_mipt.dir/Akinator.cpp.o"
   "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/main.cpp" "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/cmake-build-debug/CMakeFiles/Akinator_mipt.dir/main.cpp.o"
+  "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/string_operations.cpp" "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/cmake-build-debug/CMakeFiles/Akinator_mipt.dir/string_operations.cpp.o"
   "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/tree.cpp" "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/cmake-build-debug/CMakeFiles/Akinator_mipt.dir/tree.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
