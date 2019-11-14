@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <set>
+#include <stack>
 #include <string>
 #include <vector>
 #include "tree.h"
@@ -22,11 +23,13 @@ private:
         std::weak_ptr<Akinator::QuestionNode> no;
         std::weak_ptr<Akinator::QuestionNode> yes;
         std::weak_ptr<Akinator::QuestionNode> parent;
+        bool is_question = true;
         QuestionNode() = default;
         QuestionNode(const std::string& value);
         ~QuestionNode() = default;
     };
     struct AnswerNode : QuestionNode {
+        bool is_question = false;
         AnswerNode() = default;
         AnswerNode(const std::string& value);
         ~AnswerNode() = default;
@@ -40,6 +43,7 @@ private:
     std::weak_ptr<QuestionNode> Step(bool direction);
     void Add(const std::string& name, const std::string& feature);
     void Add(const std::string& name, bool direction);
+    void AddToRoot(const std::string& name, const std::string& feature);
     void Describe(const std::string& name);
 
     bool IsPresent(const std::string& name);
@@ -53,6 +57,7 @@ private:
     std::weak_ptr<QuestionNode> current_node;
     std::weak_ptr<QuestionNode> root;
     std::set<std::string> names;
+    bool exit = false;
 };
 
 #endif //AKINATOR_MIPT_AKINATOR_H

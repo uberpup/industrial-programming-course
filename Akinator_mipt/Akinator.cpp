@@ -17,9 +17,6 @@ void Akinator::Operate() {
     PrintRules();
     FirstStep();
     ChooseMode();
-    // Тут конструируем узлы
-    // Step в for'e
-    // Вопрос с режимом в каждой итерации
 }
 
 void Akinator::Add(const std::string& name, const std::string& feature = "") {
@@ -46,7 +43,7 @@ void Akinator::Add(const std::string& name, bool direction) {
         names.insert(str_tolower(name));
     } else {
         std::cout << "Sorry, but " << name << "is already in tree." << std::endl;
-        std::cout << "His her features are:" << std::endl;
+        std::cout << "His/her features are:" << std::endl;
         Describe(name);
         return;
     }
@@ -61,12 +58,38 @@ void Akinator::Add(const std::string& name, bool direction) {
     }
 }
 
+void Akinator::AddToRoot(const std::string& name, const std::string& feature) {
+    auto new_question_ptr = std::make_shared<QuestionNode>(feature + "?");
+    root.lock()->yes =  std::weak_ptr<QuestionNode>(new_question_ptr);
+
+    current_node = root.lock()->yes;
+    auto new_node_ptr = std::make_shared<AnswerNode>(name);
+    new_node_ptr->parent = current_node;
+    current_node.lock()->yes = std::weak_ptr<AnswerNode>(new_node_ptr);
+}
+
 bool Akinator::IsPresent(const std::string& name) {
     return !(names.find(str_tolower(name)) == names.end());
 }
 
 void Akinator::Traverse() {
-    // pre-order
+    auto current = root;
+    if (!current.lock()) {
+        return;
+    }
+    std::stack<std::weak_ptr<Akinator::QuestionNode>> node_stack;
+    node_stack.push(current);
+    while (!node_stack.empty()) {
+        current = node_stack.top();
+        // output.push_back(current->key);
+        node_stack.pop();
+        if (current.lock()->yes.lock()) {
+            node_stack.push(current.lock()->yes);
+        }
+        if (current.lock()->no.lock()) {
+            node_stack.push(current.lock()->no);
+        }
+    }
 }
 
 std::weak_ptr<Akinator::QuestionNode> Akinator::Step(bool direction) {
@@ -114,7 +137,7 @@ void Akinator::FirstStep() {
     std::cout << "And his/her feature" << std::endl;
     std::cin >> feature;
     feature = str_tolower(feature);
-    Add(name, feature);
+    AddToRoot(name, feature);
 }
 
 void Akinator::BreakMessage() {
@@ -125,23 +148,58 @@ void Akinator::BreakMessage() {
 
     switch (in) {
         case 0:
-            ChooseMode();
-            break;
+            return;
         case 1:
             SaveTree();
+            exit = true;
             std::cout << "Goodbye!" << std::endl;
-            break;
+            return;
         case 2:
+            exit = true;
             std::cout << "Goodbye!" << std::endl;
-            break;
+            return;
         default:
             std::cout << "Inappropriate data. Consider checking the rules!";
             BreakMessage();
-            break;
     }
 }
 
-void Akinator::BuildGuessMode() {}
+void Akinator::BuildGuessMode() {  // Сделать циклом
+
+    while (current_node.lock() && current_node.lock()->is_question) {
+        std::string answer;
+        std::cout << current_node.lock()->key << std::endl;
+        std::cin >> answer;
+        answer = str_tolower(answer);
+
+        bool destination = false;
+        if (answer == "yes") {
+            destination = true;
+        } else if (answer != "no") {
+            std::cout << "Incorrect answer. Answer either Yes or No." << std::endl;
+            continue;
+        }
+        Step(destination);
+    }
+    if (!current_node.lock()->is_question) {
+        std::cout << "Is it " << current_node.lock()->key << " ?" << std::endl;
+        std::string answer;
+        std::cin >> answer;
+        answer = str_tolower(answer);
+        if (answer == "yes") {
+            std::cout << "Yeah!";
+            return;
+        } else {
+            std::string name, feature;
+            std::cout << "Oh. Who is your character?" << std::endl;
+            std::cin >> name;
+            std::cout << "Then what differs " << current_node.lock()->key
+                    << " and " << name << " ?";
+            std::cin >> feature;
+            Add(name, feature);
+        }
+    }
+}
 
 void Akinator::DescribingMode() {}
 
@@ -150,30 +208,32 @@ void Akinator::DistinguishingMode() {}
 void Akinator::SaveTree() {}
 
 void Akinator::ChooseMode() {
-    std::cout << "Choose the mode: " << std::endl;
-    char in = take_first_from_input();
+    while (!exit) {
+        std::cout << "Choose the mode: " << std::endl;
+        char in = take_first_from_input();
 
-    switch(in) {
-        case 0:         // Guess - build
-            BuildGuessMode();
-            break;
-        case 1:         // Describe
-            DescribingMode();
-            break;
-        case 2:         // Distinguish
-            DistinguishingMode();
-            break;
-        case 3:         // Write
-            SaveTree();
-            break;
-        case 4:         // Exit
-            BreakMessage();
-            break;
-        default:
-            std::cout << "Inappropriate data. Consider checking the rules!";
-            ChooseMode();
-            break;
+        switch (in) {
+            case 0:         // Guess - build
+                BuildGuessMode();
+                break;
+            case 1:         // Describe
+                DescribingMode();
+                break;
+            case 2:         // Distinguish
+                DistinguishingMode();
+                break;
+            case 3:         // Write
+                SaveTree();
+                break;
+            case 4:         // Exit
+                BreakMessage();
+                break;
+            default:
+                std::cout << "Inappropriate data. Consider checking the rules!";
+                ChooseMode();
+                break;
 
+        }
     }
 
 }
