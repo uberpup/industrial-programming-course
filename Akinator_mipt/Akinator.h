@@ -39,7 +39,9 @@ private:
     void FirstStep();
     void ChooseMode();
 
-    void Traverse();
+    void Traverse(const std::string& target
+            = "");
+    std::stack<std::weak_ptr<QuestionNode>> WayToRoot(std::weak_ptr<QuestionNode> node);
     std::weak_ptr<QuestionNode> Step(bool direction);
     void Add(const std::string& name, const std::string& feature);
     void Add(const std::string& name, bool direction);

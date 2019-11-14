@@ -72,13 +72,20 @@ bool Akinator::IsPresent(const std::string& name) {
     return !(names.find(str_tolower(name)) == names.end());
 }
 
-void Akinator::Traverse() {
+void Akinator::Traverse(const std::string& target) {
     auto current = root;
     if (!current.lock()) {
         return;
     }
+
+    if (current.lock()->key == target) {
+        current_node = current;
+        return;
+    }
+
     std::stack<std::weak_ptr<Akinator::QuestionNode>> node_stack;
     node_stack.push(current);
+
     while (!node_stack.empty()) {
         current = node_stack.top();
         // output.push_back(current->key);
@@ -107,7 +114,35 @@ std::weak_ptr<Akinator::QuestionNode> Akinator::Step(bool direction) {
     }
 }
 
-void Akinator::Describe(const std::string& name) {}
+void Akinator::Describe(const std::string& name) {
+    Traverse(name);
+
+    std::stack<std::weak_ptr<QuestionNode>> d_stack;
+    if (current_node.lock() == root.lock()) {
+        std::cout << name << " is not found" << std::endl;
+        return;
+    }
+
+    std::cout << name << "'s description: " << std::endl;
+
+    while (current_node.lock() != root.lock()) {
+        d_stack.push(current_node);
+        current_node = current_node.lock()->parent;
+    }
+
+    for (size_t i = 0; i < d_stack.size() - 1; ++i) {
+        // Нужно проверять направления
+        auto top = d_stack.top();
+        d_stack.pop();
+        if (top.lock()->yes.lock() == d_stack.top().lock()) {
+            std::cout << "This character is " << d_stack.top().lock()->key
+                    << std::endl;
+        } else {
+            std::cout << "This character is not " << d_stack.top().lock()->key
+                    << std::endl;
+        }
+    }
+}
 
 void Akinator::PrintRules() {
     printf("%s", "Hello, this is MIPT Akinator."
@@ -164,8 +199,7 @@ void Akinator::BreakMessage() {
     }
 }
 
-void Akinator::BuildGuessMode() {  // Сделать циклом
-
+void Akinator::BuildGuessMode() {
     while (current_node.lock() && current_node.lock()->is_question) {
         std::string answer;
         std::cout << current_node.lock()->key << std::endl;
@@ -201,7 +235,16 @@ void Akinator::BuildGuessMode() {  // Сделать циклом
     }
 }
 
-void Akinator::DescribingMode() {}
+void Akinator::DescribingMode() {
+    std::string name;
+    std::cout << "Enter the name of your character " << std::endl;
+    std::cin >> name;
+    if (IsPresent(name)) {
+        Describe(name);
+    } else {
+        std::cout << "Seems like your character is not added yet";
+    }
+}
 
 void Akinator::DistinguishingMode() {}
 
