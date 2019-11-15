@@ -25,13 +25,13 @@ private:
         std::weak_ptr<Akinator::QuestionNode> parent;
         bool is_question = true;
         QuestionNode() = default;
-        QuestionNode(const std::string& value);
+        explicit QuestionNode(const std::string& value);
         ~QuestionNode() = default;
     };
     struct AnswerNode : QuestionNode {
         bool is_question = false;
         AnswerNode() = default;
-        AnswerNode(const std::string& value);
+        explicit AnswerNode(const std::string& value);
         ~AnswerNode() = default;
     };
 
@@ -39,14 +39,14 @@ private:
     void FirstStep();
     void ChooseMode();
 
-    void Traverse(const std::string& target
-            = "");
-    std::stack<std::weak_ptr<QuestionNode>> WayToRoot(std::weak_ptr<QuestionNode> node);
-    std::weak_ptr<QuestionNode> Step(bool direction);
+    void Traverse(const std::string& target = "");
+    void Step(bool direction);
     void Add(const std::string& name, const std::string& feature);
     void Add(const std::string& name, bool direction);
     void AddToRoot(const std::string& name, const std::string& feature);
-    void Describe(const std::string& name);
+    std::stack<std::weak_ptr<QuestionNode>> Describe(const std::string& name,
+            const int mode = 0);
+    void Distinguish(const std::string& name1, const std::string& name2);
 
     bool IsPresent(const std::string& name);
 

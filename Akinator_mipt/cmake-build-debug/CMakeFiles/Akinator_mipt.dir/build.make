@@ -70,62 +70,77 @@ CMakeFiles/Akinator_mipt.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Akinator_mipt.dir/main.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/main.cpp" -o CMakeFiles/Akinator_mipt.dir/main.cpp.s
 
-CMakeFiles/Akinator_mipt.dir/Akinator.cpp.o: CMakeFiles/Akinator_mipt.dir/flags.make
-CMakeFiles/Akinator_mipt.dir/Akinator.cpp.o: ../Akinator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Akinator_mipt.dir/Akinator.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Akinator_mipt.dir/Akinator.cpp.o -c "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/Akinator.cpp"
+CMakeFiles/Akinator_mipt.dir/sources/Akinator.cpp.o: CMakeFiles/Akinator_mipt.dir/flags.make
+CMakeFiles/Akinator_mipt.dir/sources/Akinator.cpp.o: ../sources/Akinator.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Akinator_mipt.dir/sources/Akinator.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Akinator_mipt.dir/sources/Akinator.cpp.o -c "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/sources/Akinator.cpp"
 
-CMakeFiles/Akinator_mipt.dir/Akinator.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Akinator_mipt.dir/Akinator.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/Akinator.cpp" > CMakeFiles/Akinator_mipt.dir/Akinator.cpp.i
+CMakeFiles/Akinator_mipt.dir/sources/Akinator.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Akinator_mipt.dir/sources/Akinator.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/sources/Akinator.cpp" > CMakeFiles/Akinator_mipt.dir/sources/Akinator.cpp.i
 
-CMakeFiles/Akinator_mipt.dir/Akinator.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Akinator_mipt.dir/Akinator.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/Akinator.cpp" -o CMakeFiles/Akinator_mipt.dir/Akinator.cpp.s
+CMakeFiles/Akinator_mipt.dir/sources/Akinator.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Akinator_mipt.dir/sources/Akinator.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/sources/Akinator.cpp" -o CMakeFiles/Akinator_mipt.dir/sources/Akinator.cpp.s
 
-CMakeFiles/Akinator_mipt.dir/tree.cpp.o: CMakeFiles/Akinator_mipt.dir/flags.make
-CMakeFiles/Akinator_mipt.dir/tree.cpp.o: ../tree.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Akinator_mipt.dir/tree.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Akinator_mipt.dir/tree.cpp.o -c "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/tree.cpp"
+CMakeFiles/Akinator_mipt.dir/sources/tree.cpp.o: CMakeFiles/Akinator_mipt.dir/flags.make
+CMakeFiles/Akinator_mipt.dir/sources/tree.cpp.o: ../sources/tree.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Akinator_mipt.dir/sources/tree.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Akinator_mipt.dir/sources/tree.cpp.o -c "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/sources/tree.cpp"
 
-CMakeFiles/Akinator_mipt.dir/tree.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Akinator_mipt.dir/tree.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/tree.cpp" > CMakeFiles/Akinator_mipt.dir/tree.cpp.i
+CMakeFiles/Akinator_mipt.dir/sources/tree.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Akinator_mipt.dir/sources/tree.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/sources/tree.cpp" > CMakeFiles/Akinator_mipt.dir/sources/tree.cpp.i
 
-CMakeFiles/Akinator_mipt.dir/tree.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Akinator_mipt.dir/tree.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/tree.cpp" -o CMakeFiles/Akinator_mipt.dir/tree.cpp.s
+CMakeFiles/Akinator_mipt.dir/sources/tree.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Akinator_mipt.dir/sources/tree.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/sources/tree.cpp" -o CMakeFiles/Akinator_mipt.dir/sources/tree.cpp.s
 
-CMakeFiles/Akinator_mipt.dir/string_operations.cpp.o: CMakeFiles/Akinator_mipt.dir/flags.make
-CMakeFiles/Akinator_mipt.dir/string_operations.cpp.o: ../string_operations.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Akinator_mipt.dir/string_operations.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Akinator_mipt.dir/string_operations.cpp.o -c "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/string_operations.cpp"
+CMakeFiles/Akinator_mipt.dir/sources/string_operations.cpp.o: CMakeFiles/Akinator_mipt.dir/flags.make
+CMakeFiles/Akinator_mipt.dir/sources/string_operations.cpp.o: ../sources/string_operations.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Akinator_mipt.dir/sources/string_operations.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Akinator_mipt.dir/sources/string_operations.cpp.o -c "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/sources/string_operations.cpp"
 
-CMakeFiles/Akinator_mipt.dir/string_operations.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Akinator_mipt.dir/string_operations.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/string_operations.cpp" > CMakeFiles/Akinator_mipt.dir/string_operations.cpp.i
+CMakeFiles/Akinator_mipt.dir/sources/string_operations.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Akinator_mipt.dir/sources/string_operations.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/sources/string_operations.cpp" > CMakeFiles/Akinator_mipt.dir/sources/string_operations.cpp.i
 
-CMakeFiles/Akinator_mipt.dir/string_operations.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Akinator_mipt.dir/string_operations.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/string_operations.cpp" -o CMakeFiles/Akinator_mipt.dir/string_operations.cpp.s
+CMakeFiles/Akinator_mipt.dir/sources/string_operations.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Akinator_mipt.dir/sources/string_operations.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/sources/string_operations.cpp" -o CMakeFiles/Akinator_mipt.dir/sources/string_operations.cpp.s
+
+CMakeFiles/Akinator_mipt.dir/sources/tree_dot_converter.cpp.o: CMakeFiles/Akinator_mipt.dir/flags.make
+CMakeFiles/Akinator_mipt.dir/sources/tree_dot_converter.cpp.o: ../sources/tree_dot_converter.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Akinator_mipt.dir/sources/tree_dot_converter.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Akinator_mipt.dir/sources/tree_dot_converter.cpp.o -c "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/sources/tree_dot_converter.cpp"
+
+CMakeFiles/Akinator_mipt.dir/sources/tree_dot_converter.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Akinator_mipt.dir/sources/tree_dot_converter.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/sources/tree_dot_converter.cpp" > CMakeFiles/Akinator_mipt.dir/sources/tree_dot_converter.cpp.i
+
+CMakeFiles/Akinator_mipt.dir/sources/tree_dot_converter.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Akinator_mipt.dir/sources/tree_dot_converter.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/sources/tree_dot_converter.cpp" -o CMakeFiles/Akinator_mipt.dir/sources/tree_dot_converter.cpp.s
 
 # Object files for target Akinator_mipt
 Akinator_mipt_OBJECTS = \
 "CMakeFiles/Akinator_mipt.dir/main.cpp.o" \
-"CMakeFiles/Akinator_mipt.dir/Akinator.cpp.o" \
-"CMakeFiles/Akinator_mipt.dir/tree.cpp.o" \
-"CMakeFiles/Akinator_mipt.dir/string_operations.cpp.o"
+"CMakeFiles/Akinator_mipt.dir/sources/Akinator.cpp.o" \
+"CMakeFiles/Akinator_mipt.dir/sources/tree.cpp.o" \
+"CMakeFiles/Akinator_mipt.dir/sources/string_operations.cpp.o" \
+"CMakeFiles/Akinator_mipt.dir/sources/tree_dot_converter.cpp.o"
 
 # External object files for target Akinator_mipt
 Akinator_mipt_EXTERNAL_OBJECTS =
 
 Akinator_mipt: CMakeFiles/Akinator_mipt.dir/main.cpp.o
-Akinator_mipt: CMakeFiles/Akinator_mipt.dir/Akinator.cpp.o
-Akinator_mipt: CMakeFiles/Akinator_mipt.dir/tree.cpp.o
-Akinator_mipt: CMakeFiles/Akinator_mipt.dir/string_operations.cpp.o
+Akinator_mipt: CMakeFiles/Akinator_mipt.dir/sources/Akinator.cpp.o
+Akinator_mipt: CMakeFiles/Akinator_mipt.dir/sources/tree.cpp.o
+Akinator_mipt: CMakeFiles/Akinator_mipt.dir/sources/string_operations.cpp.o
+Akinator_mipt: CMakeFiles/Akinator_mipt.dir/sources/tree_dot_converter.cpp.o
 Akinator_mipt: CMakeFiles/Akinator_mipt.dir/build.make
 Akinator_mipt: CMakeFiles/Akinator_mipt.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable Akinator_mipt"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable Akinator_mipt"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Akinator_mipt.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

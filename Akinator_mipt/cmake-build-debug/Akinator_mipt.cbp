@@ -34,6 +34,9 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/."/>
+					<Add directory="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/headers"/>
+					<Add directory="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/sources"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -57,6 +60,9 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
+					<Add directory="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/."/>
+					<Add directory="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/headers"/>
+					<Add directory="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/sources"/>
 					<Add directory="/usr/include/c++/7"/>
 					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
 					<Add directory="/usr/include/c++/7/backward"/>
@@ -84,22 +90,31 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/Akinator.cpp">
+		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/headers/Akinator.h">
 			<Option target="Akinator_mipt"/>
 		</Unit>
-		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/Akinator.h">
+		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/headers/string_operations.h">
+			<Option target="Akinator_mipt"/>
+		</Unit>
+		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/headers/tree.h">
+			<Option target="Akinator_mipt"/>
+		</Unit>
+		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/headers/tree_dot_converter.h">
 			<Option target="Akinator_mipt"/>
 		</Unit>
 		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/main.cpp">
 			<Option target="Akinator_mipt"/>
 		</Unit>
-		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/string_operations.cpp">
+		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/sources/Akinator.cpp">
 			<Option target="Akinator_mipt"/>
 		</Unit>
-		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/tree.cpp">
+		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/sources/string_operations.cpp">
 			<Option target="Akinator_mipt"/>
 		</Unit>
-		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/tree.h">
+		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/sources/tree.cpp">
+			<Option target="Akinator_mipt"/>
+		</Unit>
+		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/sources/tree_dot_converter.cpp">
 			<Option target="Akinator_mipt"/>
 		</Unit>
 		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/CMakeLists.txt">

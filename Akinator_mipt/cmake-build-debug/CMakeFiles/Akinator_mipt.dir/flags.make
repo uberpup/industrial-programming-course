@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -std=gnu++1z
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = 
+CXX_INCLUDES = -I"/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/." -I"/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/headers" -I"/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/sources" 
 

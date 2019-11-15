@@ -1,7 +1,7 @@
 #include "Akinator.h"
-#include "string_operations.cpp"
+#include "string_operations.h"
 
-Akinator::Akinator(): Tree<std::string>(), current_node(), names() {
+Akinator::Akinator(): current_node(), names() {
     current_node = root;
 }
 
@@ -99,7 +99,8 @@ void Akinator::Traverse(const std::string& target) {
     }
 }
 
-std::weak_ptr<Akinator::QuestionNode> Akinator::Step(bool direction) {
+void Akinator::Step(bool direction) {
+
     if (direction && current_node.lock()->yes.lock()) {     // has "yes" child
         current_node = current_node.lock()->yes;
     }
@@ -114,13 +115,14 @@ std::weak_ptr<Akinator::QuestionNode> Akinator::Step(bool direction) {
     }
 }
 
-void Akinator::Describe(const std::string& name) {
-    Traverse(name);
+std::stack<std::weak_ptr<Akinator::QuestionNode>> Akinator::Describe(
+        const std::string& name, const int mode) {
+    Traverse(str_tolower(name));
 
     std::stack<std::weak_ptr<QuestionNode>> d_stack;
     if (current_node.lock() == root.lock()) {
         std::cout << name << " is not found" << std::endl;
-        return;
+        return {};
     }
 
     std::cout << name << "'s description: " << std::endl;
@@ -128,6 +130,10 @@ void Akinator::Describe(const std::string& name) {
     while (current_node.lock() != root.lock()) {
         d_stack.push(current_node);
         current_node = current_node.lock()->parent;
+    }
+
+    if (mode) {
+        return d_stack;
     }
 
     for (size_t i = 0; i < d_stack.size() - 1; ++i) {
@@ -142,6 +148,13 @@ void Akinator::Describe(const std::string& name) {
                     << std::endl;
         }
     }
+    return {};
+}
+
+void Akinator::Distinguish(const std::string& name1, const std::string& name2) {
+    auto stack_one = Describe(name1);
+    auto stack_two = Describe(name2);
+    // Пройтись по стекам
 }
 
 void Akinator::PrintRules() {
@@ -194,7 +207,8 @@ void Akinator::BreakMessage() {
             std::cout << "Goodbye!" << std::endl;
             return;
         default:
-            std::cout << "Inappropriate data. Consider checking the rules!";
+            std::cout << "Inappropriate data. Consider checking the rules!"
+                    << std::endl;
             BreakMessage();
     }
 }
@@ -210,7 +224,8 @@ void Akinator::BuildGuessMode() {
         if (answer == "yes") {
             destination = true;
         } else if (answer != "no") {
-            std::cout << "Incorrect answer. Answer either Yes or No." << std::endl;
+            std::cout << "Incorrect answer. Answer either Yes or No."
+                    << std::endl;
             continue;
         }
         Step(destination);
@@ -228,7 +243,7 @@ void Akinator::BuildGuessMode() {
             std::cout << "Oh. Who is your character?" << std::endl;
             std::cin >> name;
             std::cout << "Then what differs " << current_node.lock()->key
-                    << " and " << name << " ?";
+                    << " and " << name << " ?" << std::endl;
             std::cin >> feature;
             Add(name, feature);
         }
@@ -242,11 +257,17 @@ void Akinator::DescribingMode() {
     if (IsPresent(name)) {
         Describe(name);
     } else {
-        std::cout << "Seems like your character is not added yet";
+        std::cout << "Seems like your character is not added yet" << std::endl;
     }
 }
 
-void Akinator::DistinguishingMode() {}
+void Akinator::DistinguishingMode() {
+    std::string name1;
+    std::string name2;
+    std::cout << "Enter the two names of distinguished ones" << std::endl;
+    std::cin >> name1 >> name2;
+    Distinguish(name1, name2);
+}
 
 void Akinator::SaveTree() {}
 
@@ -272,7 +293,8 @@ void Akinator::ChooseMode() {
                 BreakMessage();
                 break;
             default:
-                std::cout << "Inappropriate data. Consider checking the rules!";
+                std::cout << "Inappropriate data. Consider checking the rules!"
+                        << std::endl;
                 ChooseMode();
                 break;
 

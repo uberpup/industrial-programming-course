@@ -123,33 +123,6 @@ Akinator_mipt/fast:
 	$(MAKE) -f CMakeFiles/Akinator_mipt.dir/build.make CMakeFiles/Akinator_mipt.dir/build
 .PHONY : Akinator_mipt/fast
 
-Akinator.o: Akinator.cpp.o
-
-.PHONY : Akinator.o
-
-# target to build an object file
-Akinator.cpp.o:
-	$(MAKE) -f CMakeFiles/Akinator_mipt.dir/build.make CMakeFiles/Akinator_mipt.dir/Akinator.cpp.o
-.PHONY : Akinator.cpp.o
-
-Akinator.i: Akinator.cpp.i
-
-.PHONY : Akinator.i
-
-# target to preprocess a source file
-Akinator.cpp.i:
-	$(MAKE) -f CMakeFiles/Akinator_mipt.dir/build.make CMakeFiles/Akinator_mipt.dir/Akinator.cpp.i
-.PHONY : Akinator.cpp.i
-
-Akinator.s: Akinator.cpp.s
-
-.PHONY : Akinator.s
-
-# target to generate assembly for a file
-Akinator.cpp.s:
-	$(MAKE) -f CMakeFiles/Akinator_mipt.dir/build.make CMakeFiles/Akinator_mipt.dir/Akinator.cpp.s
-.PHONY : Akinator.cpp.s
-
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -177,59 +150,113 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/Akinator_mipt.dir/build.make CMakeFiles/Akinator_mipt.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-string_operations.o: string_operations.cpp.o
+sources/Akinator.o: sources/Akinator.cpp.o
 
-.PHONY : string_operations.o
-
-# target to build an object file
-string_operations.cpp.o:
-	$(MAKE) -f CMakeFiles/Akinator_mipt.dir/build.make CMakeFiles/Akinator_mipt.dir/string_operations.cpp.o
-.PHONY : string_operations.cpp.o
-
-string_operations.i: string_operations.cpp.i
-
-.PHONY : string_operations.i
-
-# target to preprocess a source file
-string_operations.cpp.i:
-	$(MAKE) -f CMakeFiles/Akinator_mipt.dir/build.make CMakeFiles/Akinator_mipt.dir/string_operations.cpp.i
-.PHONY : string_operations.cpp.i
-
-string_operations.s: string_operations.cpp.s
-
-.PHONY : string_operations.s
-
-# target to generate assembly for a file
-string_operations.cpp.s:
-	$(MAKE) -f CMakeFiles/Akinator_mipt.dir/build.make CMakeFiles/Akinator_mipt.dir/string_operations.cpp.s
-.PHONY : string_operations.cpp.s
-
-tree.o: tree.cpp.o
-
-.PHONY : tree.o
+.PHONY : sources/Akinator.o
 
 # target to build an object file
-tree.cpp.o:
-	$(MAKE) -f CMakeFiles/Akinator_mipt.dir/build.make CMakeFiles/Akinator_mipt.dir/tree.cpp.o
-.PHONY : tree.cpp.o
+sources/Akinator.cpp.o:
+	$(MAKE) -f CMakeFiles/Akinator_mipt.dir/build.make CMakeFiles/Akinator_mipt.dir/sources/Akinator.cpp.o
+.PHONY : sources/Akinator.cpp.o
 
-tree.i: tree.cpp.i
+sources/Akinator.i: sources/Akinator.cpp.i
 
-.PHONY : tree.i
+.PHONY : sources/Akinator.i
 
 # target to preprocess a source file
-tree.cpp.i:
-	$(MAKE) -f CMakeFiles/Akinator_mipt.dir/build.make CMakeFiles/Akinator_mipt.dir/tree.cpp.i
-.PHONY : tree.cpp.i
+sources/Akinator.cpp.i:
+	$(MAKE) -f CMakeFiles/Akinator_mipt.dir/build.make CMakeFiles/Akinator_mipt.dir/sources/Akinator.cpp.i
+.PHONY : sources/Akinator.cpp.i
 
-tree.s: tree.cpp.s
+sources/Akinator.s: sources/Akinator.cpp.s
 
-.PHONY : tree.s
+.PHONY : sources/Akinator.s
 
 # target to generate assembly for a file
-tree.cpp.s:
-	$(MAKE) -f CMakeFiles/Akinator_mipt.dir/build.make CMakeFiles/Akinator_mipt.dir/tree.cpp.s
-.PHONY : tree.cpp.s
+sources/Akinator.cpp.s:
+	$(MAKE) -f CMakeFiles/Akinator_mipt.dir/build.make CMakeFiles/Akinator_mipt.dir/sources/Akinator.cpp.s
+.PHONY : sources/Akinator.cpp.s
+
+sources/string_operations.o: sources/string_operations.cpp.o
+
+.PHONY : sources/string_operations.o
+
+# target to build an object file
+sources/string_operations.cpp.o:
+	$(MAKE) -f CMakeFiles/Akinator_mipt.dir/build.make CMakeFiles/Akinator_mipt.dir/sources/string_operations.cpp.o
+.PHONY : sources/string_operations.cpp.o
+
+sources/string_operations.i: sources/string_operations.cpp.i
+
+.PHONY : sources/string_operations.i
+
+# target to preprocess a source file
+sources/string_operations.cpp.i:
+	$(MAKE) -f CMakeFiles/Akinator_mipt.dir/build.make CMakeFiles/Akinator_mipt.dir/sources/string_operations.cpp.i
+.PHONY : sources/string_operations.cpp.i
+
+sources/string_operations.s: sources/string_operations.cpp.s
+
+.PHONY : sources/string_operations.s
+
+# target to generate assembly for a file
+sources/string_operations.cpp.s:
+	$(MAKE) -f CMakeFiles/Akinator_mipt.dir/build.make CMakeFiles/Akinator_mipt.dir/sources/string_operations.cpp.s
+.PHONY : sources/string_operations.cpp.s
+
+sources/tree.o: sources/tree.cpp.o
+
+.PHONY : sources/tree.o
+
+# target to build an object file
+sources/tree.cpp.o:
+	$(MAKE) -f CMakeFiles/Akinator_mipt.dir/build.make CMakeFiles/Akinator_mipt.dir/sources/tree.cpp.o
+.PHONY : sources/tree.cpp.o
+
+sources/tree.i: sources/tree.cpp.i
+
+.PHONY : sources/tree.i
+
+# target to preprocess a source file
+sources/tree.cpp.i:
+	$(MAKE) -f CMakeFiles/Akinator_mipt.dir/build.make CMakeFiles/Akinator_mipt.dir/sources/tree.cpp.i
+.PHONY : sources/tree.cpp.i
+
+sources/tree.s: sources/tree.cpp.s
+
+.PHONY : sources/tree.s
+
+# target to generate assembly for a file
+sources/tree.cpp.s:
+	$(MAKE) -f CMakeFiles/Akinator_mipt.dir/build.make CMakeFiles/Akinator_mipt.dir/sources/tree.cpp.s
+.PHONY : sources/tree.cpp.s
+
+sources/tree_dot_converter.o: sources/tree_dot_converter.cpp.o
+
+.PHONY : sources/tree_dot_converter.o
+
+# target to build an object file
+sources/tree_dot_converter.cpp.o:
+	$(MAKE) -f CMakeFiles/Akinator_mipt.dir/build.make CMakeFiles/Akinator_mipt.dir/sources/tree_dot_converter.cpp.o
+.PHONY : sources/tree_dot_converter.cpp.o
+
+sources/tree_dot_converter.i: sources/tree_dot_converter.cpp.i
+
+.PHONY : sources/tree_dot_converter.i
+
+# target to preprocess a source file
+sources/tree_dot_converter.cpp.i:
+	$(MAKE) -f CMakeFiles/Akinator_mipt.dir/build.make CMakeFiles/Akinator_mipt.dir/sources/tree_dot_converter.cpp.i
+.PHONY : sources/tree_dot_converter.cpp.i
+
+sources/tree_dot_converter.s: sources/tree_dot_converter.cpp.s
+
+.PHONY : sources/tree_dot_converter.s
+
+# target to generate assembly for a file
+sources/tree_dot_converter.cpp.s:
+	$(MAKE) -f CMakeFiles/Akinator_mipt.dir/build.make CMakeFiles/Akinator_mipt.dir/sources/tree_dot_converter.cpp.s
+.PHONY : sources/tree_dot_converter.cpp.s
 
 # Help Target
 help:
@@ -240,18 +267,21 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... Akinator_mipt"
 	@echo "... edit_cache"
-	@echo "... Akinator.o"
-	@echo "... Akinator.i"
-	@echo "... Akinator.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... string_operations.o"
-	@echo "... string_operations.i"
-	@echo "... string_operations.s"
-	@echo "... tree.o"
-	@echo "... tree.i"
-	@echo "... tree.s"
+	@echo "... sources/Akinator.o"
+	@echo "... sources/Akinator.i"
+	@echo "... sources/Akinator.s"
+	@echo "... sources/string_operations.o"
+	@echo "... sources/string_operations.i"
+	@echo "... sources/string_operations.s"
+	@echo "... sources/tree.o"
+	@echo "... sources/tree.i"
+	@echo "... sources/tree.s"
+	@echo "... sources/tree_dot_converter.o"
+	@echo "... sources/tree_dot_converter.i"
+	@echo "... sources/tree_dot_converter.s"
 .PHONY : help
 
 

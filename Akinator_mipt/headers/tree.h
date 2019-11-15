@@ -5,7 +5,7 @@
 template <typename T>
 class Tree {
 public:
-    Tree();
+    Tree() = default;
     ~Tree() = default;
 
 protected:

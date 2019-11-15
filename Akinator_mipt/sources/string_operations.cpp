@@ -1,6 +1,4 @@
-#include <algorithm>
-#include <iostream>
-#include <string>
+#include "string_operations.h"
 
 std::string str_tolower(std::string str) {
     std::transform(str.begin(), str.end(), str.begin(),
@@ -16,5 +14,4 @@ char take_first_from_input() {
     // ignoring the other part of it
     return in;
 }
-
 
