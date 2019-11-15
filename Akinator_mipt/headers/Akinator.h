@@ -15,13 +15,12 @@ class Akinator : public Tree<std::string> {
 public:
     Akinator();
     void Operate();
-    void PrintFeatures();
     ~Akinator() = default;
 
 private:
     struct QuestionNode : Tree<std::string>::PureNode {
-        std::weak_ptr<Akinator::QuestionNode> no;
-        std::weak_ptr<Akinator::QuestionNode> yes;
+        std::shared_ptr<Akinator::QuestionNode> no;
+        std::shared_ptr<Akinator::QuestionNode> yes;
         std::weak_ptr<Akinator::QuestionNode> parent;
         bool is_question = true;
         QuestionNode() = default;
@@ -44,8 +43,8 @@ private:
     void Add(const std::string& name, const std::string& feature);
     void Add(const std::string& name, bool direction);
     void AddToRoot(const std::string& name, const std::string& feature);
-    std::stack<std::weak_ptr<QuestionNode>> Describe(const std::string& name,
-            const int mode = 0);
+    std::stack<std::shared_ptr<QuestionNode>> Describe(const std::string& name,
+            int mode = 0);
     void Distinguish(const std::string& name1, const std::string& name2);
 
     bool IsPresent(const std::string& name);
@@ -56,8 +55,8 @@ private:
     void SaveTree();
     void BreakMessage();
 
-    std::weak_ptr<QuestionNode> current_node;
-    std::weak_ptr<QuestionNode> root;
+    std::shared_ptr<QuestionNode> current_node;
+    std::shared_ptr<QuestionNode> root;
     std::set<std::string> names;
     bool exit = false;
 };
