@@ -22,13 +22,12 @@ private:
         std::shared_ptr<Akinator::QuestionNode> no;
         std::shared_ptr<Akinator::QuestionNode> yes;
         std::weak_ptr<Akinator::QuestionNode> parent;
-        bool is_question = true;
+        bool is_question{};
         QuestionNode() = default;
         explicit QuestionNode(const std::string& value);
         ~QuestionNode() = default;
     };
     struct AnswerNode : QuestionNode {
-        bool is_question = false;
         AnswerNode() = default;
         explicit AnswerNode(const std::string& value);
         ~AnswerNode() = default;

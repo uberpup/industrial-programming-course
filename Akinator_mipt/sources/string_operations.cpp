@@ -10,8 +10,8 @@ std::string str_tolower(std::string str) {
 char take_first_from_input() {
     std::string input;
     std::cin >> input;
-    char in = input[0];     // Checking the first char of input,
+    // Checking the first char of input,
     // ignoring the other part of it
-    return in;
+    return input[0];
 }
 

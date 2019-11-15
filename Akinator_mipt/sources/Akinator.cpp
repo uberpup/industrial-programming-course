@@ -5,12 +5,13 @@ Akinator::Akinator(): root(std::make_shared<QuestionNode>()), names() {
     current_node = root;
 }
 
-Akinator::QuestionNode::QuestionNode(const std::string& value) {
+Akinator::QuestionNode::QuestionNode(const std::string& value) : is_question(true) {
     key = value;
 }
 
 Akinator::AnswerNode::AnswerNode(const std::string& value) {
     key = value;
+    is_question = false;
 }
 
 void Akinator::Operate() {
@@ -70,7 +71,7 @@ void Akinator::Add(const std::string& name, bool direction) {
 
 void Akinator::AddToRoot(const std::string& name, const std::string& feature) {
     root->yes =
-            std::make_shared<QuestionNode>(feature);      //Seg fault
+            std::make_shared<QuestionNode>(feature);
 
     current_node = root->yes;
     current_node->yes = std::make_shared<AnswerNode>(name);
@@ -112,15 +113,18 @@ void Akinator::Step(bool direction) {
 
     if (direction && current_node->yes != nullptr) {     // has "yes" child
         current_node = current_node->yes;
+        return;
     }
     if (!direction && current_node->no != nullptr) {
         current_node = current_node->no;
+        return;
     } else {
         printf("%s", "There's no one with given features."
                      " Who is your object?\n");
         std::string name;
         std::cin >> name;
         Add(name, direction);
+        ChooseMode();
     }
 }
 
@@ -224,7 +228,7 @@ void Akinator::BreakMessage() {
 void Akinator::BuildGuessMode() {
     while (current_node && current_node->is_question) {
         std::string answer;
-        printf("%s%s", current_node->key.c_str(), "\n");
+        printf("%s%s", current_node->key.c_str(), "?\n");
         std::cin >> answer;
         answer = str_tolower(answer);
 
@@ -243,7 +247,8 @@ void Akinator::BuildGuessMode() {
         std::cin >> answer;
         answer = str_tolower(answer);
         if (answer == "yes") {
-            printf("%s", "Yeah!");
+            printf("%s", "Yeah!\n");
+            current_node = root->yes;
             return;
         } else {
             std::string name, feature;
@@ -254,6 +259,7 @@ void Akinator::BuildGuessMode() {
                     " ?\n");
             std::cin >> feature;
             Add(name, feature);
+            current_node = root->yes;
         }
     }
 }
@@ -285,19 +291,19 @@ void Akinator::ChooseMode() {
         char in = take_first_from_input();
 
         switch (in) {
-            case 0:         // Guess - build
+            case '0':         // Guess - build
                 BuildGuessMode();
                 break;
-            case 1:         // Describe
+            case '1':         // Describe
                 DescribingMode();
                 break;
-            case 2:         // Distinguish
+            case '2':         // Distinguish
                 DistinguishingMode();
                 break;
-            case 3:         // Write
+            case '3':         // Write
                 SaveTree();
                 break;
-            case 4:         // Exit
+            case '4':         // Exit
                 BreakMessage();
                 break;
             default:
