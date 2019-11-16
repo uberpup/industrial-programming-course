@@ -58,6 +58,7 @@ private:
     std::shared_ptr<QuestionNode> root;
     std::set<std::string> names;
     bool exit = false;
+    int current_mode;
 };
 
 #endif //AKINATOR_MIPT_AKINATOR_H

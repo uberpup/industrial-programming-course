@@ -1,7 +1,7 @@
 #include "Akinator.h"
 #include "string_operations.h"
 
-Akinator::Akinator(): root(std::make_shared<QuestionNode>()), names() {
+Akinator::Akinator(): root(std::make_shared<QuestionNode>()), names(), current_mode(-1) {
     current_node = root;
 }
 
@@ -98,7 +98,6 @@ void Akinator::Traverse(const std::string& target) {
 
     while (!node_stack.empty()) {
         current = node_stack.top();
-        // output.push_back(current->key);
         node_stack.pop();
         if (current->yes) {
             node_stack.push(current->yes);
@@ -122,7 +121,7 @@ void Akinator::Step(bool direction) {
         printf("%s", "There's no one with given features."
                      " Who is your object?\n");
         std::string name;
-        std::cin >> name;
+        std::getline(std::cin, name);
         Add(name, direction);
         ChooseMode();
     }
@@ -172,8 +171,8 @@ void Akinator::Distinguish(const std::string& name1, const std::string& name2) {
 
 void Akinator::PrintRules() {
     printf("%s", "Hello, this is MIPT Akinator."
-                 " You either build my by yourself,"
-                 " or load dot-file of mipt-format"
+                 " You either build me by yourself,"
+                 " or load dot-file of mipt-format proposal 1"
                  " (More on github.com/andtit2001/mipt-format).\n"
                  " To build a tree you need to start with initializing first"
                  " object and his/her differentiating feature.\n"
@@ -193,10 +192,10 @@ void Akinator::FirstStep() {
     std::string name;
     std::string feature;
     printf("%s", "Add the first object\n");
-    std::cin >> name;
+    std::getline(std::cin, name);
     name = str_tolower(name);
     printf("%s", "And his/her feature\n");
-    std::cin >> feature;
+    std::getline(std::cin, feature);
     feature = str_tolower(feature);
     AddToRoot(name, feature);
 }
@@ -208,14 +207,14 @@ void Akinator::BreakMessage() {
     char in = take_first_from_input();
 
     switch (in) {
-        case 0:
+        case '0':
             return;
-        case 1:
+        case '1':
             SaveTree();
             exit = true;
             printf("%s", "Goodbye!\n");
             return;
-        case 2:
+        case '2':
             exit = true;
             printf("%s", "Goodbye!\n");
             return;
@@ -229,7 +228,7 @@ void Akinator::BuildGuessMode() {
     while (current_node && current_node->is_question) {
         std::string answer;
         printf("%s%s", current_node->key.c_str(), "?\n");
-        std::cin >> answer;
+        std::getline(std::cin, answer);
         answer = str_tolower(answer);
 
         bool destination = false;
@@ -242,9 +241,9 @@ void Akinator::BuildGuessMode() {
         Step(destination);
     }
     if (!current_node->is_question) {
-        printf("%s%s%s","Is it ", current_node->key.c_str(), " ?\n");
+        printf("%s%s%s","Is it ", current_node->key.c_str(), "?\n");
         std::string answer;
-        std::cin >> answer;
+        std::getline(std::cin, answer);
         answer = str_tolower(answer);
         if (answer == "yes") {
             printf("%s", "Yeah!\n");
@@ -253,11 +252,11 @@ void Akinator::BuildGuessMode() {
         } else {
             std::string name, feature;
             printf("%s", "Oh. Who is your object?\n");
-            std::cin >> name;
+            std::getline(std::cin, name);
             printf("%s%s%s%s%s", "Then what distinguishes ",
                     current_node->key.c_str(), " and ", name.c_str(),
-                    " ?\n");
-            std::cin >> feature;
+                    "?\n");
+            std::getline(std::cin, feature);
             Add(name, feature);
             current_node = root->yes;
         }
@@ -267,7 +266,7 @@ void Akinator::BuildGuessMode() {
 void Akinator::DescribingMode() {
     std::string name;
     printf("%s", "Enter the name of your object\n");
-    std::cin >> name;
+    std::getline(std::cin, name);
     if (IsPresent(name)) {
         Describe(name);
     } else {
@@ -278,8 +277,9 @@ void Akinator::DescribingMode() {
 void Akinator::DistinguishingMode() {
     std::string name1;
     std::string name2;
-    printf("%s", "Enter the two names of distinguished ones\n");
-    std::cin >> name1 >> name2;
+    printf("%s", "Enter the two names of distinguished ones on separate lines\n");
+    std::getline(std::cin, name1);
+    std::getline(std::cin, name2);
     Distinguish(name1, name2);
 }
 
