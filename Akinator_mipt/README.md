@@ -7,4 +7,4 @@ How to play? Build the project using CMake, further steps would be hinted in the
 
 Links:
 * [About Akinator](https://en.wikipedia.org/wiki/Akinator)
-* [About mipt-format]https://github.com/andtit2001/mipt-format/blob/master/proposals/papers/P1.pdf
+* [About mipt-format](https://github.com/andtit2001/mipt-format/blob/master/proposals/papers/P1.pdf)
