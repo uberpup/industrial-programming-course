@@ -144,11 +144,9 @@ std::stack<std::shared_ptr<Akinator::QuestionNode>> Akinator::Describe(
 
     std::stack<std::shared_ptr<QuestionNode>> d_stack;
     if (current_node == root) {
-        printf("%s%s", name.c_str(), " is not found\n");
+        printf("%s%s\n", name.c_str(), " is not found");
         return {};
     }
-
-    printf("%s%s", name.c_str(), "'s description: \n");
 
     while (current_node != root) {
         d_stack.push(current_node);
@@ -158,29 +156,44 @@ std::stack<std::shared_ptr<Akinator::QuestionNode>> Akinator::Describe(
     if (mode) {
         return d_stack;
     }
+
+    printf("%s%s\n", name.c_str(), "'s description:");
+
     size_t d_sz = d_stack.size() - 1;
     for (size_t i = 0; i < d_sz; ++i) {
         // Нужно проверять направления
         auto top = d_stack.top();
         d_stack.pop();
         if (top->yes == d_stack.top()) {
-            printf("%s%s%s", "This object is ",
-                    top->key.c_str(), "\n");
+            printf("%s%s\n", "This object is ",
+                    top->key.c_str());
         } else {
-            printf("%s%s%s", "This object is not ",
-                    top->key.c_str(), "\n");
+            printf("%s%s\n", "This object is not ",
+                    top->key.c_str());
         }
     }
     return {};
 }
 
 void Akinator::Distinguish(const std::string& name1, const std::string& name2) {
-    auto stack_one = Describe(name1);
-    auto stack_two = Describe(name2);
+    auto stack_one = Describe(name1, 1);
+    auto stack_two = Describe(name2, 1);
     if (!(IsPresent(name1) && IsPresent(name2))) {
-        printf("%s", "Seems like one of given objects is not in the tree yet\n");
+        printf("%s\n", "Seems like one of given objects is not in the tree yet");
     }
-    // Пройтись по стекам
+    auto top = stack_one.top();
+    while (stack_one.top() == stack_two.top()) {
+        top = stack_one.top();
+        stack_one.pop();
+        stack_two.pop();
+    }
+    if (top->yes == stack_one.top()) {
+        printf("%s%s%s%s %s\n", name1.c_str(), " unlike ", name2.c_str(),
+                " is", top->key.c_str());
+    } else {
+        printf("%s%s%s%s %s\n", name2.c_str(), " unlike ", name1.c_str(),
+                " is", top->key.c_str());
+    }
 }
 
 void Akinator::PrintRules() {
@@ -205,19 +218,19 @@ void Akinator::PrintRules() {
 void Akinator::FirstStep() {
     std::string name;
     std::string feature;
-    printf("%s", "Add the first object\n");
+    printf("%s\n", "Add the first object");
     std::getline(std::cin, name);
     name = str_tolower(name);
-    printf("%s", "And his/her feature\n");
+    printf("%s\n", "And his/her feature");
     std::getline(std::cin, feature);
     feature = str_tolower(feature);
     AddToRoot(name, feature);
 }
 
 void Akinator::BreakMessage() {
-    printf("%s", "Type 0 to go on the previous step,"
+    printf("%s\n", "Type 0 to go on the previous step,"
                  " 1 to save the current tree and exit,"
-                 " 2 to exit without preservation\n");
+                 " 2 to exit without preservation");
     char in = take_first_from_input();
 
     switch (in) {
@@ -226,14 +239,14 @@ void Akinator::BreakMessage() {
         case '1':
             SaveTree();
             exit = true;
-            printf("%s", "Goodbye!\n");
+            printf("%s\n", "Goodbye!");
             return;
         case '2':
             exit = true;
-            printf("%s", "Goodbye!\n");
+            printf("%s\n", "Goodbye!");
             return;
         default:
-            printf("%s", "Inappropriate data. Consider checking the rules!\n");
+            printf("%s\n", "Inappropriate data. Consider checking the rules!");
             BreakMessage();
     }
 }
@@ -241,7 +254,7 @@ void Akinator::BreakMessage() {
 void Akinator::BuildGuessMode() {
     while (current_node && current_node->is_question) {
         std::string answer;
-        printf("%s%s", current_node->key.c_str(), "?\n");
+        printf("%s%s\n", current_node->key.c_str(), "?");
         std::getline(std::cin, answer);
         answer = str_tolower(answer);
 
@@ -249,27 +262,27 @@ void Akinator::BuildGuessMode() {
         if (answer == "yes") {
             destination = true;
         } else if (answer != "no") {
-            printf("%s", "Incorrect answer. Answer either Yes or No.\n");
+            printf("%s\n", "Incorrect answer. Answer either Yes or No.");
             continue;
         }
         Step(destination);
     }
     if (!current_node->is_question) {
-        printf("%s%s%s","Is it ", current_node->key.c_str(), "?\n");
+        printf("%s%s%s\n","Is it ", current_node->key.c_str(), "?");
         std::string answer;
         std::getline(std::cin, answer);
         answer = str_tolower(answer);
         if (answer == "yes") {
-            printf("%s", "Yeah!\n");
+            printf("%s\n", "Yeah!");
             current_node = root->yes;
             return;
         } else {
             std::string name, feature;
-            printf("%s", "Oh. Who is your object?\n");
+            printf("%s\n", "Oh. Who is your object?");
             std::getline(std::cin, name);
-            printf("%s%s%s%s%s", "Then what distinguishes ",
+            printf("%s%s%s%s%s\n", "Then what distinguishes ",
                     current_node->key.c_str(), " and ", name.c_str(),
-                    "?\n");
+                    "?");
             std::getline(std::cin, feature);
             Add(str_tolower(name), str_tolower(feature));
             current_node = root->yes;
@@ -279,19 +292,19 @@ void Akinator::BuildGuessMode() {
 
 void Akinator::DescribingMode() {
     std::string name;
-    printf("%s", "Enter the name of your object\n");
+    printf("%s\n", "Enter the name of your object");
     std::getline(std::cin, name);
     if (IsPresent(name)) {
         Describe(name);
     } else {
-        printf("%s", "Seems like your object is not added yet\n");
+        printf("%s\n", "Seems like your object is not added yet");
     }
 }
 
 void Akinator::DistinguishingMode() {
     std::string name1;
     std::string name2;
-    printf("%s", "Enter the two names of distinguished ones on separate lines\n");
+    printf("%s\n", "Enter the two names of distinguished ones on separate lines");
     std::getline(std::cin, name1);
     std::getline(std::cin, name2);
     Distinguish(name1, name2);
@@ -301,7 +314,7 @@ void Akinator::SaveTree() {}
 
 void Akinator::ChooseMode() {
     while (!exit) {
-        printf("%s", "Choose the mode: \n");
+        printf("%s\n", "Choose the mode: ");
         char in = take_first_from_input();
 
         switch (in) {
@@ -321,7 +334,7 @@ void Akinator::ChooseMode() {
                 BreakMessage();
                 break;
             default:
-                printf("%s", "Inappropriate data. Consider checking the rules!\n");
+                printf("%s\n", "Inappropriate data. Consider checking the rules!");
                 ChooseMode();
                 break;
 
