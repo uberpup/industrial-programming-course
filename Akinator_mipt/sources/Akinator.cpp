@@ -154,6 +154,7 @@ std::stack<std::shared_ptr<Akinator::QuestionNode>> Akinator::Describe(
     }
 
     if (mode) {
+        current_node = root->yes;
         return d_stack;
     }
 
@@ -172,6 +173,7 @@ std::stack<std::shared_ptr<Akinator::QuestionNode>> Akinator::Describe(
                     top->key.c_str());
         }
     }
+    current_node = root->yes;
     return {};
 }
 
