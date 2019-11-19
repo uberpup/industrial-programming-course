@@ -6,5 +6,5 @@ This program implements Akinator game with several playing modes. Basic one allo
 How to play? Build the project using CMake, further steps would be hinted in the process.
 
 Links:
-* https://en.wikipedia.org/wiki/Akinator
-* https://github.com/andtit2001/mipt-format/blob/master/proposals/papers/P1.pdf
+* [About Akinator](https://en.wikipedia.org/wiki/Akinator)
+* [About mipt-format]https://github.com/andtit2001/mipt-format/blob/master/proposals/papers/P1.pdf
