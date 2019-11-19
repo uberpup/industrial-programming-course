@@ -74,7 +74,7 @@ void Akinator::Add(const std::string& name, bool direction) {
         current_node->yes->parent = std::weak_ptr<QuestionNode>(current_node);
     } else {
         current_node->no = std::make_shared<AnswerNode>(name);
-        current_node->yes->parent = std::weak_ptr<QuestionNode>(current_node);
+        current_node->no->parent = std::weak_ptr<QuestionNode>(current_node);
     }
 }
 
@@ -91,7 +91,7 @@ void Akinator::AddToRoot(const std::string& name, const std::string& feature) {
 }
 
 bool Akinator::IsPresent(const std::string& name) {
-    if (str_tolower(name) == "kanye") {
+    if (str_tolower(name) == "kanye") {             // Easter egg
         system("./run_kanye.sh");
     }
     return !(names.find(str_tolower(name)) == names.end());
@@ -148,7 +148,7 @@ void Akinator::Step(bool direction) {
     }
 }
 
-std::stack<std::shared_ptr<Akinator::QuestionNode>> Akinator::Describe(
+std::stack<std::shared_ptr<Akinator::QuestionNode>> Akinator::Describe (
         const std::string& name, const int mode) {
     Traverse(str_tolower(name));
 
@@ -195,6 +195,7 @@ void Akinator::Distinguish(const std::string& name1, const std::string& name2) {
     auto stack_two = Describe(name2, 1);
     if (!(IsPresent(name1) && IsPresent(name2))) {
         printf("%s\n", "Seems like one of the given objects is not in the tree yet");
+        return;
     }
     auto top = stack_one.top();
     while (stack_one.top() == stack_two.top()) {
