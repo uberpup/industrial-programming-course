@@ -16,5 +16,8 @@ CMakeFiles/Akinator_mipt.dir/sources/string_operations.cpp.o: ../sources/string_
 CMakeFiles/Akinator_mipt.dir/sources/tree.cpp.o: ../headers/tree.h
 CMakeFiles/Akinator_mipt.dir/sources/tree.cpp.o: ../sources/tree.cpp
 
+CMakeFiles/Akinator_mipt.dir/sources/tree_dot_converter.cpp.o: ../headers/Akinator.h
+CMakeFiles/Akinator_mipt.dir/sources/tree_dot_converter.cpp.o: ../headers/tree.h
+CMakeFiles/Akinator_mipt.dir/sources/tree_dot_converter.cpp.o: ../headers/tree_dot_converter.h
 CMakeFiles/Akinator_mipt.dir/sources/tree_dot_converter.cpp.o: ../sources/tree_dot_converter.cpp
 

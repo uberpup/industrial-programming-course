@@ -10,15 +10,15 @@ public:
     ~TreeDotConverter();
     template <typename T>
         void FillTree(Tree<T>);
-    void FillTree(Akinator);
+    void FillTree(Akinator akinator);
 
     template <typename T>
         void CreateFileAndSave(Tree<T>);
-    void CreateFileAndSave(Akinator);
+    void CreateFileAndSave(const Akinator& akinator);
 
     template <typename T>
         void Save(Tree<T>);
-    void Save(Akinator);
+    void Save(const Akinator& akinator);
     FILE* file;
 };
 

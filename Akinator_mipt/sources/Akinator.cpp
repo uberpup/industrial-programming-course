@@ -38,6 +38,7 @@ void Akinator::Add(const std::string& name, const std::string& feature = "") {
                 current_node->parent.lock()->no);
         current_node->parent.lock()->yes =
                 std::make_shared<AnswerNode>(name);
+        current_node->parent.lock()->yes->parent = current_node->parent;
     } else {
         current_node->parent.lock()->yes =
                 std::make_shared<QuestionNode>(feature);
@@ -47,6 +48,7 @@ void Akinator::Add(const std::string& name, const std::string& feature = "") {
                 current_node->parent.lock()->yes);
         current_node->parent.lock()->yes =
                 std::make_shared<AnswerNode>(name);
+        current_node->parent.lock()->yes->parent = current_node->parent;
     }
 }
 
@@ -72,10 +74,13 @@ void Akinator::Add(const std::string& name, bool direction) {
 void Akinator::AddToRoot(const std::string& name, const std::string& feature) {
     root->yes =
             std::make_shared<QuestionNode>(feature);
+    root->yes->parent = std::weak_ptr<QuestionNode>(root);
 
     current_node = root->yes;
     current_node->yes = std::make_shared<AnswerNode>(name);
     current_node->yes->parent = std::weak_ptr<QuestionNode>(current_node);
+
+    names.insert(str_tolower(name));
 }
 
 bool Akinator::IsPresent(const std::string& name) {
@@ -98,6 +103,12 @@ void Akinator::Traverse(const std::string& target) {
 
     while (!node_stack.empty()) {
         current = node_stack.top();
+
+        if (current->key == target) {
+            current_node = current;
+            return;
+        }
+
         node_stack.pop();
         if (current->yes) {
             node_stack.push(current->yes);
@@ -122,7 +133,7 @@ void Akinator::Step(bool direction) {
                      " Who is your object?\n");
         std::string name;
         std::getline(std::cin, name);
-        Add(name, direction);
+        Add(str_tolower(name), direction);
         ChooseMode();
     }
 }
@@ -147,17 +158,17 @@ std::stack<std::shared_ptr<Akinator::QuestionNode>> Akinator::Describe(
     if (mode) {
         return d_stack;
     }
-
-    for (size_t i = 0; i < d_stack.size() - 1; ++i) {
+    size_t d_sz = d_stack.size() - 1;
+    for (size_t i = 0; i < d_sz; ++i) {
         // Нужно проверять направления
         auto top = d_stack.top();
         d_stack.pop();
         if (top->yes == d_stack.top()) {
             printf("%s%s%s", "This object is ",
-                    d_stack.top()->key.c_str(), "\n");
+                    top->key.c_str(), "\n");
         } else {
             printf("%s%s%s", "This object is not ",
-                    d_stack.top()->key.c_str(), "\n");
+                    top->key.c_str(), "\n");
         }
     }
     return {};
@@ -166,6 +177,9 @@ std::stack<std::shared_ptr<Akinator::QuestionNode>> Akinator::Describe(
 void Akinator::Distinguish(const std::string& name1, const std::string& name2) {
     auto stack_one = Describe(name1);
     auto stack_two = Describe(name2);
+    if (!(IsPresent(name1) && IsPresent(name2))) {
+        printf("%s", "Seems like one of given objects is not in the tree yet\n");
+    }
     // Пройтись по стекам
 }
 
@@ -257,7 +271,7 @@ void Akinator::BuildGuessMode() {
                     current_node->key.c_str(), " and ", name.c_str(),
                     "?\n");
             std::getline(std::cin, feature);
-            Add(name, feature);
+            Add(str_tolower(name), str_tolower(feature));
             current_node = root->yes;
         }
     }

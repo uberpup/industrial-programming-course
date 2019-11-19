@@ -17,4 +17,7 @@ CMakeFiles/Akinator_mipt.dir/sources/tree.cpp.o
  ../headers/tree.h
  /home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/sources/tree.cpp
 CMakeFiles/Akinator_mipt.dir/sources/tree_dot_converter.cpp.o
+ ../headers/Akinator.h
+ ../headers/tree.h
+ ../headers/tree_dot_converter.h
  /home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/sources/tree_dot_converter.cpp
