@@ -1,4 +1,4 @@
-#Akinator
+# Akinator
 Project for Industial Programming course by Vladimir Tochilin.
 
 This program implements Akinator game with several playing modes. Basic one allows to build Akinator's guessing tree by yourself. Advanced one is capable of loading tree in special mipt-format and playing with its usage.
