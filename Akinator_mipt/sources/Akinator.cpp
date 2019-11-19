@@ -14,6 +14,13 @@ Akinator::AnswerNode::AnswerNode(const std::string& value) {
     is_question = false;
 }
 
+void Akinator::Say(const std::string& words) {
+    std::FILE* file = std::fopen("festival_text.txt", "wr");
+    fprintf(file, "%s\n", words.c_str());
+    std::fclose(file);
+    system("./run_festival.sh");
+}
+
 void Akinator::Operate() {
     PrintRules();
     FirstStep();
@@ -159,6 +166,7 @@ std::stack<std::shared_ptr<Akinator::QuestionNode>> Akinator::Describe(
     }
 
     printf("%s%s\n", name.c_str(), "'s description:");
+    Say(name + "'s description:");
 
     size_t d_sz = d_stack.size() - 1;
     for (size_t i = 0; i < d_sz; ++i) {
@@ -168,9 +176,11 @@ std::stack<std::shared_ptr<Akinator::QuestionNode>> Akinator::Describe(
         if (top->yes == d_stack.top()) {
             printf("%s%s\n", "This object is ",
                     top->key.c_str());
+            Say("This object is " + top->key);
         } else {
             printf("%s%s\n", "This object is not ",
                     top->key.c_str());
+            Say("This object is not " + top->key);
         }
     }
     current_node = root->yes;
@@ -181,7 +191,7 @@ void Akinator::Distinguish(const std::string& name1, const std::string& name2) {
     auto stack_one = Describe(name1, 1);
     auto stack_two = Describe(name2, 1);
     if (!(IsPresent(name1) && IsPresent(name2))) {
-        printf("%s\n", "Seems like one of given objects is not in the tree yet");
+        printf("%s\n", "Seems like one of the given objects is not in the tree yet");
     }
     auto top = stack_one.top();
     while (stack_one.top() == stack_two.top()) {
@@ -192,16 +202,18 @@ void Akinator::Distinguish(const std::string& name1, const std::string& name2) {
     if (top->yes == stack_one.top()) {
         printf("%s%s%s%s %s\n", name1.c_str(), " unlike ", name2.c_str(),
                 " is", top->key.c_str());
+        Say(name1 + " unlike " + name2 + " is" + top->key);
     } else {
         printf("%s%s%s%s %s\n", name2.c_str(), " unlike ", name1.c_str(),
                 " is", top->key.c_str());
+        Say(name2 + " unlike " + name1 + " is" + top->key);
     }
 }
 
 void Akinator::PrintRules() {
-    printf("%s", "Hello, this is MIPT Akinator."
+    printf("%s", "Hello, this is the MIPT Akinator."
                  " You either build me by yourself,"
-                 " or load dot-file of mipt-format proposal 1"
+                 " or load file of mipt-format proposal 1\n"
                  " (More on github.com/andtit2001/mipt-format).\n"
                  " To build a tree you need to start with initializing first"
                  " object and his/her differentiating feature.\n"
@@ -212,7 +224,7 @@ void Akinator::PrintRules() {
                  " Saving the tree to mipt-format.\n"
                  " Mode is defined in the start of every iteration"
                  " by entering the number from 0 to 3,"
-                 " in the written order, 4 is exit."
+                 " in the written order, 4 is exit.\n"
                  " Answer the questions with Yes/No in any register."
                  " Let's go!\n");
 }
@@ -299,7 +311,8 @@ void Akinator::DescribingMode() {
     if (IsPresent(name)) {
         Describe(name);
     } else {
-        printf("%s\n", "Seems like your object is not added yet");
+        Say("Seems like your object is not added yet");
+        //printf("%s\n", "Seems like your object is not added yet");
     }
 }
 

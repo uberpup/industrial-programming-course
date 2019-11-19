@@ -90,6 +90,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/cmake-build-debug/run_festival.sh">
+			<Option target="Akinator_mipt"/>
+		</Unit>
 		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/headers/Akinator.h">
 			<Option target="Akinator_mipt"/>
 		</Unit>

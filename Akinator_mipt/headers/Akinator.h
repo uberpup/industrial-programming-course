@@ -1,6 +1,7 @@
 #ifndef AKINATOR_MIPT_AKINATOR_H
 #define AKINATOR_MIPT_AKINATOR_H
 
+#include <cstdlib>
 #include <iostream>
 #include <set>
 #include <stack>
@@ -51,6 +52,8 @@ private:
     void BuildGuessMode();
     void DescribingMode();
     void DistinguishingMode();
+
+    void Say(const std::string& words);
     void SaveTree();
     void BreakMessage();
 

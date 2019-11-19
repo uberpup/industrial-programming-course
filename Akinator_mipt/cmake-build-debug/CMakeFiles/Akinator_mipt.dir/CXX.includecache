@@ -7,6 +7,8 @@
 #IncludeRegexTransform: 
 
 ../headers/Akinator.h
+cstdlib
+-
 iostream
 -
 set
