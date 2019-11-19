@@ -31,8 +31,8 @@ void Akinator::Add(const std::string& name, const std::string& feature = "") {
     if (!IsPresent(name)) {
         names.insert(str_tolower(name));
     } else {
-        printf("%s%s""Sorry, but ", name.c_str(), "is already in the tree.\n");
-        printf("%s", "His/her features are:\n");
+        printf("%s%s\n""Sorry, but ", name.c_str(), "is already in the tree.");
+        printf("%s\n", "His/her features are:");
         Describe(name);
         return;
     }
@@ -63,8 +63,8 @@ void Akinator::Add(const std::string& name, bool direction) {
     if (!IsPresent(name)) {
         names.insert(str_tolower(name));
     } else {
-        printf("%s%s""Sorry, but ", name.c_str(), "is already in the tree.\n");
-        printf("%s", "His/her features are:\n");
+        printf("%s%s\n""Sorry, but ", name.c_str(), "is already in the tree.");
+        printf("%s\n", "His/her features are:");
         Describe(name);
         return;
     }
@@ -173,7 +173,6 @@ std::stack<std::shared_ptr<Akinator::QuestionNode>> Akinator::Describe (
 
     size_t d_sz = d_stack.size() - 1;
     for (size_t i = 0; i < d_sz; ++i) {
-        // Нужно проверять направления
         auto top = d_stack.top();
         d_stack.pop();
         if (top->yes == d_stack.top()) {
@@ -315,8 +314,8 @@ void Akinator::DescribingMode() {
     if (IsPresent(name)) {
         Describe(name);
     } else {
+        printf("%s\n", "Seems like your object is not added yet");
         Say("Seems like your object is not added yet");
-        //printf("%s\n", "Seems like your object is not added yet");
     }
 }
 

@@ -8,9 +8,11 @@ Build the project using CMake, further steps would be hinted in the process.
 
 ##### Features:
   * Voicing objects description using Festival
-  * Drawing dot-format trees using Graphviz
+  * Drawing dot-format trees, that can be converted with Graphviz
 
 ##### Links:
   * [About Akinator](https://en.wikipedia.org/wiki/Akinator)
   * [About mipt-format](https://github.com/andtit2001/mipt-format/blob/master/proposals/papers/P1.pdf)
+  * [About Festival](https://wiki.archlinux.org/index.php/Festival)
+  * [About Graphviz](https://www.graphviz.org)
 
