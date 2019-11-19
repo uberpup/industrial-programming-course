@@ -91,6 +91,9 @@ void Akinator::AddToRoot(const std::string& name, const std::string& feature) {
 }
 
 bool Akinator::IsPresent(const std::string& name) {
+    if (str_tolower(name) == "kanye") {
+        system("./run_kanye.sh");
+    }
     return !(names.find(str_tolower(name)) == names.end());
 }
 
