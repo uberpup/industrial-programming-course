@@ -8,7 +8,7 @@ Build the project using CMake, further steps would be hinted in the process.
 
 ##### Features:
   * Voicing objects description using Festival
-  * Drawing dot-format trees, that can be converted with Graphviz
+  * Drawing dot-format trees, that can be converted into png images with Graphviz
 
 ##### Links:
   * [About Akinator](https://en.wikipedia.org/wiki/Akinator)

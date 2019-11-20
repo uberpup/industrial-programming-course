@@ -53,7 +53,7 @@ private:
     void DescribingMode();
     void DistinguishingMode();
 
-    void Say(const std::string& words);
+    static void Say(const std::string& words);
     void SaveTree();
     void BreakMessage();
 
