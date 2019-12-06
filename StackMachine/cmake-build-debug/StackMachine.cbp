@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="StackMachine"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vladimir/CLionProjects/Industrial\ Programming\ Course/industrial-programming-course/StackMachine/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vladimir/CLionProjects/Industrial\ Programming\ Course/industrial-programming-course/StackMachine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vladimir/CLionProjects/Industrial\ Programming\ Course/industrial-programming-course/StackMachine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vladimir/CLionProjects/Industrial\ Programming\ Course/industrial-programming-course/StackMachine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vladimir/CLionProjects/Industrial\ Programming\ Course/industrial-programming-course/StackMachine/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vladimir/CLionProjects/Industrial\ Programming\ Course/industrial-programming-course/StackMachine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vladimir/CLionProjects/Industrial\ Programming\ Course/industrial-programming-course/StackMachine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vladimir/CLionProjects/Industrial\ Programming\ Course/industrial-programming-course/StackMachine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="StackMachine">
+				<Option output="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/cmake-build-debug/StackMachine" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/."/>
+					<Add directory="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/headers"/>
+					<Add directory="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vladimir/CLionProjects/Industrial\ Programming\ Course/industrial-programming-course/StackMachine/cmake-build-debug/Makefile&quot;  VERBOSE=1 StackMachine"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vladimir/CLionProjects/Industrial\ Programming\ Course/industrial-programming-course/StackMachine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vladimir/CLionProjects/Industrial\ Programming\ Course/industrial-programming-course/StackMachine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vladimir/CLionProjects/Industrial\ Programming\ Course/industrial-programming-course/StackMachine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="StackMachine/fast">
+				<Option output="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/cmake-build-debug/StackMachine" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/."/>
+					<Add directory="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/headers"/>
+					<Add directory="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources"/>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vladimir/CLionProjects/Industrial\ Programming\ Course/industrial-programming-course/StackMachine/cmake-build-debug/Makefile&quot;  VERBOSE=1 StackMachine/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vladimir/CLionProjects/Industrial\ Programming\ Course/industrial-programming-course/StackMachine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vladimir/CLionProjects/Industrial\ Programming\ Course/industrial-programming-course/StackMachine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vladimir/CLionProjects/Industrial\ Programming\ Course/industrial-programming-course/StackMachine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/vladimir/CLionProjects/Industrial\ Programming\ Course/industrial-programming-course/StackMachine/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/vladimir/CLionProjects/Industrial\ Programming\ Course/industrial-programming-course/StackMachine/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/vladimir/CLionProjects/Industrial\ Programming\ Course/industrial-programming-course/StackMachine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/vladimir/CLionProjects/Industrial\ Programming\ Course/industrial-programming-course/StackMachine/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/headers/assembler.h">
+			<Option target="StackMachine"/>
+		</Unit>
+		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/headers/bohr.h">
+			<Option target="StackMachine"/>
+		</Unit>
+		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/headers/config.h">
+			<Option target="StackMachine"/>
+		</Unit>
+		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/headers/disassembler.h">
+			<Option target="StackMachine"/>
+		</Unit>
+		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/headers/instruction.h">
+			<Option target="StackMachine"/>
+		</Unit>
+		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/headers/stack_machine.h">
+			<Option target="StackMachine"/>
+		</Unit>
+		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/headers/string_operations.h">
+			<Option target="StackMachine"/>
+		</Unit>
+		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/headers/text_manager.h">
+			<Option target="StackMachine"/>
+		</Unit>
+		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/main.cpp">
+			<Option target="StackMachine"/>
+		</Unit>
+		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources/assembler.cpp">
+			<Option target="StackMachine"/>
+		</Unit>
+		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources/bohr.cpp">
+			<Option target="StackMachine"/>
+		</Unit>
+		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources/disassembler.cpp">
+			<Option target="StackMachine"/>
+		</Unit>
+		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources/stack_machine.cpp">
+			<Option target="StackMachine"/>
+		</Unit>
+		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources/string_operations.cpp">
+			<Option target="StackMachine"/>
+		</Unit>
+		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources/text_manager.cpp">
+			<Option target="StackMachine"/>
+		</Unit>
+		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

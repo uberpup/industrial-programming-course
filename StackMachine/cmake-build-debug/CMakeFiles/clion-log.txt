@@ -1,0 +1,4 @@
+/home/vladimir/.local/share/JetBrains/Toolbox/apps/CLion/ch-1/192.7142.39/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_COMPILER=/usr/bin/c++ -G "CodeBlocks - Unix Makefiles" "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine"
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/cmake-build-debug

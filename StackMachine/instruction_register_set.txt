@@ -1,0 +1,32 @@
+ax
+bx
+cx
+dx
+sp
+si
+di
+fr1
+fr2
+#
+pop r
+pop v
+mul r
+mul v
+imul rr
+imul rv
+sub rr
+sub rv
+div rr
+div rv
+mov rr
+mov rv
+sqrt r
+sqrt rv
+in v
+out r
+end
+jmp l
+jne l
+je l
+cmp rr
+cmp rv
