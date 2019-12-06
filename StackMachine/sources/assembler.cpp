@@ -36,10 +36,14 @@ void Assembler::Load(const std::string& filename) {
             continue;
         }
 
-        size_t instr_name_end = str.find(' ');
-        if (instr_name_end == -1) {         // case of instruction with no args
-            instr_name_end = str.find('\n');
+        if (lexeme_parser_.IsPresent(str)) {    // case of instruction with no arguments
+            if (CheckArguments(str)) {
+                Translate(str);
+            }
+            continue;
         }
+
+        size_t instr_name_end = str.find(' ');
         if (instr_name_end == -1) {
             continue;
         }
@@ -56,15 +60,15 @@ void Assembler::Load(const std::string& filename) {
             continue;
         }
         auto arg_f = str.substr(0, arg_f_end);
-        str = str.substr(arg_f_end + 1);
-        size_t arg_s_end = str.find('\n');
+        size_t arg_s_end = str.length();
+        // str = str.substr(arg_f_end + 1);
         if (arg_s_end - arg_f_end < 1) {
             if (CheckArguments(instr_name, arg_f)) {
                 Translate(instr_name, arg_f);
             }
             continue;
         }
-        auto arg_s = str.substr(arg_s_end + 1);
+        auto arg_s = str.substr(arg_f_end + 1);
         if (CheckArguments(instr_name, arg_f, arg_s)) {
             Translate(instr_name, arg_f, arg_s);
         }
@@ -74,7 +78,7 @@ void Assembler::Load(const std::string& filename) {
 
 void Assembler::Save(const std::string& filename) {
     // выводим инструции в BINARYCODE_FILENAME
-    // выводим так: код команды код аргументов
+    // код команды код аргументов код команды ...
     std::FILE* binary_file = std::fopen(filename.c_str(), "w");
     assert(binary_file);
 
@@ -97,7 +101,7 @@ void Assembler::Preparation() {
     parser_txt_m.ReadFormat(file);
     int32_t code_number = 1;
     bool parsing_instructions = false;      // file data starts with registers
-    for (auto& str : parser_txt_m.strings) {      // Look here if parsing is changed!
+    for (auto& str : parser_txt_m.strings) {
 
         if (str == "#") {
             parsing_instructions = true;
@@ -125,7 +129,7 @@ void Assembler::Translate(const std::string& instruction,
     int32_t code = 0;
     int32_t sz = sizeof(code) * 8;
 
-    if (arg_f != "") {  // наличие первого аргумента
+    if (!arg_f.empty()) {  // наличие первого аргумента
         code += 1 << (sz - 1);
     }
 
@@ -133,7 +137,7 @@ void Assembler::Translate(const std::string& instruction,
         code += 1 << (sz - 2);
     }
 
-    if (arg_s != "") {  // наличие второго аргумента
+    if (!arg_s.empty()) {  // наличие второго аргумента
         code += 1 << (sz - 3);
     }
 
@@ -153,9 +157,7 @@ bool Assembler::CheckArguments(const std::string& instruction,
 
     if (arg_f.empty()) {
         args = "";
-    }
-
-    if (is_number(arg_f)) {
+    } else if (is_number(arg_f)) {
         args = "v";
     } else if (lexeme_parser_.IsPresent(arg_f)){
         if (arg_s.empty()) {
@@ -169,7 +171,7 @@ bool Assembler::CheckArguments(const std::string& instruction,
         return false;
     }
 
-    if (labels_parser_.IsPresent(arg_f)) {
+    if (labels_parser_.IsPresent(arg_f) && args.empty()) {
         args = "l";
     }
 
@@ -195,6 +197,5 @@ void Assembler::ParseLabel(const std::string& label_candidate) {
     if (!labels_parser_.IsPresent(label_candidate)) {
         return;
     }
-
     // todo ???
 }

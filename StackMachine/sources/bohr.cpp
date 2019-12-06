@@ -154,9 +154,9 @@ bool Bohr::IsPresent(const std::string &str) {
         if (current_node->is_root) {
             return false;
         }
-        if (current_node->is_terminal) {
-            return true;
-        }
+    }
+    if (current_node->is_terminal) {
+        return true;
     }
     return false;
 }
