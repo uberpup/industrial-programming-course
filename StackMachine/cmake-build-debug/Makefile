@@ -204,6 +204,33 @@ sources/bohr.cpp.s:
 	$(MAKE) -f CMakeFiles/StackMachine.dir/build.make CMakeFiles/StackMachine.dir/sources/bohr.cpp.s
 .PHONY : sources/bohr.cpp.s
 
+sources/common_data.o: sources/common_data.cpp.o
+
+.PHONY : sources/common_data.o
+
+# target to build an object file
+sources/common_data.cpp.o:
+	$(MAKE) -f CMakeFiles/StackMachine.dir/build.make CMakeFiles/StackMachine.dir/sources/common_data.cpp.o
+.PHONY : sources/common_data.cpp.o
+
+sources/common_data.i: sources/common_data.cpp.i
+
+.PHONY : sources/common_data.i
+
+# target to preprocess a source file
+sources/common_data.cpp.i:
+	$(MAKE) -f CMakeFiles/StackMachine.dir/build.make CMakeFiles/StackMachine.dir/sources/common_data.cpp.i
+.PHONY : sources/common_data.cpp.i
+
+sources/common_data.s: sources/common_data.cpp.s
+
+.PHONY : sources/common_data.s
+
+# target to generate assembly for a file
+sources/common_data.cpp.s:
+	$(MAKE) -f CMakeFiles/StackMachine.dir/build.make CMakeFiles/StackMachine.dir/sources/common_data.cpp.s
+.PHONY : sources/common_data.cpp.s
+
 sources/disassembler.o: sources/disassembler.cpp.o
 
 .PHONY : sources/disassembler.o
@@ -230,6 +257,33 @@ sources/disassembler.s: sources/disassembler.cpp.s
 sources/disassembler.cpp.s:
 	$(MAKE) -f CMakeFiles/StackMachine.dir/build.make CMakeFiles/StackMachine.dir/sources/disassembler.cpp.s
 .PHONY : sources/disassembler.cpp.s
+
+sources/operations.o: sources/operations.cpp.o
+
+.PHONY : sources/operations.o
+
+# target to build an object file
+sources/operations.cpp.o:
+	$(MAKE) -f CMakeFiles/StackMachine.dir/build.make CMakeFiles/StackMachine.dir/sources/operations.cpp.o
+.PHONY : sources/operations.cpp.o
+
+sources/operations.i: sources/operations.cpp.i
+
+.PHONY : sources/operations.i
+
+# target to preprocess a source file
+sources/operations.cpp.i:
+	$(MAKE) -f CMakeFiles/StackMachine.dir/build.make CMakeFiles/StackMachine.dir/sources/operations.cpp.i
+.PHONY : sources/operations.cpp.i
+
+sources/operations.s: sources/operations.cpp.s
+
+.PHONY : sources/operations.s
+
+# target to generate assembly for a file
+sources/operations.cpp.s:
+	$(MAKE) -f CMakeFiles/StackMachine.dir/build.make CMakeFiles/StackMachine.dir/sources/operations.cpp.s
+.PHONY : sources/operations.cpp.s
 
 sources/stack_machine.o: sources/stack_machine.cpp.o
 
@@ -330,9 +384,15 @@ help:
 	@echo "... sources/bohr.o"
 	@echo "... sources/bohr.i"
 	@echo "... sources/bohr.s"
+	@echo "... sources/common_data.o"
+	@echo "... sources/common_data.i"
+	@echo "... sources/common_data.s"
 	@echo "... sources/disassembler.o"
 	@echo "... sources/disassembler.i"
 	@echo "... sources/disassembler.s"
+	@echo "... sources/operations.o"
+	@echo "... sources/operations.i"
+	@echo "... sources/operations.s"
 	@echo "... sources/stack_machine.o"
 	@echo "... sources/stack_machine.i"
 	@echo "... sources/stack_machine.s"

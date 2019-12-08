@@ -15,6 +15,7 @@ const char STRINGVIEW_SEPARATOR = '\0';
 //! Struct uniting buffer, strings and operations among them
 struct TxtManager {
     friend class Assembler;
+    friend class StackMachine;
     friend class Disassembler;
     //! Trivial constructor
     TxtManager();

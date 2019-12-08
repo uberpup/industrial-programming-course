@@ -4,6 +4,7 @@
 #include <cstring>
 #include <map>
 #include <set>
+#include "common_data.h"
 #include "config.h"
 #include "bohr.h"
 #include "instruction.h"
@@ -13,6 +14,7 @@ class Assembler {
 public:
     Assembler() = default;
     ~Assembler() = default;
+    Assembler(Data* data) : data(data){};
 
     void Assemble();
     void Load(const std::string& filename);
@@ -35,6 +37,7 @@ private:
             const std::string& arguments);
     void ParseLabel(const std::string& label_candidate);
 
+    Data* data = nullptr;
     TxtManager txt_m_;
     Bohr lexeme_parser_;
     Bohr labels_parser_;

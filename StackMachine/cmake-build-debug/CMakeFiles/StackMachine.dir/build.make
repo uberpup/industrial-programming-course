@@ -148,6 +148,32 @@ CMakeFiles/StackMachine.dir/sources/string_operations.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/StackMachine.dir/sources/string_operations.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources/string_operations.cpp" -o CMakeFiles/StackMachine.dir/sources/string_operations.cpp.s
 
+CMakeFiles/StackMachine.dir/sources/operations.cpp.o: CMakeFiles/StackMachine.dir/flags.make
+CMakeFiles/StackMachine.dir/sources/operations.cpp.o: ../sources/operations.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/StackMachine.dir/sources/operations.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/StackMachine.dir/sources/operations.cpp.o -c "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources/operations.cpp"
+
+CMakeFiles/StackMachine.dir/sources/operations.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/StackMachine.dir/sources/operations.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources/operations.cpp" > CMakeFiles/StackMachine.dir/sources/operations.cpp.i
+
+CMakeFiles/StackMachine.dir/sources/operations.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/StackMachine.dir/sources/operations.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources/operations.cpp" -o CMakeFiles/StackMachine.dir/sources/operations.cpp.s
+
+CMakeFiles/StackMachine.dir/sources/common_data.cpp.o: CMakeFiles/StackMachine.dir/flags.make
+CMakeFiles/StackMachine.dir/sources/common_data.cpp.o: ../sources/common_data.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/StackMachine.dir/sources/common_data.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/StackMachine.dir/sources/common_data.cpp.o -c "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources/common_data.cpp"
+
+CMakeFiles/StackMachine.dir/sources/common_data.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/StackMachine.dir/sources/common_data.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources/common_data.cpp" > CMakeFiles/StackMachine.dir/sources/common_data.cpp.i
+
+CMakeFiles/StackMachine.dir/sources/common_data.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/StackMachine.dir/sources/common_data.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources/common_data.cpp" -o CMakeFiles/StackMachine.dir/sources/common_data.cpp.s
+
 # Object files for target StackMachine
 StackMachine_OBJECTS = \
 "CMakeFiles/StackMachine.dir/main.cpp.o" \
@@ -156,7 +182,9 @@ StackMachine_OBJECTS = \
 "CMakeFiles/StackMachine.dir/sources/disassembler.cpp.o" \
 "CMakeFiles/StackMachine.dir/sources/text_manager.cpp.o" \
 "CMakeFiles/StackMachine.dir/sources/bohr.cpp.o" \
-"CMakeFiles/StackMachine.dir/sources/string_operations.cpp.o"
+"CMakeFiles/StackMachine.dir/sources/string_operations.cpp.o" \
+"CMakeFiles/StackMachine.dir/sources/operations.cpp.o" \
+"CMakeFiles/StackMachine.dir/sources/common_data.cpp.o"
 
 # External object files for target StackMachine
 StackMachine_EXTERNAL_OBJECTS =
@@ -168,9 +196,11 @@ StackMachine: CMakeFiles/StackMachine.dir/sources/disassembler.cpp.o
 StackMachine: CMakeFiles/StackMachine.dir/sources/text_manager.cpp.o
 StackMachine: CMakeFiles/StackMachine.dir/sources/bohr.cpp.o
 StackMachine: CMakeFiles/StackMachine.dir/sources/string_operations.cpp.o
+StackMachine: CMakeFiles/StackMachine.dir/sources/operations.cpp.o
+StackMachine: CMakeFiles/StackMachine.dir/sources/common_data.cpp.o
 StackMachine: CMakeFiles/StackMachine.dir/build.make
 StackMachine: CMakeFiles/StackMachine.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable StackMachine"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable StackMachine"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/StackMachine.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

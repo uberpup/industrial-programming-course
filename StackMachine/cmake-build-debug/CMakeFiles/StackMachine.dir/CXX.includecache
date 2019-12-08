@@ -13,6 +13,8 @@ map
 -
 set
 -
+common_data.h
+../headers/common_data.h
 config.h
 ../headers/config.h
 bohr.h
@@ -36,6 +38,10 @@ memory
 string
 -
 vector
+-
+
+../headers/common_data.h
+map
 -
 
 ../headers/config.h

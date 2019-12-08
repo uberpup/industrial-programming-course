@@ -3,8 +3,8 @@
 #include "string_operations.h"
 #include "assembler.h"
 
-// todo Таски: метки, arg_code!
-// todo Потом кодогенерация
+// todo метки, arg_code для меток
+// todo кодогенерация
 
 void Assembler::Assemble() {
     Save(BINARYCODE_FILENAME);
@@ -13,7 +13,6 @@ void Assembler::Assemble() {
 void Assembler::Load(const std::string& filename) {
     std::FILE* file = std::fopen(filename.c_str(), "r");
     assert(file);
-    Preparation();
     txt_m_.ReadFormat(file); // Теперь в buf хранятся данные, в strings строки
 
     for (auto& str: txt_m_.strings) { // ищем метки
@@ -25,13 +24,14 @@ void Assembler::Load(const std::string& filename) {
         labels_parser_.AddPattern(str.substr(0, label_end), 0);
     }
 
+    Preparation();
     lexeme_parser_.Init();
     labels_parser_.Init();
 
     for (auto str : txt_m_.strings) {       // Instruction and label parsing
 
         size_t label_end = str.find(':');
-        if (label_end != -1) {      // todo подумать над переключением состояния при переходе в метку
+        if (label_end != -1) {
             ParseLabel(str.substr(0, label_end));
             continue;
         }
@@ -61,7 +61,6 @@ void Assembler::Load(const std::string& filename) {
         }
         auto arg_f = str.substr(0, arg_f_end);
         size_t arg_s_end = str.length();
-        // str = str.substr(arg_f_end + 1);
         if (arg_s_end - arg_f_end < 1) {
             if (CheckArguments(instr_name, arg_f)) {
                 Translate(instr_name, arg_f);
@@ -72,7 +71,6 @@ void Assembler::Load(const std::string& filename) {
         if (CheckArguments(instr_name, arg_f, arg_s)) {
             Translate(instr_name, arg_f, arg_s);
         }
-        // todo обработать случай метки
     }
 }
 
@@ -99,9 +97,17 @@ void Assembler::Preparation() {
 
     TxtManager parser_txt_m;
     parser_txt_m.ReadFormat(file);
-    int32_t code_number = 1;
+    int32_t instruction_code_number = 1;
+    size_t register_code_number = 0;
+    size_t float_register_code_number = 0;
     bool parsing_instructions = false;      // file data starts with registers
+    bool parsing_float_registers = false;
     for (auto& str : parser_txt_m.strings) {
+
+        if (str == "/") {
+            parsing_float_registers = true;
+            continue;
+        }
 
         if (str == "#") {
             parsing_instructions = true;
@@ -110,11 +116,18 @@ void Assembler::Preparation() {
 
         if (!parsing_instructions) {
             lexeme_parser_.AddPattern(str, 0);
+            if (parsing_float_registers) {
+                data->reg_f_codes_.emplace(str, float_register_code_number);
+                ++float_register_code_number;
+            } else {
+                data->reg_codes_.emplace(str, register_code_number);
+                ++register_code_number;
+            }
         } else {
             auto end = str.find(' ');
             lexeme_parser_.AddPattern(str.substr(0, end), 0);
-            code_.insert({str.substr(0, end), code_number});
-            ++code_number;
+            code_.insert({str.substr(0, end), instruction_code_number});
+            ++instruction_code_number;
             ParseInstructionArguments(str.substr(0, end), str.substr(end + 1));
         }
     }
@@ -126,15 +139,30 @@ void Assembler::Translate(const std::string& instruction,
         const std::string& arg_f, const std::string& arg_s) {
     // подразумеваем, что CheckArguments вызывается предварительно
 
+    // 0000 - нет аргументов, 0100 - аргумент-метка, 1000 - аргумент-регистр,
+    // 1010 - два регистра, 1011 - регистр-число, 1100 - аргумент-число, 1110 - число регистр, 1111 - число-число
+
     int32_t code = 0;
+    int32_t arg_code = 0;
     int32_t sz = sizeof(code) * 8;
 
-    if (!arg_f.empty()) {  // наличие первого аргумента
+    if (!arg_f.empty() && !labels_parser_.IsPresent(arg_f)) {  // наличие первого аргумента не метки
         code += 1 << (sz - 1);
     }
 
-    if (is_number(arg_f)) {     // помечаем, что аргумент число, а не регистр
+    if (is_number(arg_f) || labels_parser_.IsPresent(arg_f)) {     // помечаем, что аргумент число, а не регистр
         code += 1 << (sz - 2);
+        if (is_number(arg_f)) {
+            arg_code += stoi(arg_f);
+            arg_code <<= (sz / 2);
+        }
+    } else if (data->reg_codes_.find(arg_f) != data->reg_codes_.cend()) {        // если регистр, пишем его номер
+        arg_code += data->reg_codes_.at(arg_f);
+        arg_code <<= (sz / 2);
+    } else if (data->reg_f_codes_.find(arg_f) != data->reg_f_codes_.cend()) {
+        arg_code += data->reg_f_codes_.at(arg_s);
+        arg_code += 1 << (sz / 2);          // помечаем что float регистр
+        arg_code <<= (sz / 2);
     }
 
     if (!arg_s.empty()) {  // наличие второго аргумента
@@ -143,11 +171,18 @@ void Assembler::Translate(const std::string& instruction,
 
     if (is_number(arg_s)) {     // помечаем, что аргумент число, а не регистр
         code += 1 << (sz - 4);
+        if (is_number(arg_s)) {
+            arg_code += stoi(arg_s);
+        }
+    } else if (data->reg_codes_.find(arg_s) != data->reg_codes_.cend()) {    // если регистр, пишем номер
+        arg_code += data->reg_codes_.at(arg_s);
+    } else if (data->reg_f_codes_.find(arg_s) != data->reg_f_codes_.cend()) {
+        arg_code += data->reg_f_codes_.at(arg_s);
+        arg_code += 1 << (sz / 2);          // помечаем что float регистр
     }
 
     code += InstructionCode(instruction);
-
-    auto current_instruction = Instruction {code, 0}; // !! arg_code
+    auto current_instruction = Instruction {code, arg_code};
     instructions_.push_back(current_instruction);
 }
 

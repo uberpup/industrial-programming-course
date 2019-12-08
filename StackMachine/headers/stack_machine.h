@@ -6,8 +6,10 @@
 #include <map>
 #include <stack>
 #include <vector>
+#include "common_data.h"
 #include "config.h"
 #include "instruction.h"
+#include "text_manager.h"
 
 class StackMachine {
     // Registers: ax, bx, cx, dx, sp, fr, si, di
@@ -15,19 +17,20 @@ class StackMachine {
 public:
     StackMachine() = default;
     ~StackMachine() = default;
+    StackMachine(Data* data) : data(){}
 
     void Execute();
 
     void LoadBinary(const std::string& file);
 
     int RegData(int idx);
-    int RegData(const std::string_view& reg_name);
+    int RegData(const std::string& reg_name);
     float RegFData(int idx);
-    float RegFData(const std::string_view& reg_name);
+    float RegFData(const std::string& reg_name);
 
 private:
-    void Preparation();
 
+    Data* data;
     std::stack<int> st_;
     std::map<std::string_view, size_t> reg_codes_;
     std::map<std::string_view, size_t> reg_f_codes_;

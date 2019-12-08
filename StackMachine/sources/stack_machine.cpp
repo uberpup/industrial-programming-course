@@ -1,10 +1,6 @@
 #include "stack_machine.h"
 
-void Preparation() {
-    // todo заполнить словарь регистров и их номеров
-}
-
-void StackMachine::LoadBinary(const std::string &file) {
+void StackMachine::LoadBinary(const std::string& file) {
     // парсим бинарник
     // делаем вектор инструкций
     std::FILE* binary_file = std::fopen(file.c_str(), "r");
@@ -16,21 +12,24 @@ void StackMachine::LoadBinary(const std::string &file) {
 
 void StackMachine::Execute() {
     // todo выполняем вектор инструкций
+    for (const auto& op : instructions_) {
+        auto op_code = op.op_code;
+        #include "operations.cpp"
+    }
 }
 
 int StackMachine::RegData(int idx) {
     return reg_[idx];
 }
 
-int StackMachine::RegData(const std::string_view& reg_name) {
-    return reg_[reg_codes_[reg_name]];
+int StackMachine::RegData(const std::string& reg_name) {
+    return reg_[data->reg_codes_[reg_name]];
 }
 
 float StackMachine::RegFData(int idx) {
     return reg_f_[idx];
 }
 
-float StackMachine::RegFData(const std::string_view& reg_name) {
-    return reg_f_[reg_f_codes_[reg_name]];
+float StackMachine::RegFData(const std::string& reg_name) {
+    return reg_f_[data->reg_f_codes_[reg_name]];
 }
-

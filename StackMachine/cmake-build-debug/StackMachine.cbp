@@ -96,6 +96,9 @@
 		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/headers/bohr.h">
 			<Option target="StackMachine"/>
 		</Unit>
+		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/headers/common_data.h">
+			<Option target="StackMachine"/>
+		</Unit>
 		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/headers/config.h">
 			<Option target="StackMachine"/>
 		</Unit>
@@ -123,7 +126,13 @@
 		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources/bohr.cpp">
 			<Option target="StackMachine"/>
 		</Unit>
+		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources/common_data.cpp">
+			<Option target="StackMachine"/>
+		</Unit>
 		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources/disassembler.cpp">
+			<Option target="StackMachine"/>
+		</Unit>
+		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources/operations.cpp">
 			<Option target="StackMachine"/>
 		</Unit>
 		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources/stack_machine.cpp">

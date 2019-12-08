@@ -5,9 +5,12 @@ dx
 sp
 si
 di
+/
 fr1
 fr2
 #
+push r
+push v
 pop r
 pop v
 mul r
