@@ -19,6 +19,10 @@ EXECUTE_OPERATION(op_name == "imul rr", reg_[r] *= reg_[r1]; );
 
 EXECUTE_OPERATION(op_name == "imul rv", reg_[r] *= v; );
 
+EXECUTE_OPERATION(op_name == "add rr", reg_[r] += reg_[r1]; )
+
+EXECUTE_OPERATION(op_name == "add rv", reg_[r] += v; )
+
 EXECUTE_OPERATION(op_name == "sub rr", reg_[r] -= reg_[r1]; );
 
 EXECUTE_OPERATION(op_name == "sub rv", reg_[r] -= v; );
@@ -49,19 +53,19 @@ EXECUTE_OPERATION(op_name == "cmp rr", if (reg_[r] == reg_[r1]) eq_flag = true; 
 
 EXECUTE_OPERATION(op_name == "cmp rv", if (reg_[r] == v) eq_flag = true; if (reg_[r] < v) less_flag = true;);
 
-EXECUTE_OPERATION(op_name == "jmp l", );
+EXECUTE_OPERATION(op_name == "jne l", if (!eq_flag) { in_label = true; idx = arg_code - 1; } );
 
-EXECUTE_OPERATION(op_name == "jne l", if (!eq_flag) {});
+EXECUTE_OPERATION(op_name == "je l", if (eq_flag) { in_label = true; idx = arg_code - 1; } );
 
-EXECUTE_OPERATION(op_name == "je l", if (eq_flag) {} );
+EXECUTE_OPERATION( op_name == "jl l", if (less_flag) { in_label = true; idx = arg_code - 1; } );
 
-EXECUTE_OPERATION( op_name == "jl l", if (less_flag) {} );
+EXECUTE_OPERATION(op_name == "jle l", if (less_flag || eq_flag) { in_label = true; idx = arg_code - 1; } );
 
-EXECUTE_OPERATION(op_name == "jle l", if (less_flag || eq_flag) {} );
+EXECUTE_OPERATION(op_name == "jg l", if (!less_flag && !eq_flag) { in_label = true; idx = arg_code - 1; } );
 
-EXECUTE_OPERATION(op_name == "jg l", if (!less_flag && !eq_flag) {} );
+EXECUTE_OPERATION(op_name == "jge l", if (!less_flag) { in_label = true; idx = arg_code - 1; } );
 
-EXECUTE_OPERATION(op_name == "jge l", if (!less_flag) {} );
+EXECUTE_OPERATION(op_name == "jmp l", in_label = true; idx = arg_code - 1; );
 
 
 #endif //STACKMACHINE_OPERATIONS_DESCRIPTION_H

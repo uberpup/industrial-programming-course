@@ -17,6 +17,8 @@ mul r
 mul v
 imul rr
 imul rv
+add rr
+add rv
 sub rr
 sub rv
 div rr
@@ -38,4 +40,4 @@ je l
 jl l
 jle l
 jg l
-lge l
+jge l

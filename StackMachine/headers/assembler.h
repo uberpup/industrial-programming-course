@@ -36,6 +36,7 @@ private:
     void ParseInstructionArguments(const std::string& instruction,
             const std::string& arguments);
     void ParseLabel(const std::string& label_candidate);
+    void FillWaitlist();
 
     Data* data_ = nullptr;
     TxtManager txt_m_;
@@ -44,6 +45,7 @@ private:
     std::map<std::string, int32_t> code_;
     std::set<std::pair<std::string, std::string>> arguments_;
     std::vector<Instruction> instructions_;
+    std::vector<std::pair<std::string, size_t>> waitlist_;
     size_t currently_parsed_instructions_ = 0;
 };
 

@@ -31,7 +31,12 @@ void Assembler::Load(const std::string& filename) {
 
     for (auto str : txt_m_.strings) {       // Instruction and label parsing
 
-        if (lexeme_parser_.IsPresent(str)) {    // case of instruction with no arguments
+        size_t label_end = str.find(':');
+        if (label_end != -1) {
+            ParseLabel(str.substr(0, label_end));
+        }
+
+        if (lexeme_parser_.IsPresent(str) || str.empty()) {    // case of instruction with no arguments
             if (CheckArguments(str)) {
                 Translate(str);
             }
@@ -49,8 +54,8 @@ void Assembler::Load(const std::string& filename) {
         str = str.substr(instr_name_end + 1);
         size_t arg_f_end = str.find(' ');
         if (arg_f_end == -1) {
-            if (CheckArguments(instr_name)) {
-                Translate(instr_name);
+            if (CheckArguments(instr_name, str)) {
+                Translate(instr_name, str);
             }
             continue;
         }
@@ -67,6 +72,8 @@ void Assembler::Load(const std::string& filename) {
             Translate(instr_name, arg_f, arg_s);
         }
     }
+
+    FillWaitlist();
 }
 
 void Assembler::Save(const std::string& filename) {
@@ -181,7 +188,15 @@ void Assembler::Translate(const std::string& instruction,
         arg2_code += data_->reg_codes_.at(arg_s);
     }
 
-    code += InstructionCode(instruction);
+    if (labels_parser_.IsPresent(arg_f)) {
+        if (data_->label_idx_.find(arg_f) != data_->label_idx_.cend()) {
+            arg_code = data_->label_idx_.at(arg_f);
+        } else {
+            waitlist_.emplace_back(arg_f, currently_parsed_instructions_);
+        }
+    }
+
+    if (!instruction.empty()) code += InstructionCode(instruction);
 
     auto current_instruction = Instruction {code, arg_code, arg2_code};
     instructions_.push_back(current_instruction);
@@ -193,13 +208,14 @@ void Assembler::Translate(const std::string& instruction,
 
 bool Assembler::CheckArguments(const std::string& instruction,
         const std::string& arg_f, const std::string& arg_s) {
-    std::string args;
+    if (instruction.empty()) return true;
 
+    std::string args;
     if (arg_f.empty()) {
         args = "";
     } else if (is_number(arg_f)) {
         args = "v";
-    } else if (lexeme_parser_.IsPresent(arg_f)){
+    } else if (lexeme_parser_.IsPresent(arg_f) && !labels_parser_.IsPresent(arg_f)){
         if (arg_s.empty()) {
             args = "r";
         } else if (is_number(arg_s)) {
@@ -207,18 +223,19 @@ bool Assembler::CheckArguments(const std::string& instruction,
         } else if (lexeme_parser_.IsPresent(arg_s)) {
             args = "rr";
         }
+    } else if (labels_parser_.IsPresent(arg_f) && args.empty()) {
+        args = "l";
     } else {
         return false;
-    }
-
-    if (labels_parser_.IsPresent(arg_f) && args.empty()) {
-        args = "l";
     }
 
     return !(arguments_.find(std::make_pair(instruction, args)) == arguments_.end());
 }
 
 int32_t Assembler::InstructionCode(const std::string& instruction) {
+    if (instruction.empty()) {
+        return 0;
+    }
     return code_.at(instruction);
 }
 
@@ -237,5 +254,14 @@ void Assembler::ParseLabel(const std::string& label_candidate) {
     if (!labels_parser_.IsPresent(label_candidate)) {
         return;
     }
-    // todo ???
+    // Индекс инуструкции после метки
+    data_->label_idx_[label_candidate] = currently_parsed_instructions_;
+}
+
+void Assembler::FillWaitlist() {
+    for (const auto& el: waitlist_) {
+        assert(data_->label_idx_.find(el.first) != data_->label_idx_.cend());
+        instructions_[el.second].arg_code = data_->label_idx_.at(el.first);
+    }
+    waitlist_ = {};
 }

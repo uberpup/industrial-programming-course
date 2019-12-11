@@ -12,6 +12,7 @@ class Data {
 private:
     std::map<std::string, size_t> reg_codes_;
     std::map<std::string, size_t> reg_f_codes_;
+    std::map<std::string, size_t> label_idx_;
     std::vector<std::string> op_names;
 };
 

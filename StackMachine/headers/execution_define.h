@@ -4,7 +4,7 @@
 #define EXECUTE_OPERATION(expression, action) \
     if (expression) { \
         action \
-        continue; \
+        return; \
         }
 
 #endif //STACKMACHINE_EXECUTION_DEFINE_H

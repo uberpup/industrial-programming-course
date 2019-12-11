@@ -1,13 +1,16 @@
 mov ax 1
-mov bx 0
-mov cx sp
+mov bx 1
+mov cx 33
 mod dx cx
 jmp factorial
 
 factorial:
-cmp dx bx
-je end
+cmp cx bx
+je exit
 mul cx
 sub cx 1
-add bx 1
 jmp factorial
+
+exit:
+out ax
+end

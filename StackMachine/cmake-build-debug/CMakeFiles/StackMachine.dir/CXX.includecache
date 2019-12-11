@@ -50,7 +50,35 @@ vector
 cstdio
 -
 
+../headers/execution_define.h
+
 ../headers/instruction.h
+
+../headers/operations_description.h
+execution_define.h
+../headers/execution_define.h
+
+../headers/stack_machine.h
+cassert
+-
+cmath
+-
+iostream
+-
+map
+-
+stack
+-
+vector
+-
+common_data.h
+../headers/common_data.h
+config.h
+../headers/config.h
+instruction.h
+../headers/instruction.h
+text_manager.h
+../headers/text_manager.h
 
 ../headers/string_operations.h
 algorithm
@@ -74,6 +102,16 @@ string
 vector
 -
 
+/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/main.cpp
+assembler.h
+/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/assembler.h
+common_data.h
+/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/common_data.h
+config.h
+/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/config.h
+stack_machine.h
+/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/stack_machine.h
+
 /home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources/assembler.cpp
 cstdio
 -
@@ -83,4 +121,10 @@ string_operations.h
 /home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources/string_operations.h
 assembler.h
 /home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources/assembler.h
+
+/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources/stack_machine.cpp
+stack_machine.h
+/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources/stack_machine.h
+operations_description.h
+/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources/operations_description.h
 

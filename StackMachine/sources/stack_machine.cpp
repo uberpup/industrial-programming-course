@@ -12,67 +12,85 @@ void StackMachine::LoadBinary(const std::string& file) {
 }
 
 void StackMachine::Execute() {
-    // todo выполняем вектор инструкций
-    std::FILE* output = std::fopen(OUTPUT_FILE.c_str(), "r");
+    std::FILE* output = std::fopen(OUTPUT_FILE.c_str(), "w");
     std::FILE* input = std::fopen(INPUT_FILE.c_str(), "r");
-    int32_t in_v;
-    for (const auto& op : instructions_) {
-        auto op_code = op.op_code;
-        auto arg_parsing_code = (op_code >> (sizeof(op_code) * 8 - 4));
-        auto shift = (arg_parsing_code << (sizeof(op_code) * 8 - 4));
-        auto op_parsing_code = op_code - shift;
-        auto arg_code = op.arg_code;
-        auto arg2_code = op.arg2_code;
 
-        int32_t r = 0;
-        int32_t r1 = 0;
-        int32_t v = 0;
-        int32_t v1 = 0;
-        std::string op_name;
-
-        // translating code to name
-        op_name = data_->op_names[op_parsing_code];
-        // parsing arguments
-        switch (arg_parsing_code) {
-            case 0b0:
-                break;
-            case 0b100:
-                // label
-                op_name += " l";
-                break;
-            case 0b1000:
-                r = arg_code;
-                op_name += " r";
-                break;
-            case 0b1010:
-                r = arg_code;
-                r1 = arg2_code;
-                op_name += " rr";
-                break;
-            case 0b1011:
-                r = arg_code;
-                v = arg2_code;
-                op_name += " rv";
-                break;
-            case 0b1100:
-                v = arg_code;
-                op_name += " v";
-                break;
-            case 0b1110:
-                r = arg_code;
-                v = arg2_code;
-                op_name += " rv";
-                break;
-            case 0b1111:
-                v = arg_code;
-                v1 = arg2_code;
-                op_name += " vv";
-                break;
-            default:
-                assert(false);
+    size_t i = 0;
+    ssize_t return_idx = -1;
+    bool in_label = false;
+    while (i < instructions_.size()) {
+        if (instructions_[i].op_code != 0 && !in_label)    return_idx = i;
+        if (in_label && instructions_[i].op_code == 0) {    // пустая инструкция - выход из метки
+            i = return_idx + 1;
+            in_label = false;
         }
-        #include "operations_description.h"
+        while (instructions_[i].op_code == 0)   ++i;
+        ParseInstruction(instructions_[i], input, output, in_label, i);
+        ++i;
     }
+
+}
+
+inline void StackMachine::ParseInstruction(const Instruction& op,
+        std::FILE* input, std::FILE* output, bool& in_label,
+        size_t& idx) {
+
+    auto op_code = op.op_code;
+    auto arg_parsing_code = (op_code >> (sizeof(op_code) * 8 - 4));
+    auto shift = (arg_parsing_code << (sizeof(op_code) * 8 - 4));
+    auto op_parsing_code = op_code - shift;
+    auto arg_code = op.arg_code;
+    auto arg2_code = op.arg2_code;
+
+    int32_t r = 0;
+    int32_t r1 = 0;
+    int32_t v = 0;
+    int32_t v1 = 0;
+    int32_t in_v = 0;
+    std::string op_name;
+
+    // translating code to name
+    op_name = data_->op_names[op_parsing_code];
+    // parsing arguments
+    switch (arg_parsing_code) {
+        case 0b0:
+            break;
+        case 0b100:
+            // label
+            op_name += " l";
+            break;
+        case 0b1000:
+            r = arg_code;
+            op_name += " r";
+            break;
+        case 0b1010:
+            r = arg_code;
+            r1 = arg2_code;
+            op_name += " rr";
+            break;
+        case 0b1011:
+            r = arg_code;
+            v = arg2_code;
+            op_name += " rv";
+            break;
+        case 0b1100:
+            v = arg_code;
+            op_name += " v";
+            break;
+        case 0b1110:
+            r = arg_code;
+            v = arg2_code;
+            op_name += " rv";
+            break;
+        case 0b1111:
+            v = arg_code;
+            v1 = arg2_code;
+            op_name += " vv";
+            break;
+        default:
+            assert(false);
+    }
+    #include "operations_description.h"
 }
 
 int StackMachine::RegData(int idx) {

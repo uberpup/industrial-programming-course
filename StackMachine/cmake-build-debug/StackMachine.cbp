@@ -123,9 +123,6 @@
 		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/headers/text_manager.h">
 			<Option target="StackMachine"/>
 		</Unit>
-		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/headers/todo.h">
-			<Option target="StackMachine"/>
-		</Unit>
 		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/main.cpp">
 			<Option target="StackMachine"/>
 		</Unit>

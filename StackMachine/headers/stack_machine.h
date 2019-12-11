@@ -30,11 +30,10 @@ public:
     float RegFData(const std::string& reg_name);
 
 private:
-
+    inline void ParseInstruction(const Instruction& op, std::FILE* input,
+            std::FILE* output, bool& in_label, size_t& idx);
     Data* data_;
     std::stack<int> st_;
-    std::map<std::string_view, size_t> reg_codes_;
-    std::map<std::string_view, size_t> reg_f_codes_;
     float reg_f_[4];
     int reg_[8];
     bool eq_flag = false;
