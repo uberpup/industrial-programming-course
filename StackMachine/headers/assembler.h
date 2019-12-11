@@ -14,7 +14,7 @@ class Assembler {
 public:
     Assembler() = default;
     ~Assembler() = default;
-    Assembler(Data* data) : data(data){};
+    explicit Assembler(Data* data) : data_(data){};
 
     void Assemble();
     void Load(const std::string& filename);
@@ -37,13 +37,14 @@ private:
             const std::string& arguments);
     void ParseLabel(const std::string& label_candidate);
 
-    Data* data = nullptr;
+    Data* data_ = nullptr;
     TxtManager txt_m_;
     Bohr lexeme_parser_;
     Bohr labels_parser_;
     std::map<std::string, int32_t> code_;
     std::set<std::pair<std::string, std::string>> arguments_;
     std::vector<Instruction> instructions_;
+    size_t currently_parsed_instructions_ = 0;
 };
 
 #endif //STACKMACHINE_ASSEMBLER_H

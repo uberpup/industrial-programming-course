@@ -105,7 +105,13 @@
 		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/headers/disassembler.h">
 			<Option target="StackMachine"/>
 		</Unit>
+		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/headers/execution_define.h">
+			<Option target="StackMachine"/>
+		</Unit>
 		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/headers/instruction.h">
+			<Option target="StackMachine"/>
+		</Unit>
+		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/headers/operations_description.h">
 			<Option target="StackMachine"/>
 		</Unit>
 		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/headers/stack_machine.h">
@@ -117,6 +123,9 @@
 		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/headers/text_manager.h">
 			<Option target="StackMachine"/>
 		</Unit>
+		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/headers/todo.h">
+			<Option target="StackMachine"/>
+		</Unit>
 		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/main.cpp">
 			<Option target="StackMachine"/>
 		</Unit>
@@ -124,9 +133,6 @@
 			<Option target="StackMachine"/>
 		</Unit>
 		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources/bohr.cpp">
-			<Option target="StackMachine"/>
-		</Unit>
-		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources/common_data.cpp">
 			<Option target="StackMachine"/>
 		</Unit>
 		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources/disassembler.cpp">

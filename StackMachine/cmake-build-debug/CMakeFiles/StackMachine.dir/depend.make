@@ -22,9 +22,6 @@ CMakeFiles/StackMachine.dir/sources/assembler.cpp.o: ../sources/assembler.cpp
 CMakeFiles/StackMachine.dir/sources/bohr.cpp.o: ../headers/bohr.h
 CMakeFiles/StackMachine.dir/sources/bohr.cpp.o: ../sources/bohr.cpp
 
-CMakeFiles/StackMachine.dir/sources/common_data.cpp.o: ../headers/common_data.h
-CMakeFiles/StackMachine.dir/sources/common_data.cpp.o: ../sources/common_data.cpp
-
 CMakeFiles/StackMachine.dir/sources/disassembler.cpp.o: ../headers/disassembler.h
 CMakeFiles/StackMachine.dir/sources/disassembler.cpp.o: ../sources/disassembler.cpp
 
@@ -32,10 +29,11 @@ CMakeFiles/StackMachine.dir/sources/operations.cpp.o: ../sources/operations.cpp
 
 CMakeFiles/StackMachine.dir/sources/stack_machine.cpp.o: ../headers/common_data.h
 CMakeFiles/StackMachine.dir/sources/stack_machine.cpp.o: ../headers/config.h
+CMakeFiles/StackMachine.dir/sources/stack_machine.cpp.o: ../headers/execution_define.h
 CMakeFiles/StackMachine.dir/sources/stack_machine.cpp.o: ../headers/instruction.h
+CMakeFiles/StackMachine.dir/sources/stack_machine.cpp.o: ../headers/operations_description.h
 CMakeFiles/StackMachine.dir/sources/stack_machine.cpp.o: ../headers/stack_machine.h
 CMakeFiles/StackMachine.dir/sources/stack_machine.cpp.o: ../headers/text_manager.h
-CMakeFiles/StackMachine.dir/sources/stack_machine.cpp.o: ../sources/operations.cpp
 CMakeFiles/StackMachine.dir/sources/stack_machine.cpp.o: ../sources/stack_machine.cpp
 
 CMakeFiles/StackMachine.dir/sources/string_operations.cpp.o: ../headers/string_operations.h

@@ -2,6 +2,7 @@
 #define STACKMACHINE_STACK_MACHINE_H
 
 #include <cassert>
+#include <cmath>
 #include <iostream>
 #include <map>
 #include <stack>
@@ -17,7 +18,7 @@ class StackMachine {
 public:
     StackMachine() = default;
     ~StackMachine() = default;
-    StackMachine(Data* data) : data(){}
+    explicit StackMachine(Data* data) : data_(data) {}
 
     void Execute();
 
@@ -30,12 +31,14 @@ public:
 
 private:
 
-    Data* data;
+    Data* data_;
     std::stack<int> st_;
     std::map<std::string_view, size_t> reg_codes_;
     std::map<std::string_view, size_t> reg_f_codes_;
     float reg_f_[4];
     int reg_[8];
+    bool eq_flag = false;
+    bool less_flag = false;
     std::vector<Instruction> instructions_;
 };
 

@@ -2,8 +2,9 @@
 #define STACKMACHINE_INSTRUCTION_H
 
 struct Instruction {
-    int32_t op_code;
+    uint32_t op_code;
     int32_t arg_code;
+    int32_t arg2_code;
 };
 
 #endif //STACKMACHINE_INSTRUCTION_H

@@ -25,11 +25,17 @@ mov rr
 mov rv
 sqrt r
 sqrt rv
+in
 in v
+out
 out r
 end
+cmp rr
+cmp rv
 jmp l
 jne l
 je l
-cmp rr
-cmp rv
+jl l
+jle l
+jg l
+lge l

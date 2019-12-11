@@ -204,33 +204,6 @@ sources/bohr.cpp.s:
 	$(MAKE) -f CMakeFiles/StackMachine.dir/build.make CMakeFiles/StackMachine.dir/sources/bohr.cpp.s
 .PHONY : sources/bohr.cpp.s
 
-sources/common_data.o: sources/common_data.cpp.o
-
-.PHONY : sources/common_data.o
-
-# target to build an object file
-sources/common_data.cpp.o:
-	$(MAKE) -f CMakeFiles/StackMachine.dir/build.make CMakeFiles/StackMachine.dir/sources/common_data.cpp.o
-.PHONY : sources/common_data.cpp.o
-
-sources/common_data.i: sources/common_data.cpp.i
-
-.PHONY : sources/common_data.i
-
-# target to preprocess a source file
-sources/common_data.cpp.i:
-	$(MAKE) -f CMakeFiles/StackMachine.dir/build.make CMakeFiles/StackMachine.dir/sources/common_data.cpp.i
-.PHONY : sources/common_data.cpp.i
-
-sources/common_data.s: sources/common_data.cpp.s
-
-.PHONY : sources/common_data.s
-
-# target to generate assembly for a file
-sources/common_data.cpp.s:
-	$(MAKE) -f CMakeFiles/StackMachine.dir/build.make CMakeFiles/StackMachine.dir/sources/common_data.cpp.s
-.PHONY : sources/common_data.cpp.s
-
 sources/disassembler.o: sources/disassembler.cpp.o
 
 .PHONY : sources/disassembler.o
@@ -384,9 +357,6 @@ help:
 	@echo "... sources/bohr.o"
 	@echo "... sources/bohr.i"
 	@echo "... sources/bohr.s"
-	@echo "... sources/common_data.o"
-	@echo "... sources/common_data.i"
-	@echo "... sources/common_data.s"
 	@echo "... sources/disassembler.o"
 	@echo "... sources/disassembler.i"
 	@echo "... sources/disassembler.s"

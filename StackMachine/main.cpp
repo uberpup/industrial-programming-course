@@ -11,9 +11,9 @@ int main() {
     ass.Load(ASMCODE_FILENAME);
     ass.Assemble();
     // выполнить стековой машиной
-    //StackMachine stack_machine;
-    //stack_machine.LoadBinary(BINARYCODE_FILENAME);
-    //stack_machine.Execute();
+    StackMachine stack_machine(&data);
+    stack_machine.LoadBinary(BINARYCODE_FILENAME);
+    stack_machine.Execute();
 
     return 0;
 }
