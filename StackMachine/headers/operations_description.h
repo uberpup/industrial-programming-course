@@ -39,19 +39,19 @@ EXECUTE_OPERATION(op_name == "sqrt r",  reg_[r] = sqrt(reg_[r]); );
 
 EXECUTE_OPERATION(op_name == "sqrt rv",  reg_[r] = sqrt(v); );
 
-EXECUTE_OPERATION(op_name == "in", fscanf(input, "%ld", &in_v); st_.push(in_v); );
+EXECUTE_OPERATION(op_name == "in", fscanf(input, "%" PRId32, &in_v); st_.push(in_v); );
 
 EXECUTE_OPERATION(op_name == "in v", st_.push(v); )
 
-EXECUTE_OPERATION(op_name == "out", fprintf(output, "%ld\n", st_.top()); );
+EXECUTE_OPERATION(op_name == "out", fprintf(output, "%" PRId32"\n", st_.top()); );
 
-EXECUTE_OPERATION(op_name == "out r", fprintf(output, "%ld\n", reg_[r]); );
+EXECUTE_OPERATION(op_name == "out r", fprintf(output, "%" PRId32 "\n", reg_[r]); );
 
 EXECUTE_OPERATION(op_name == "end", std::fclose(output); exit(0); );
 
-EXECUTE_OPERATION(op_name == "cmp rr", if (reg_[r] == reg_[r1]) eq_flag = true; if (reg_[r] < reg_[r1]) less_flag = true; );
+EXECUTE_OPERATION(op_name == "cmp rr", if (reg_[r] == reg_[r1]) eq_flag = true; else eq_flag = false; if (reg_[r] < reg_[r1]) less_flag = true; else less_flag = false;);
 
-EXECUTE_OPERATION(op_name == "cmp rv", if (reg_[r] == v) eq_flag = true; if (reg_[r] < v) less_flag = true;);
+EXECUTE_OPERATION(op_name == "cmp rv", if (reg_[r] == v) eq_flag = true; else eq_flag = false; if (reg_[r] < v) less_flag = true; else less_flag = false;);
 
 EXECUTE_OPERATION(op_name == "jne l", if (!eq_flag) { in_label = true; idx = arg_code - 1; } );
 

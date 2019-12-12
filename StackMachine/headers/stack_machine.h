@@ -2,6 +2,7 @@
 #define STACKMACHINE_STACK_MACHINE_H
 
 #include <cassert>
+#include <cinttypes>
 #include <cmath>
 #include <iostream>
 #include <map>

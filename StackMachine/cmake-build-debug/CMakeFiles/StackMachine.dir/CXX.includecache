@@ -61,6 +61,8 @@ execution_define.h
 ../headers/stack_machine.h
 cassert
 -
+cinttypes
+-
 cmath
 -
 iostream
@@ -79,14 +81,6 @@ instruction.h
 ../headers/instruction.h
 text_manager.h
 ../headers/text_manager.h
-
-../headers/string_operations.h
-algorithm
--
-iostream
--
-string
--
 
 ../headers/text_manager.h
 cassert
@@ -111,16 +105,6 @@ config.h
 /home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/config.h
 stack_machine.h
 /home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/stack_machine.h
-
-/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources/assembler.cpp
-cstdio
--
-cassert
--
-string_operations.h
-/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources/string_operations.h
-assembler.h
-/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources/assembler.h
 
 /home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources/stack_machine.cpp
 stack_machine.h

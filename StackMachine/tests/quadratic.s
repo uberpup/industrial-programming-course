@@ -1,9 +1,8 @@
-mov ax sp
-mov bx 22
-mov cx 6
+mov ax 1
+mov bx 7
+mov cx 4
 cmp ax 0
 je linear_case
-cmp ax 0
 jne quadratic_case
 
 linear_case:
@@ -13,26 +12,23 @@ je const_case
 const_case:
 cmp cx 0
 je infinite_roots
-cmp cx 0
 jne no_roots
 
-quaratic_case:
+quadratic_case:
 mov dx bx
 imul dx bx
-push di
 mov di 4
 imul di ax
 imul di cx
 sub dx di
-pop di
 cmp dx 0
 jl no_roots
-cmp dx 0
 je one_root
 jmp two_roots
 
 no_roots:
 mov dx 0
+out dx
 end
 
 one_root:
@@ -41,28 +37,30 @@ div dx 2
 div dx ax
 mov ax dx
 mov dx 1
+out dx
+out ax
 end
 
 two_roots:
-push di
-push si
 mov di 0
 sub di bx
 mov si di
 sqrt dx
 sub di dx
 add si dx
-div di 2
-div si 2
-div di ax
-div si ax
+mov cx 2
+imul cx ax
+div di cx
+div si cx
 mov dx 2
 mov ax di
 mov bx si
-pop si
-pop di
+out dx
+out ax
+out bx
 end
 
 infinite_roots:
 mov dx 3
+out dx
 end
