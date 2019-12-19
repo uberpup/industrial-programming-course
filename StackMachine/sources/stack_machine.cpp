@@ -1,8 +1,6 @@
 #include "stack_machine.h"
 
 void StackMachine::LoadBinary(const std::string& file) {
-    // парсим бинарник
-    // делаем вектор инструкций
     std::FILE* binary_file = std::fopen(file.c_str(), "r");
     std::fseek(binary_file, 0, SEEK_END);
     size_t file_size = std::ftell(binary_file);
@@ -50,7 +48,7 @@ inline void StackMachine::ParseInstruction(const Instruction& op,
     std::string op_name;
 
     // translating code to name
-    op_name = data_->op_names[op_parsing_code];
+    op_name = data_->op_names_[op_parsing_code];
     // parsing arguments
     switch (arg_parsing_code) {
         case 0b0:

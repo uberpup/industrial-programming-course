@@ -1,0 +1,20 @@
+digraph G {
+ -> math knowledge required;
+math knowledge required -> very abstract;
+very abstract -> works with derivatives;
+works with derivatives -> calculus;
+works with derivatives -> math logic;
+very abstract -> with redkozubov;
+with redkozubov -> differential equations;
+with redkozubov -> needs c++ knowledge;
+needs c++ knowledge -> algorithms;
+needs c++ knowledge -> needs c and asm knowledge;
+needs c and asm knowledge -> caos;
+needs c and asm knowledge -> discrete structures;
+math knowledge required -> sport knowledge required;
+sport knowledge required -> pe;
+sport knowledge required -> has lectures;
+has lectures -> history;
+has lectures -> english;
+
+}

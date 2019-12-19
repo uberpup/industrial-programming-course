@@ -13,17 +13,13 @@
  * interacting with user */
 
 class Akinator : public Tree<std::string> {
-public:
-    Akinator();
-    void Operate();
-    ~Akinator() = default;
-
+    friend class TreeDotConverter;
 private:
     struct QuestionNode : Tree<std::string>::PureNode {
         std::shared_ptr<Akinator::QuestionNode> no;
         std::shared_ptr<Akinator::QuestionNode> yes;
         std::weak_ptr<Akinator::QuestionNode> parent;
-        bool is_question{};
+        bool is_question = true;
         QuestionNode() = default;
         explicit QuestionNode(const std::string& value);
         ~QuestionNode() = default;
@@ -57,11 +53,16 @@ private:
     void SaveTree();
     void BreakMessage();
 
-    std::shared_ptr<QuestionNode> current_node;
-    std::shared_ptr<QuestionNode> root;
-    std::set<std::string> names;
-    bool exit = false;
-    int current_mode;
+    std::shared_ptr<QuestionNode> current_node_;
+    std::shared_ptr<QuestionNode> root_;
+    std::set<std::string> names_;
+    bool exit_ = false;
+    int current_mode_;
+
+public:
+    Akinator();
+    void Operate();
+    ~Akinator() = default;
 };
 
 #endif //AKINATOR_MIPT_AKINATOR_H

@@ -22,23 +22,25 @@ vector
 tree.h
 ../headers/tree.h
 
-../headers/string_operations.h
-algorithm
--
-iostream
--
-string
--
-
 ../headers/tree.h
 memory
 -
 stack
 -
 
-/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/sources/Akinator.cpp
+../headers/tree_dot_converter.h
+cstdlib
+-
+memory
+-
+string
+-
+utility
+-
 Akinator.h
-/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/sources/Akinator.h
-string_operations.h
-/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/sources/string_operations.h
+../headers/Akinator.h
+
+/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/sources/tree_dot_converter.cpp
+tree_dot_converter.h
+/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Akinator_mipt/sources/tree_dot_converter.h
 

@@ -3,6 +3,7 @@
 
 #include <memory>
 #include <stack>
+
 template <typename T>
 class Tree {
 public:
@@ -20,14 +21,14 @@ protected:
 private:
     struct Node : PureNode {
         T key;                // значение
-        std::weak_ptr<Node> left;
-        std::weak_ptr<Node> right;          // Люди - листья
-        std::shared_ptr<Node> parent;
+        std::shared_ptr<Node> left;
+        std::shared_ptr<Node> right;          // Люди - листья
+        std::weak_ptr<Node> parent;
         Node() = default;
         ~Node() = default;
     };
     void Add(const T& key, bool direction);
-    std::shared_ptr<Node> current_node;
-    std::shared_ptr<Node> root;
+    std::shared_ptr<Node> current_node_;
+    std::shared_ptr<Node> root_;
 };
 #endif //AKINATOR_MIPT_TREE_H

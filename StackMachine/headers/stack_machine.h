@@ -8,14 +8,14 @@
 #include <map>
 #include <stack>
 #include <vector>
-#include "common_data.h"
+#include "data.h"
 #include "config.h"
 #include "instruction.h"
 #include "text_manager.h"
 
 class StackMachine {
     // Registers: ax, bx, cx, dx, sp, fr, si, di
-    // Instructions: pop, push, add, mul, imul, sub, div, mod, sqrt, in, out, end, jmp, je, jne, cmp
+    // Instructions: pop, push, add, mul, imul, sub, div, mod, sqrt, in, out, end, jmp, je, jne, cmp, call, ret
 public:
     StackMachine() = default;
     ~StackMachine() = default;

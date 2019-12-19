@@ -1,8 +1,9 @@
 #include "Akinator.h"
 #include "string_operations.h"
+#include "tree_dot_converter.h"
 
-Akinator::Akinator(): root(std::make_shared<QuestionNode>()), names(), current_mode(-1) {
-    current_node = root;
+Akinator::Akinator(): root_(std::make_shared<QuestionNode>()), names_(), current_mode_(-1) {
+    current_node_ = root_;
 }
 
 Akinator::QuestionNode::QuestionNode(const std::string& value) : is_question(true) {
@@ -29,39 +30,39 @@ void Akinator::Operate() {
 
 void Akinator::Add(const std::string& name, const std::string& feature = "") {
     if (!IsPresent(name)) {
-        names.insert(str_tolower(name));
+        names_.insert(str_tolower(name));
     } else {
         printf("%s%s\n""Sorry, but ", name.c_str(), "is already in the tree.");
         printf("%s\n", "His/her features are:");
         Describe(name);
         return;
     }
-    if (current_node == current_node->parent.lock()->no) {      // Inserting new feature to the tree
-        current_node->parent.lock()->no =
+    if (current_node_ == current_node_->parent.lock()->no) {      // Inserting new feature to the tree
+        current_node_->parent.lock()->no =
                 std::make_shared<QuestionNode>(feature);
-        current_node->parent.lock()->no->parent = current_node->parent;
-        current_node->parent.lock()->no->no = current_node;
-        current_node->parent = std::weak_ptr<QuestionNode>(
-                current_node->parent.lock()->no);
-        current_node->parent.lock()->yes =
+        current_node_->parent.lock()->no->parent = current_node_->parent;
+        current_node_->parent.lock()->no->no = current_node_;
+        current_node_->parent = std::weak_ptr<QuestionNode>(
+                current_node_->parent.lock()->no);
+        current_node_->parent.lock()->yes =
                 std::make_shared<AnswerNode>(name);
-        current_node->parent.lock()->yes->parent = current_node->parent;
+        current_node_->parent.lock()->yes->parent = current_node_->parent;
     } else {
-        current_node->parent.lock()->yes =
+        current_node_->parent.lock()->yes =
                 std::make_shared<QuestionNode>(feature);
-        current_node->parent.lock()->yes->parent = current_node->parent;
-        current_node->parent.lock()->yes->no = current_node;
-        current_node->parent = std::weak_ptr<QuestionNode>(
-                current_node->parent.lock()->yes);
-        current_node->parent.lock()->yes =
+        current_node_->parent.lock()->yes->parent = current_node_->parent;
+        current_node_->parent.lock()->yes->no = current_node_;
+        current_node_->parent = std::weak_ptr<QuestionNode>(
+                current_node_->parent.lock()->yes);
+        current_node_->parent.lock()->yes =
                 std::make_shared<AnswerNode>(name);
-        current_node->parent.lock()->yes->parent = current_node->parent;
+        current_node_->parent.lock()->yes->parent = current_node_->parent;
     }
 }
 
 void Akinator::Add(const std::string& name, bool direction) {
     if (!IsPresent(name)) {
-        names.insert(str_tolower(name));
+        names_.insert(str_tolower(name));
     } else {
         printf("%s%s\n""Sorry, but ", name.c_str(), "is already in the tree.");
         printf("%s\n", "His/her features are:");
@@ -70,41 +71,41 @@ void Akinator::Add(const std::string& name, bool direction) {
     }
 
     if (direction) {
-        current_node->yes = std::make_shared<AnswerNode>(name);
-        current_node->yes->parent = std::weak_ptr<QuestionNode>(current_node);
+        current_node_->yes = std::make_shared<AnswerNode>(name);
+        current_node_->yes->parent = std::weak_ptr<QuestionNode>(current_node_);
     } else {
-        current_node->no = std::make_shared<AnswerNode>(name);
-        current_node->no->parent = std::weak_ptr<QuestionNode>(current_node);
+        current_node_->no = std::make_shared<AnswerNode>(name);
+        current_node_->no->parent = std::weak_ptr<QuestionNode>(current_node_);
     }
 }
 
 void Akinator::AddToRoot(const std::string& name, const std::string& feature) {
-    root->yes =
+    root_->yes =
             std::make_shared<QuestionNode>(feature);
-    root->yes->parent = std::weak_ptr<QuestionNode>(root);
+    root_->yes->parent = std::weak_ptr<QuestionNode>(root_);
 
-    current_node = root->yes;
-    current_node->yes = std::make_shared<AnswerNode>(name);
-    current_node->yes->parent = std::weak_ptr<QuestionNode>(current_node);
+    current_node_ = root_->yes;
+    current_node_->yes = std::make_shared<AnswerNode>(name);
+    current_node_->yes->parent = std::weak_ptr<QuestionNode>(current_node_);
 
-    names.insert(str_tolower(name));
+    names_.insert(str_tolower(name));
 }
 
 bool Akinator::IsPresent(const std::string& name) {
     if (str_tolower(name) == "kanye") {             // Easter egg
         system("./run_kanye.sh");
     }
-    return !(names.find(str_tolower(name)) == names.end());
+    return !(names_.find(str_tolower(name)) == names_.end());
 }
 
 void Akinator::Traverse(const std::string& target) {
-    auto current = root;
+    auto current = root_;
     if (!current) {
         return;
     }
 
     if (current->key == target) {
-        current_node = current;
+        current_node_ = current;
         return;
     }
 
@@ -115,7 +116,7 @@ void Akinator::Traverse(const std::string& target) {
         current = node_stack.top();
 
         if (current->key == target) {
-            current_node = current;
+            current_node_ = current;
             return;
         }
 
@@ -131,16 +132,16 @@ void Akinator::Traverse(const std::string& target) {
 
 void Akinator::Step(bool direction) {
 
-    if (direction && current_node->yes != nullptr) {     // has "yes" child
-        current_node = current_node->yes;
+    if (direction && current_node_->yes != nullptr) {     // has "yes" child
+        current_node_ = current_node_->yes;
         return;
     }
-    if (!direction && current_node->no != nullptr) {
-        current_node = current_node->no;
+    if (!direction && current_node_->no != nullptr) {
+        current_node_ = current_node_->no;
         return;
     } else {
-        printf("%s", "There's no one with given features."
-                     " Who is your object?\n");
+        printf("%s\n", "There's no one with given features."
+                     " Who is your object?");
         std::string name;
         std::getline(std::cin, name);
         Add(str_tolower(name), direction);
@@ -153,18 +154,18 @@ std::stack<std::shared_ptr<Akinator::QuestionNode>> Akinator::Describe (
     Traverse(str_tolower(name));
 
     std::stack<std::shared_ptr<QuestionNode>> d_stack;
-    if (current_node == root) {
+    if (current_node_ == root_) {
         printf("%s%s\n", name.c_str(), " is not found");
         return {};
     }
 
-    while (current_node != root) {
-        d_stack.push(current_node);
-        current_node = current_node->parent.lock();
+    while (current_node_ != root_) {
+        d_stack.push(current_node_);
+        current_node_ = current_node_->parent.lock();
     }
 
     if (mode) {
-        current_node = root->yes;
+        current_node_ = root_->yes;
         return d_stack;
     }
 
@@ -185,17 +186,21 @@ std::stack<std::shared_ptr<Akinator::QuestionNode>> Akinator::Describe (
             Say("This object is not " + top->key);
         }
     }
-    current_node = root->yes;
+    current_node_ = root_->yes;
     return {};
 }
 
 void Akinator::Distinguish(const std::string& name1, const std::string& name2) {
-    auto stack_one = Describe(name1, 1);
-    auto stack_two = Describe(name2, 1);
     if (!(IsPresent(name1) && IsPresent(name2))) {
         printf("%s\n", "Seems like one of the given objects is not in the tree yet");
         return;
     }
+    if (str_tolower(name1) == str_tolower(name2)) {
+        printf("%s\n", "Objects are identical");
+        return;
+    }
+    auto stack_one = Describe(name1, 1);
+    auto stack_two = Describe(name2, 1);
     auto top = stack_one.top();
     while (stack_one.top() == stack_two.top()) {
         top = stack_one.top();
@@ -204,11 +209,11 @@ void Akinator::Distinguish(const std::string& name1, const std::string& name2) {
     }
     if (top->yes == stack_one.top()) {
         printf("%s%s%s%s %s\n", name1.c_str(), " unlike ", name2.c_str(),
-                " is", top->key.c_str());
+                " (is)", top->key.c_str());
         Say(name1 + " unlike " + name2 + " is" + top->key);
     } else {
         printf("%s%s%s%s %s\n", name2.c_str(), " unlike ", name1.c_str(),
-                " is", top->key.c_str());
+                " (is)", top->key.c_str());
         Say(name2 + " unlike " + name1 + " is" + top->key);
     }
 }
@@ -255,13 +260,15 @@ void Akinator::BreakMessage() {
             return;
         case '1':
             SaveTree();
-            exit = true;
+            exit_ = true;
             printf("%s\n", "Goodbye!");
-            return;
+            Say("Goodbye!");
+            exit(0);
         case '2':
-            exit = true;
+            exit_ = true;
             printf("%s\n", "Goodbye!");
-            return;
+            Say("Goodbye!");
+            exit(0);
         default:
             printf("%s\n", "Inappropriate data. Consider checking the rules!");
             BreakMessage();
@@ -269,9 +276,9 @@ void Akinator::BreakMessage() {
 }
 
 void Akinator::BuildGuessMode() {
-    while (current_node && current_node->is_question) {
+    while (current_node_ && current_node_->is_question) {
         std::string answer;
-        printf("%s%s\n", current_node->key.c_str(), "?");
+        printf("%s%s\n", current_node_->key.c_str(), "?");
         std::getline(std::cin, answer);
         answer = str_tolower(answer);
 
@@ -284,25 +291,25 @@ void Akinator::BuildGuessMode() {
         }
         Step(destination);
     }
-    if (!current_node->is_question) {
-        printf("%s%s%s\n","Is it ", current_node->key.c_str(), "?");
+    if (!current_node_->is_question) {
+        printf("%s%s%s\n", "Is it ", current_node_->key.c_str(), "?");
         std::string answer;
         std::getline(std::cin, answer);
         answer = str_tolower(answer);
         if (answer == "yes") {
             printf("%s\n", "Yeah!");
-            current_node = root->yes;
+            current_node_ = root_->yes;
             return;
         } else {
             std::string name, feature;
             printf("%s\n", "Oh. Who is your object?");
             std::getline(std::cin, name);
             printf("%s%s%s%s%s\n", "Then what distinguishes ",
-                    current_node->key.c_str(), " and ", name.c_str(),
-                    "?");
+                   current_node_->key.c_str(), " and ", name.c_str(),
+                   "?");
             std::getline(std::cin, feature);
             Add(str_tolower(name), str_tolower(feature));
-            current_node = root->yes;
+            current_node_ = root_->yes;
         }
     }
 }
@@ -328,10 +335,9 @@ void Akinator::DistinguishingMode() {
     Distinguish(name1, name2);
 }
 
-void Akinator::SaveTree() {}
 
 void Akinator::ChooseMode() {
-    while (!exit) {
+    while (!exit_) {
         printf("%s\n", "Choose the mode: ");
         char in = take_first_from_input();
 
@@ -359,6 +365,11 @@ void Akinator::ChooseMode() {
         }
     }
 
+}
+
+void Akinator::SaveTree() {
+    TreeDotConverter printer;
+    printer.PrintTree(*this);
 }
 
 /*

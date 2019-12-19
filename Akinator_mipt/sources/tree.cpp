@@ -2,7 +2,7 @@
 
 template <typename T>
 void Tree<T>::Traverse() {
-    auto current = root;
+    auto current = root_;
     if (!current) {
         return;
     }
@@ -26,11 +26,11 @@ void Tree<T>::Traverse() {
 template <typename T>
 void Tree<T>::Add(const T& key, bool direction) {
     auto new_node_ptr = std::make_shared<Node>(key);
-    new_node_ptr->parent = current_node;
+    new_node_ptr->parent = current_node_;
 
     if (direction) {
-        current_node.lock()->right = std::weak_ptr<Node>(new_node_ptr);
+        current_node_.lock()->right = std::weak_ptr<Node>(new_node_ptr);
     } else {
-        current_node.lock()->left = std::weak_ptr<Node>(new_node_ptr);
+        current_node_.lock()->left = std::weak_ptr<Node>(new_node_ptr);
     }
 }

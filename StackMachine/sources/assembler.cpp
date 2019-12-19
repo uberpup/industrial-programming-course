@@ -3,9 +3,6 @@
 #include "string_operations.h"
 #include "assembler.h"
 
-// todo метки, arg_code для меток
-// todo кодогенерация - нужно содержание команд
-
 void Assembler::Assemble() {
     Save(BINARYCODE_FILENAME);
 }
@@ -13,9 +10,9 @@ void Assembler::Assemble() {
 void Assembler::Load(const std::string& filename) {
     std::FILE* file = std::fopen(filename.c_str(), "r");
     assert(file);
-    txt_m_.ReadFormat(file); // Теперь в buf хранятся данные, в strings строки
+    txt_m_.ReadFormat(file); // data in buf, strings
 
-    for (auto& str: txt_m_.strings) { // ищем метки
+    for (auto& str: txt_m_.strings) {   // searching for labels
         size_t label_end = str.find(':');
         if (label_end == -1) {
             continue;
@@ -102,7 +99,7 @@ void Assembler::Preparation() {
     TxtManager parser_txt_m;
     parser_txt_m.ReadFormat(file);
 
-    data_->op_names.resize(parser_txt_m.strings.size());
+    data_->op_names_.resize(parser_txt_m.strings.size());
 
     int32_t instruction_code_number = 1;
     size_t register_code_number = 0;
@@ -201,7 +198,7 @@ void Assembler::Translate(const std::string& instruction,
     auto current_instruction = Instruction {code, arg_code, arg2_code};
     instructions_.push_back(current_instruction);
 
-    data_->op_names[InstructionCode(instruction)] = instruction;
+    data_->op_names_[InstructionCode(instruction)] = instruction;
 
     ++currently_parsed_instructions_;
 }
@@ -264,4 +261,11 @@ void Assembler::FillWaitlist() {
         instructions_[el.second].arg_code = data_->label_idx_.at(el.first);
     }
     waitlist_ = {};
+
+    auto file = std::fopen(CONFIG_FILE.c_str(), "w");
+    assert(file);
+    for (const auto& el : data_->op_names_) {
+        fprintf(file, "%s\n", el.c_str());
+    }
+    fclose(file);
 }

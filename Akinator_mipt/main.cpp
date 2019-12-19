@@ -1,6 +1,6 @@
 #include "Akinator.h"
-/* Fixes: string_view, exit
- * Features: graphviz, festival. Managed to install */
+/* Fixes: string_view
+ * Features: graphviz, festival. */
 
 int main() {
     Akinator akinator;

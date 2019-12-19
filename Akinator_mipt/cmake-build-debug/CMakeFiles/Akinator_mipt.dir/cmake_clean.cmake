@@ -1,11 +1,11 @@
 file(REMOVE_RECURSE
+  "Akinator_mipt"
+  "Akinator_mipt.pdb"
   "CMakeFiles/Akinator_mipt.dir/main.cpp.o"
   "CMakeFiles/Akinator_mipt.dir/sources/Akinator.cpp.o"
-  "CMakeFiles/Akinator_mipt.dir/sources/tree.cpp.o"
   "CMakeFiles/Akinator_mipt.dir/sources/string_operations.cpp.o"
+  "CMakeFiles/Akinator_mipt.dir/sources/tree.cpp.o"
   "CMakeFiles/Akinator_mipt.dir/sources/tree_dot_converter.cpp.o"
-  "Akinator_mipt.pdb"
-  "Akinator_mipt"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -4,7 +4,7 @@
 #include <cstring>
 #include <map>
 #include <set>
-#include "common_data.h"
+#include "data.h"
 #include "config.h"
 #include "bohr.h"
 #include "instruction.h"

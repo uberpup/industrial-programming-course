@@ -96,10 +96,10 @@
 		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/headers/bohr.h">
 			<Option target="StackMachine"/>
 		</Unit>
-		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/headers/common_data.h">
+		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/headers/config.h">
 			<Option target="StackMachine"/>
 		</Unit>
-		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/headers/config.h">
+		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/headers/data.h">
 			<Option target="StackMachine"/>
 		</Unit>
 		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/headers/disassembler.h">
@@ -123,19 +123,19 @@
 		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/headers/text_manager.h">
 			<Option target="StackMachine"/>
 		</Unit>
-		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/main.cpp">
-			<Option target="StackMachine"/>
-		</Unit>
 		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources/assembler.cpp">
 			<Option target="StackMachine"/>
 		</Unit>
 		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources/bohr.cpp">
 			<Option target="StackMachine"/>
 		</Unit>
+		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources/data.cpp">
+			<Option target="StackMachine"/>
+		</Unit>
 		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources/disassembler.cpp">
 			<Option target="StackMachine"/>
 		</Unit>
-		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources/operations.cpp">
+		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources/execute.cpp">
 			<Option target="StackMachine"/>
 		</Unit>
 		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/StackMachine/sources/stack_machine.cpp">

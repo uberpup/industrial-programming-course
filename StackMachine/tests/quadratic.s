@@ -1,6 +1,7 @@
 mov ax 1
-mov bx 7
-mov cx 4
+mov bx 0
+mov cx 0
+sub cx 4
 cmp ax 0
 je linear_case
 jne quadratic_case
@@ -8,6 +9,12 @@ jne quadratic_case
 linear_case:
 cmp bx 0
 je const_case
+mov dx 1
+sub ax cx
+div ax bx
+out dx
+out ax
+end
 
 const_case:
 cmp cx 0

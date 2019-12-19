@@ -53,6 +53,10 @@ EXECUTE_OPERATION(op_name == "cmp rr", if (reg_[r] == reg_[r1]) eq_flag = true; 
 
 EXECUTE_OPERATION(op_name == "cmp rv", if (reg_[r] == v) eq_flag = true; else eq_flag = false; if (reg_[r] < v) less_flag = true; else less_flag = false;);
 
+EXECUTE_OPERATION(op_name == "call l", in_label = true; idx = arg_code - 1;)
+
+EXECUTE_OPERATION(op_name == "ret", st_.push(reg_[r]); )
+
 EXECUTE_OPERATION(op_name == "jne l", if (!eq_flag) { in_label = true; idx = arg_code - 1; } );
 
 EXECUTE_OPERATION(op_name == "je l", if (eq_flag) { in_label = true; idx = arg_code - 1; } );
@@ -66,6 +70,5 @@ EXECUTE_OPERATION(op_name == "jg l", if (!less_flag && !eq_flag) { in_label = tr
 EXECUTE_OPERATION(op_name == "jge l", if (!less_flag) { in_label = true; idx = arg_code - 1; } );
 
 EXECUTE_OPERATION(op_name == "jmp l", in_label = true; idx = arg_code - 1; );
-
 
 #endif //STACKMACHINE_OPERATIONS_DESCRIPTION_H

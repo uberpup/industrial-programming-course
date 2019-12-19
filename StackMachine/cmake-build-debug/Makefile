@@ -39,10 +39,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /home/vladimir/.local/share/JetBrains/Toolbox/apps/CLion/ch-1/192.7142.39/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /home/vladimir/.local/share/JetBrains/Toolbox/apps/CLion/ch-1/193.5233.144/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /home/vladimir/.local/share/JetBrains/Toolbox/apps/CLion/ch-1/192.7142.39/bin/cmake/linux/bin/cmake -E remove -f
+RM = /home/vladimir/.local/share/JetBrains/Toolbox/apps/CLion/ch-1/193.5233.144/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = "/home/vladimir/CLionProjects/Industrial Programming Course/i
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/home/vladimir/.local/share/JetBrains/Toolbox/apps/CLion/ch-1/192.7142.39/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/home/vladimir/.local/share/JetBrains/Toolbox/apps/CLion/ch-1/193.5233.144/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/vladimir/.local/share/JetBrains/Toolbox/apps/CLion/ch-1/192.7142.39/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/home/vladimir/.local/share/JetBrains/Toolbox/apps/CLion/ch-1/193.5233.144/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -122,33 +122,6 @@ StackMachine: cmake_check_build_system
 StackMachine/fast:
 	$(MAKE) -f CMakeFiles/StackMachine.dir/build.make CMakeFiles/StackMachine.dir/build
 .PHONY : StackMachine/fast
-
-main.o: main.cpp.o
-
-.PHONY : main.o
-
-# target to build an object file
-main.cpp.o:
-	$(MAKE) -f CMakeFiles/StackMachine.dir/build.make CMakeFiles/StackMachine.dir/main.cpp.o
-.PHONY : main.cpp.o
-
-main.i: main.cpp.i
-
-.PHONY : main.i
-
-# target to preprocess a source file
-main.cpp.i:
-	$(MAKE) -f CMakeFiles/StackMachine.dir/build.make CMakeFiles/StackMachine.dir/main.cpp.i
-.PHONY : main.cpp.i
-
-main.s: main.cpp.s
-
-.PHONY : main.s
-
-# target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) -f CMakeFiles/StackMachine.dir/build.make CMakeFiles/StackMachine.dir/main.cpp.s
-.PHONY : main.cpp.s
 
 sources/assembler.o: sources/assembler.cpp.o
 
@@ -204,6 +177,33 @@ sources/bohr.cpp.s:
 	$(MAKE) -f CMakeFiles/StackMachine.dir/build.make CMakeFiles/StackMachine.dir/sources/bohr.cpp.s
 .PHONY : sources/bohr.cpp.s
 
+sources/data.o: sources/data.cpp.o
+
+.PHONY : sources/data.o
+
+# target to build an object file
+sources/data.cpp.o:
+	$(MAKE) -f CMakeFiles/StackMachine.dir/build.make CMakeFiles/StackMachine.dir/sources/data.cpp.o
+.PHONY : sources/data.cpp.o
+
+sources/data.i: sources/data.cpp.i
+
+.PHONY : sources/data.i
+
+# target to preprocess a source file
+sources/data.cpp.i:
+	$(MAKE) -f CMakeFiles/StackMachine.dir/build.make CMakeFiles/StackMachine.dir/sources/data.cpp.i
+.PHONY : sources/data.cpp.i
+
+sources/data.s: sources/data.cpp.s
+
+.PHONY : sources/data.s
+
+# target to generate assembly for a file
+sources/data.cpp.s:
+	$(MAKE) -f CMakeFiles/StackMachine.dir/build.make CMakeFiles/StackMachine.dir/sources/data.cpp.s
+.PHONY : sources/data.cpp.s
+
 sources/disassembler.o: sources/disassembler.cpp.o
 
 .PHONY : sources/disassembler.o
@@ -231,32 +231,32 @@ sources/disassembler.cpp.s:
 	$(MAKE) -f CMakeFiles/StackMachine.dir/build.make CMakeFiles/StackMachine.dir/sources/disassembler.cpp.s
 .PHONY : sources/disassembler.cpp.s
 
-sources/operations.o: sources/operations.cpp.o
+sources/execute.o: sources/execute.cpp.o
 
-.PHONY : sources/operations.o
+.PHONY : sources/execute.o
 
 # target to build an object file
-sources/operations.cpp.o:
-	$(MAKE) -f CMakeFiles/StackMachine.dir/build.make CMakeFiles/StackMachine.dir/sources/operations.cpp.o
-.PHONY : sources/operations.cpp.o
+sources/execute.cpp.o:
+	$(MAKE) -f CMakeFiles/StackMachine.dir/build.make CMakeFiles/StackMachine.dir/sources/execute.cpp.o
+.PHONY : sources/execute.cpp.o
 
-sources/operations.i: sources/operations.cpp.i
+sources/execute.i: sources/execute.cpp.i
 
-.PHONY : sources/operations.i
+.PHONY : sources/execute.i
 
 # target to preprocess a source file
-sources/operations.cpp.i:
-	$(MAKE) -f CMakeFiles/StackMachine.dir/build.make CMakeFiles/StackMachine.dir/sources/operations.cpp.i
-.PHONY : sources/operations.cpp.i
+sources/execute.cpp.i:
+	$(MAKE) -f CMakeFiles/StackMachine.dir/build.make CMakeFiles/StackMachine.dir/sources/execute.cpp.i
+.PHONY : sources/execute.cpp.i
 
-sources/operations.s: sources/operations.cpp.s
+sources/execute.s: sources/execute.cpp.s
 
-.PHONY : sources/operations.s
+.PHONY : sources/execute.s
 
 # target to generate assembly for a file
-sources/operations.cpp.s:
-	$(MAKE) -f CMakeFiles/StackMachine.dir/build.make CMakeFiles/StackMachine.dir/sources/operations.cpp.s
-.PHONY : sources/operations.cpp.s
+sources/execute.cpp.s:
+	$(MAKE) -f CMakeFiles/StackMachine.dir/build.make CMakeFiles/StackMachine.dir/sources/execute.cpp.s
+.PHONY : sources/execute.cpp.s
 
 sources/stack_machine.o: sources/stack_machine.cpp.o
 
@@ -348,21 +348,21 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... StackMachine"
 	@echo "... edit_cache"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
 	@echo "... sources/assembler.o"
 	@echo "... sources/assembler.i"
 	@echo "... sources/assembler.s"
 	@echo "... sources/bohr.o"
 	@echo "... sources/bohr.i"
 	@echo "... sources/bohr.s"
+	@echo "... sources/data.o"
+	@echo "... sources/data.i"
+	@echo "... sources/data.s"
 	@echo "... sources/disassembler.o"
 	@echo "... sources/disassembler.i"
 	@echo "... sources/disassembler.s"
-	@echo "... sources/operations.o"
-	@echo "... sources/operations.i"
-	@echo "... sources/operations.s"
+	@echo "... sources/execute.o"
+	@echo "... sources/execute.i"
+	@echo "... sources/execute.s"
 	@echo "... sources/stack_machine.o"
 	@echo "... sources/stack_machine.i"
 	@echo "... sources/stack_machine.s"

@@ -32,6 +32,9 @@ in v
 out
 out r
 end
+ret
+ret r
+call l
 cmp rr
 cmp rv
 jmp l
