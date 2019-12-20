@@ -79,7 +79,7 @@ inline int GetP(const std::string_view& str, size_t& idx) {
 
 inline int GetN(const std::string_view& str, size_t& idx) {
     int value = 0;
-    if (str[idx] >= '0' && str[idx] <= '9') {
+    while (str[idx] >= '0' && str[idx] <= '9') {
         value *= 10;
         value += str[idx] - '0';
         ++idx;
