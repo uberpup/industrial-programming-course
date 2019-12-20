@@ -1,0 +1,3 @@
+/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Derivator/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Derivator/cmake-build-debug/CMakeFiles/Derivator.dir
+/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Derivator/cmake-build-debug/CMakeFiles/edit_cache.dir

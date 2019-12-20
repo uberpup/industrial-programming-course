@@ -1,0 +1,54 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../headers/config.h
+string
+-
+
+../headers/consts.h
+
+../headers/derivator.h
+cassert
+-
+ctgmath
+-
+iostream
+-
+string
+-
+consts.h
+../headers/consts.h
+tree.h
+../headers/tree.h
+
+../headers/tree.h
+memory
+-
+stack
+-
+
+../headers/tree_dot_converter.h
+cstdlib
+-
+memory
+-
+string
+-
+utility
+-
+config.h
+../headers/config.h
+derivator.h
+../headers/derivator.h
+
+/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Derivator/sources/derivator.cpp
+derivator.h
+/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Derivator/sources/derivator.h
+tree_dot_converter.h
+/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Derivator/sources/tree_dot_converter.h
+

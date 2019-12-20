@@ -1,0 +1,16 @@
+#ifndef DERIVATOR_CONSTS_H
+#define DERIVATOR_CONSTS_H
+
+enum FUNC_TYPES {
+    NONE,
+    ADDITION,
+    SUBTRACTION,
+    MULTIPLICATION,
+    DIVISION,
+    POWER,
+    SIN,
+    COS,
+    VARIABLE
+};
+
+#endif //DERIVATOR_CONSTS_H
