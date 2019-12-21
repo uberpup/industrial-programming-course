@@ -3,12 +3,12 @@
 
 //todo Дописать конструкторы, Распарсить с арифметическим приоритетом, Проверить что без упрощений работает, Написать упрощения
 
-Derivator::Derivator() : root_(nullptr) {
+Derivator::Derivator() : root_(nullptr), operations_parser_() {
     current_node_ = root_;
+    //FillBohr();
 }
 
 void Derivator::Build(const std::string& expression) {
-    // todo Parsing with RecursiveDecent
     RecursiveDecent(expression);
 }
 
@@ -41,6 +41,7 @@ inline std::shared_ptr<Derivator::Node> Derivator::GetE(const std::string& str, 
     return value;
 }
 
+
 inline std::shared_ptr<Derivator::Node> Derivator::GetT(const std::string& str, size_t& idx) {
     auto value = GetP(str, idx);
     while (str[idx] == '*' || str[idx] == '/') {
@@ -48,12 +49,14 @@ inline std::shared_ptr<Derivator::Node> Derivator::GetT(const std::string& str, 
         ++idx;
         auto next_value = GetP(str, idx);
         ssize_t func;
+
         if (operation == '*') {
             func = MULTIPLICATION;
         }
         if (operation == '/') {
             func = DIVISION;
         }
+
         auto mul_ptr = std::make_shared<Node>(0, func, false, value, next_value);
         auto parent_ptr = std::weak_ptr<Node>(mul_ptr);
         value->parent = parent_ptr;
@@ -70,6 +73,17 @@ inline std::shared_ptr<Derivator::Node> Derivator::GetP(const std::string& str, 
         assert(str[idx] == ')');
         ++idx;
         return value;
+
+    } else if (str[idx] >= 'A' && str[idx] <= 'z' &&
+            str[idx] != 's' && str[idx] != 'c') {
+        GetV(str, idx);
+        Node variable;
+        variable.is_const = false;
+        variable.func = VARIABLE;
+        return std::make_shared<Node>(variable);
+
+    } else if (str[idx] == 's' || str[idx] == 'c') {
+        return GetTrig(str, idx);
     } else {
         Node number;
         number.value = GetN(str, idx);
@@ -77,6 +91,36 @@ inline std::shared_ptr<Derivator::Node> Derivator::GetP(const std::string& str, 
         number.func = -1;
         return std::make_shared<Node>(number);
     }
+}
+
+inline void Derivator::GetV(const std::string& str, size_t& idx) {
+    std::string var_str;
+    while (str[idx] >= 'A' && str[idx] <= 'z' &&
+            str[idx] != 's' && str[idx] != 'c') {
+        ++idx;
+    }
+}
+
+std::shared_ptr<Derivator::Node> Derivator::GetTrig(const std::string& str, size_t& idx) {
+    std::shared_ptr<Node> trig_ptr;
+    while (str[idx] == 's' || str[idx] == 'c') {
+        char operation = str[idx];
+        ++idx;
+        auto next_value = GetE(str, idx);
+        ssize_t func;
+
+        if (operation == 's') {
+            func = SIN;
+        }
+        if (operation == 'c') {
+            func = COS;
+        }
+
+        trig_ptr = std::make_shared<Node>(0, func, false,
+                                               nullptr, next_value);
+        next_value->parent = std::weak_ptr<Node>(trig_ptr);
+    }
+    return trig_ptr;
 }
 
 inline int Derivator::GetN(const std::string& str, size_t& idx) {
@@ -93,8 +137,12 @@ inline int Derivator::GetN(const std::string& str, size_t& idx) {
 std::shared_ptr<Derivator::Node> Derivator::TakeDerivative(
         std::shared_ptr<Node>& node) {
     if (node == root_) {
-        TakeDerivative(root_->left);
-        TakeDerivative(root_->right);
+        if (root_->left != nullptr) {
+            TakeDerivative(root_->left);
+        }
+        if (root_->right != nullptr) {
+            TakeDerivative(root_->right);
+        }
     }
     auto new_node = std::make_shared<Node>();
     std::shared_ptr<Node> newer_node;
@@ -188,9 +236,11 @@ std::shared_ptr<Derivator::Node> Derivator::TakeDerivative(
         default:
             break;
     }
-    if (node->is_const) {
-        new_node->is_const = true;
-        new_node->value = 0;
+    if (!node->func) {
+        if (node->is_const) {
+            new_node->is_const = true;
+            new_node->value = 0;
+        }
     }
     return new_node;
 }
@@ -226,10 +276,12 @@ std::shared_ptr<Derivator::Node> Derivator::SubTree(
         std::shared_ptr<Node>& node) {
     auto new_node = std::make_shared<Node>(*node);
     if (node->left != nullptr) {
-        new_node->left->parent = new_node;
+        new_node->left = std::make_shared<Node>(*new_node->left);
+        new_node->left->parent = std::weak_ptr<Node>(new_node);
     }
     if (node->right != nullptr) {
-        new_node->right->parent = new_node;
+        new_node->right = std::make_shared<Node>(*new_node->right);
+        new_node->right->parent = std::weak_ptr<Node>(new_node);
     }
     return new_node;
 }
@@ -254,10 +306,10 @@ void Derivator::Rehang(std::shared_ptr<Node>& node) {
 
 void Derivator::SimplifyConsts(std::shared_ptr<Node>& node, bool& result) {
     if (node->left != nullptr) {
-        SimplifyConsts(node, result);
+        SimplifyConsts(node->left, result);
     }
     if (node->right != nullptr) {
-        SimplifyConsts(node, result);
+        SimplifyConsts(node->right, result);
     }
     if (node->is_const) return;
     if ((node->left != nullptr) && (node->right != nullptr)) {

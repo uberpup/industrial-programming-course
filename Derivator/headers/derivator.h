@@ -5,6 +5,7 @@
 #include <ctgmath>
 #include <iostream>
 #include <string>
+#include "bohr.h"
 #include "consts.h"
 #include "tree.h"
 
@@ -26,31 +27,38 @@ private:
         }
         Node(std::shared_ptr<Node> left, std::shared_ptr<Node> right,
                 std::weak_ptr<Node> parent) :
-                left(left), right(right), parent(parent) {}
+                left(left), right(right), parent(parent), value(0), func(-1), is_const(false){}
         Node(const Node& other_node) : Node() {
             value = other_node.value;
             func = other_node.func;
             is_const = other_node.is_const;
+            left = other_node.left;
+            right = other_node.right;
+            parent = other_node.parent;
         }
         Node(int value, ssize_t func, bool is_const = false, std::shared_ptr<Node> left = nullptr,
                 std::shared_ptr<Node> right = nullptr, std::weak_ptr<Node> parent = std::weak_ptr<Node>()) :
                 value(value), func(func), is_const(is_const), left(left), right(right), parent(parent) {}
         ~Node() = default;
     };
+    void FillBohr();
     void Rehang(std::shared_ptr<Node>& node);
     void Calculate(std::shared_ptr<Node>& node);
     void SimplifyConsts(std::shared_ptr<Node>& node, bool& result);
     void SimplifyZeros(std::shared_ptr<Node>& node, bool& result);
     void SimplifyOnes(std::shared_ptr<Node>& node, bool& result);
     std::shared_ptr<Node> SubTree(std::shared_ptr<Node>& node);
-    std::shared_ptr<Node> current_node_;
 
     void RecursiveDecent(const std::string& str);
     int GetN(const std::string& str, size_t& idx);
+    void GetV(const std::string& str, size_t& idx);
+    std::shared_ptr<Node> GetTrig(const std::string& str, size_t& idx);
     std::shared_ptr<Node> GetE(const std::string& str, size_t& idx);
     std::shared_ptr<Node> GetT(const std::string& str, size_t& idx);
     std::shared_ptr<Node> GetP(const std::string& str, size_t& idx);
 
+    std::shared_ptr<Node> current_node_;
+    Bohr operations_parser_;
 public:
     Derivator();
     void Build(const std::string& expression);

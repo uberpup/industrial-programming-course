@@ -150,6 +150,33 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/Derivator.dir/build.make CMakeFiles/Derivator.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+sources/bohr.o: sources/bohr.cpp.o
+
+.PHONY : sources/bohr.o
+
+# target to build an object file
+sources/bohr.cpp.o:
+	$(MAKE) -f CMakeFiles/Derivator.dir/build.make CMakeFiles/Derivator.dir/sources/bohr.cpp.o
+.PHONY : sources/bohr.cpp.o
+
+sources/bohr.i: sources/bohr.cpp.i
+
+.PHONY : sources/bohr.i
+
+# target to preprocess a source file
+sources/bohr.cpp.i:
+	$(MAKE) -f CMakeFiles/Derivator.dir/build.make CMakeFiles/Derivator.dir/sources/bohr.cpp.i
+.PHONY : sources/bohr.cpp.i
+
+sources/bohr.s: sources/bohr.cpp.s
+
+.PHONY : sources/bohr.s
+
+# target to generate assembly for a file
+sources/bohr.cpp.s:
+	$(MAKE) -f CMakeFiles/Derivator.dir/build.make CMakeFiles/Derivator.dir/sources/bohr.cpp.s
+.PHONY : sources/bohr.cpp.s
+
 sources/derivator.o: sources/derivator.cpp.o
 
 .PHONY : sources/derivator.o
@@ -243,6 +270,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... sources/bohr.o"
+	@echo "... sources/bohr.i"
+	@echo "... sources/bohr.s"
 	@echo "... sources/derivator.o"
 	@echo "... sources/derivator.i"
 	@echo "... sources/derivator.s"

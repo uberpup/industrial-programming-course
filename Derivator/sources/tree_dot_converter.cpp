@@ -9,7 +9,12 @@ void TreeDotConverter::PrintTree(const Derivator& derivator) {
     file = std::fopen(filename.c_str(), "w");
     fprintf(file, "%s\n", "digraph G {");
     assert(derivator.root_ != nullptr);
-    fprintf(file, "node%zu [label = root];\n", derivator.root_.get());
+    if (derivator.root_->func == 0) {
+        fprintf(file, "node%zu [label = root];\n", derivator.root_.get());
+    } else {
+        fprintf(file, "node%zu [label = \"%s\"];\n", derivator.root_.get(),
+                FUNC_NAMES[derivator.root_->func].c_str());
+    }
     Traverse(derivator.root_);
     fprintf(file, "\n%s", "}");
     fclose(file);
@@ -18,7 +23,7 @@ void TreeDotConverter::PrintTree(const Derivator& derivator) {
 void TreeDotConverter::Print(const std::shared_ptr<Derivator::Node>& current_node,
                              const std::shared_ptr<Derivator::Node>& parent) {
     fprintf(file, "node%zu [label = \"", current_node.get());
-    if (!current_node->is_const) {
+    if (!current_node->is_const || current_node->func > 0) {
         fprintf(file, "%s\"]\n", FUNC_NAMES[current_node->func].c_str());
     } else {
         fprintf(file, "%d\"]\n", current_node->value);

@@ -11,7 +11,8 @@ int main() {
     }
     derivator.Build(expression);
     derivator.SaveTree(INITIAL_OUT_FILENAME);
-    derivator.TakeDerivative(derivator.root_);
+    auto new_root = derivator.TakeDerivative(derivator.root_);
+    derivator.root_ = new_root;
     derivator.SaveTree(OUT_FILENAME);
     //if (derivator.Simplify(derivator.root_)) {
     //    std::cout << "success in simplification" << std::endl;

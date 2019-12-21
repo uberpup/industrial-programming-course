@@ -90,6 +90,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Derivator/headers/bohr.h">
+			<Option target="Derivator"/>
+		</Unit>
 		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Derivator/headers/config.h">
 			<Option target="Derivator"/>
 		</Unit>
@@ -106,6 +109,9 @@
 			<Option target="Derivator"/>
 		</Unit>
 		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Derivator/main.cpp">
+			<Option target="Derivator"/>
+		</Unit>
+		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Derivator/sources/bohr.cpp">
 			<Option target="Derivator"/>
 		</Unit>
 		<Unit filename="/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Derivator/sources/derivator.cpp">

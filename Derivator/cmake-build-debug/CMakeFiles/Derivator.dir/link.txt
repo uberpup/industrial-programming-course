@@ -1,1 +1,1 @@
-/usr/bin/c++  -g   CMakeFiles/Derivator.dir/main.cpp.o CMakeFiles/Derivator.dir/sources/tree_dot_converter.cpp.o CMakeFiles/Derivator.dir/sources/derivator.cpp.o CMakeFiles/Derivator.dir/sources/tree.cpp.o  -o Derivator 
+/usr/bin/c++  -g   CMakeFiles/Derivator.dir/main.cpp.o CMakeFiles/Derivator.dir/sources/tree_dot_converter.cpp.o CMakeFiles/Derivator.dir/sources/derivator.cpp.o CMakeFiles/Derivator.dir/sources/tree.cpp.o CMakeFiles/Derivator.dir/sources/bohr.cpp.o  -o Derivator 
