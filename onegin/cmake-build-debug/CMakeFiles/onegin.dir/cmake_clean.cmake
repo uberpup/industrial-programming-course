@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/onegin.dir/main.cpp.o"
-  "onegin.pdb"
   "onegin"
+  "onegin.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

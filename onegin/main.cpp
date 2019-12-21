@@ -122,7 +122,7 @@ void TxtManager::ReadFormat(std::FILE* in_file) {
 void TxtManager::ReserveFileSize(std::FILE *in_file) {
     std::fseek(in_file, 0, SEEK_END);
 
-    buf.reserve(std::ftell(in_file));
+    buf.resize(std::ftell(in_file));
     assert(!buf.empty());
 
     std::fseek(in_file, 0, SEEK_SET);

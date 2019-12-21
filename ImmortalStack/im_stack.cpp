@@ -2,7 +2,6 @@
 
 // Stack functions implementation
 
-
 template <typename T>
 ImStack<T>::ImStack(): sz(0), capacity(2) {
     buf = (T*) calloc(sizeof(T), capacity);
@@ -88,7 +87,7 @@ void ImStack<T>::push(T&& element) verified ({
 template <typename T>
 void ImStack<T>::pop() verified ({
     if (!sz) {
-        Dump<ImStack<T>>();
+        Dump<ImStack<T>>(*this);
     } else {
         buf[sz] = reinterpret_cast<T>(POISON);
         hash_buf[sz] = std::hash<T>(buf[sz]);

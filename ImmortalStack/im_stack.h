@@ -59,8 +59,8 @@ public:
 
     ImStack<T>& operator=(const ImStack<T>& other_stack) = delete;  // Might be released in the future
     ImStack<T>& operator=(ImStack<T>&& other_stack) = delete;
-    bool operator==(const ImStack<T>& other_stack) = delete;
-    void swap(const ImStack<T>& other_stack) = delete;
+    // bool operator==(const ImStack<T>& other_stack);
+    // void swap(const ImStack<T>& other_stack) = delete;
     ~ImStack();
 
 private:
