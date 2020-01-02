@@ -12,51 +12,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3cde214d-edc2-43f2-a14c-e03b304adfdb" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Akinator_mipt/cmake-build-debug/Akinator_mipt" beforeDir="false" afterPath="$PROJECT_DIR$/../Akinator_mipt/cmake-build-debug/Akinator_mipt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Akinator_mipt/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Akinator_mipt/cmake-build-debug/CMakeCache.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Akinator_mipt/cmake-build-debug/CMakeFiles/Akinator_mipt.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/../Akinator_mipt/cmake-build-debug/CMakeFiles/Akinator_mipt.dir/CXX.includecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Akinator_mipt/cmake-build-debug/CMakeFiles/Akinator_mipt.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../Akinator_mipt/cmake-build-debug/CMakeFiles/Akinator_mipt.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Akinator_mipt/cmake-build-debug/CMakeFiles/Akinator_mipt.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../Akinator_mipt/cmake-build-debug/CMakeFiles/Akinator_mipt.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Akinator_mipt/cmake-build-debug/CMakeFiles/Akinator_mipt.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/../Akinator_mipt/cmake-build-debug/CMakeFiles/Akinator_mipt.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Akinator_mipt/cmake-build-debug/CMakeFiles/Akinator_mipt.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../Akinator_mipt/cmake-build-debug/CMakeFiles/Akinator_mipt.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Akinator_mipt/cmake-build-debug/CMakeFiles/Akinator_mipt.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/../Akinator_mipt/cmake-build-debug/CMakeFiles/Akinator_mipt.dir/flags.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Akinator_mipt/cmake-build-debug/CMakeFiles/Akinator_mipt.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../Akinator_mipt/cmake-build-debug/CMakeFiles/Akinator_mipt.dir/main.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Akinator_mipt/cmake-build-debug/CMakeFiles/Akinator_mipt.dir/sources/Akinator.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../Akinator_mipt/cmake-build-debug/CMakeFiles/Akinator_mipt.dir/sources/Akinator.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Akinator_mipt/cmake-build-debug/CMakeFiles/Akinator_mipt.dir/sources/tree_dot_converter.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../Akinator_mipt/cmake-build-debug/CMakeFiles/Akinator_mipt.dir/sources/tree_dot_converter.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Akinator_mipt/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../Akinator_mipt/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Akinator_mipt/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/../Akinator_mipt/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Akinator_mipt/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../Akinator_mipt/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Akinator_mipt/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/../Akinator_mipt/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Akinator_mipt/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Akinator_mipt/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Akinator_mipt/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../Akinator_mipt/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Akinator_mipt/cmake-build-debug/festival_text.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../Akinator_mipt/cmake-build-debug/festival_text.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Akinator_mipt/headers/Akinator.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Akinator_mipt/headers/Akinator.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Akinator_mipt/headers/tree_dot_converter.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Akinator_mipt/headers/tree_dot_converter.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Akinator_mipt/sources/Akinator.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Akinator_mipt/sources/Akinator.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Akinator_mipt/sources/tree_dot_converter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Akinator_mipt/sources/tree_dot_converter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImmortalStack/im_stack.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../ImmortalStack/im_stack.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ImmortalStack/im_stack.h" beforeDir="false" afterPath="$PROJECT_DIR$/../ImmortalStack/im_stack.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StackMachine/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../StackMachine/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StackMachine/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/../StackMachine/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StackMachine/cmake-build-debug/CMakeFiles/StackMachine.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../StackMachine/cmake-build-debug/CMakeFiles/StackMachine.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StackMachine/cmake-build-debug/CMakeFiles/StackMachine.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../StackMachine/cmake-build-debug/CMakeFiles/StackMachine.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StackMachine/cmake-build-debug/CMakeFiles/StackMachine.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../StackMachine/cmake-build-debug/CMakeFiles/StackMachine.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StackMachine/cmake-build-debug/CMakeFiles/StackMachine.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../StackMachine/cmake-build-debug/CMakeFiles/StackMachine.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StackMachine/cmake-build-debug/CMakeFiles/StackMachine.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../StackMachine/cmake-build-debug/CMakeFiles/StackMachine.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StackMachine/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/../StackMachine/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StackMachine/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../StackMachine/cmake-build-debug/Makefile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StackMachine/cmake-build-debug/StackMachine.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/../StackMachine/cmake-build-debug/StackMachine.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../StackMachine/sources/assembler.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../StackMachine/sources/assembler.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Akinator_mipt/out.dot" beforeDir="false" afterPath="$PROJECT_DIR$/../Akinator_mipt/out.dot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Akinator_mipt/out.dot.png" beforeDir="false" afterPath="$PROJECT_DIR$/../Akinator_mipt/out.dot.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/boosted_poem.txt" beforeDir="false" afterPath="$PROJECT_DIR$/boosted_poem.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/onegin.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/onegin.dir/build.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/onegin" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/onegin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,6 +41,11 @@
   </component>
   <component name="ProjectId" id="1QgUxAESLhez1pbZJloMKkovJTY" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -87,24 +61,24 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager">
     <configuration name="onegin" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="onegin" TARGET_NAME="onegin" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="onegin" RUN_TARGET_NAME="onegin">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -157,6 +131,7 @@
       <workItem from="1573415770182" duration="646000" />
       <workItem from="1574630327945" duration="939000" />
       <workItem from="1575628325458" duration="664000" />
+      <workItem from="1577986680300" duration="1059000" />
     </task>
     <servers />
   </component>
@@ -175,5 +150,60 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1866" height="109" key="GridCell.Tab.0.bottom" timestamp="1577987629907">
+      <screen x="0" y="0" width="1920" height="1053" />
+    </state>
+    <state width="1866" height="109" key="GridCell.Tab.0.bottom/0.0.1920.1053@0.0.1920.1053" timestamp="1577987629907" />
+    <state width="1866" height="109" key="GridCell.Tab.0.center" timestamp="1577987629906">
+      <screen x="0" y="0" width="1920" height="1053" />
+    </state>
+    <state width="1866" height="109" key="GridCell.Tab.0.center/0.0.1920.1053@0.0.1920.1053" timestamp="1577987629906" />
+    <state width="1866" height="109" key="GridCell.Tab.0.left" timestamp="1577987629905">
+      <screen x="0" y="0" width="1920" height="1053" />
+    </state>
+    <state width="1866" height="109" key="GridCell.Tab.0.left/0.0.1920.1053@0.0.1920.1053" timestamp="1577987629905" />
+    <state width="1866" height="109" key="GridCell.Tab.0.right" timestamp="1577987629907">
+      <screen x="0" y="0" width="1920" height="1053" />
+    </state>
+    <state width="1866" height="109" key="GridCell.Tab.0.right/0.0.1920.1053@0.0.1920.1053" timestamp="1577987629907" />
+    <state width="1866" height="243" key="GridCell.Tab.1.bottom" timestamp="1577987589021">
+      <screen x="0" y="0" width="1920" height="1053" />
+    </state>
+    <state width="1866" height="243" key="GridCell.Tab.1.bottom/0.0.1920.1053@0.0.1920.1053" timestamp="1577987589021" />
+    <state width="1866" height="243" key="GridCell.Tab.1.center" timestamp="1577987589020">
+      <screen x="0" y="0" width="1920" height="1053" />
+    </state>
+    <state width="1866" height="243" key="GridCell.Tab.1.center/0.0.1920.1053@0.0.1920.1053" timestamp="1577987589020" />
+    <state width="1866" height="243" key="GridCell.Tab.1.left" timestamp="1577987589019">
+      <screen x="0" y="0" width="1920" height="1053" />
+    </state>
+    <state width="1866" height="243" key="GridCell.Tab.1.left/0.0.1920.1053@0.0.1920.1053" timestamp="1577987589019" />
+    <state width="1866" height="243" key="GridCell.Tab.1.right" timestamp="1577987589020">
+      <screen x="0" y="0" width="1920" height="1053" />
+    </state>
+    <state width="1866" height="243" key="GridCell.Tab.1.right/0.0.1920.1053@0.0.1920.1053" timestamp="1577987589020" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/main.cpp</url>
+          <line>91</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/main.cpp</url>
+          <line>88</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/main.cpp</url>
+          <line>192</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
