@@ -184,9 +184,9 @@ bool StartingLettersCmp::operator()(const std::string_view& first,
             break;
         }
         if (first[i] > second[j]) {
-            return true;
-        } else if (first[i] < second[j]) {
             return false;
+        } else if (first[i] < second[j]) {
+            return true;
         } else {
             ++i;
             ++j;
@@ -206,9 +206,9 @@ bool EndingLettersCmp::operator()(const std::string_view& first,
             break;
         }
         if (first[i] > second[j]) {
-            return true;
-        } else if (first[i] < second[j]) {
             return false;
+        } else if (first[i] < second[j]) {
+            return true;
         } else {
             --i;
             --j;
