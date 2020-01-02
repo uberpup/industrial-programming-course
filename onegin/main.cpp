@@ -142,8 +142,7 @@ size_t TxtManager::Tokenize(char amputated, char attached) {
 void TxtManager::WriteText(std::FILE* out_file) {
     for (const auto& str_view : strings) {
         if (str_view.length() > 0) {
-            fputs(&str_view[0], out_file);
-            fputc(SEPARATOR, out_file);
+            fprintf(out_file, "%s\n",&str_view[0]);
         }
     }
 }
@@ -191,8 +190,8 @@ bool StartingLettersCmp::operator()(const std::string_view& first,
 
 bool EndingLettersCmp::operator()(const std::string_view& first,
         const std::string_view& second) const {
-    size_t i = first.length();
-    size_t j = second.length();
+    ssize_t i = first.length();
+    ssize_t j = second.length();
     while (i >= 0 && j >= 0) {
         while (i >= 0 && !isalpha(first[i])) { --i; }
         while (j >= 0 && !isalpha(second[j])) { --j; }
@@ -204,8 +203,8 @@ bool EndingLettersCmp::operator()(const std::string_view& first,
         } else if (first[i] < second[j]) {
             return false;
         } else {
-            ++i;
-            ++j;
+            --i;
+            --j;
         }
     }
     return false;
