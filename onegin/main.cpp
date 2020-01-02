@@ -23,6 +23,9 @@
 // Internal constants
 const char* INPUT_FILENAME = "../poem.txt";
 const char* OUTPUT_FILENAME = "../boosted_poem.txt";
+const char* SORTED_FILENAME = "../sorted_poem.txt";
+const char* REVERSE_SORTED_FILENAME = "../reverse_sorted_poem.txt";
+const char* INITIAL_POEM_FILENAME = "../initial_poem.txt";
 const char SEPARATOR = '\n';
 const char STRINGVIEW_SEPARATOR = '\0';
 
@@ -76,7 +79,7 @@ int main() {
     std::FILE* in_file = std::fopen(INPUT_FILENAME, "r");
     assert(in_file != nullptr);
 
-    std::FILE* out_file = std::fopen(OUTPUT_FILENAME, "w");
+    std::FILE* out_file = std::fopen(SORTED_FILENAME, "w");
     assert(out_file != nullptr);
 
     TxtManager text_manager;
@@ -85,9 +88,13 @@ int main() {
 
     text_manager.SortStrings<StartingLettersCmp>();  // Point 1
     text_manager.WriteText(out_file);
+    fclose(out_file);
+    out_file = std::fopen(REVERSE_SORTED_FILENAME, "w");
 
     text_manager.SortStrings<EndingLettersCmp>();  // Point 2
     text_manager.WriteText(out_file);
+    fclose(out_file);
+    out_file = std::fopen(INITIAL_POEM_FILENAME, "w");
 
     text_manager.WriteBuf(out_file);  // Point 3
 
