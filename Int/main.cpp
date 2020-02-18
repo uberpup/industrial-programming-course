@@ -8,7 +8,6 @@ const size_t SIZE = 40;
 
 int main() {
     std::cout << "Checking how integer works" << std::endl;
-    // vector check
     std::random_device rd;
     std::mt19937 generator(rd());
     std::uniform_int_distribution<int> distribution(-50, 50);

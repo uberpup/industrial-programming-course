@@ -14,7 +14,7 @@ class Int {
         Int(T other_integer);
         operator T();
 
-        ~Int();
+        ~Int() = default;
         Int(const Int& other_integer);
         Int& operator=(const Int& other_integer);
         Int(Int&& other_integer) noexcept;
@@ -65,23 +65,14 @@ class Int {
 };
 
 template <typename T>
-Int<T>::Int() {
-    int_ = 0;
-}
+Int<T>::Int() : int_(0) {}
 
 template <typename T>
-Int<T>::Int(T other_integer) {
-    int_ = other_integer;
-}
+Int<T>::Int(T other_integer) : int_(other_integer) {}
 
 template <typename T>
 Int<T>::operator T() {
     return T(int_);
-}
-
-template <typename T>
-Int<T>::~Int() {
-
 }
 
 template <typename T>
@@ -125,13 +116,13 @@ Int<T> Int<T>::operator-() const {
 template <typename T>
 Int<T>& Int<T>::operator++() {
     ++int_;
-    return this;
+    return *this;
 }
 
 template <typename T>
 Int<T>& Int<T>::operator--() {
     --int_;
-    return this;
+    return *this;
 }
 
 template <typename T>
