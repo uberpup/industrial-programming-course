@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Int/int.h
+cstdlib
+-
+
+/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Int/main.cpp
+algorithm
+-
+iostream
+-
+vector
+-
+random
+-
+int.h
+/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/Int/int.h
+

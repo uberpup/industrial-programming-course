@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/Int.dir/main.cpp.o  -o Int 
