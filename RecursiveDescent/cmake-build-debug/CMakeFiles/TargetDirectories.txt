@@ -1,3 +1,0 @@
-/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/RecursiveDescent/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/RecursiveDescent/cmake-build-debug/CMakeFiles/RecursiveDescent.dir
-/home/vladimir/CLionProjects/Industrial Programming Course/industrial-programming-course/RecursiveDescent/cmake-build-debug/CMakeFiles/edit_cache.dir
